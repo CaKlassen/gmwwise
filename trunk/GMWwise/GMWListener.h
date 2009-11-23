@@ -11,7 +11,17 @@ extern "C"
 	// o_x Orientation du listener sur l'axe des X.
 	// o_y Orientation du listener sur l'axe des Y.
 	// Renvoie toujours 0.
-	GMW_API double GMWSetListenerPosition(double pos_x, double pos_y, double o_x, double o_y);
+	GMW_API double GMWSet2DListenerPosition(double pos_x, double pos_y, double o_x, double o_y);
+
+	// Definie la position du listener.
+	// pos_x Position du listener sur l'axe des X.
+	// pos_y Position du listener sur l'axe des Y.
+	// pos_z Position du listener sur l'axe des Z.
+	// o_x Orientation du listener sur l'axe des X.
+	// o_y Orientation du listener sur l'axe des Y.
+	// o_z Orientation du listener sur l'axe des Z.
+	// Renvoie toujours 0.
+	GMW_API double GMWSet3DListenerPosition(double pos_x, double pos_y, double pos_z, double o_x, double o_y, double o_z);
 
 	// Definie les listeners actifs pour un "game object" donne.
 	// gameObjectID Identifiant du "game object".

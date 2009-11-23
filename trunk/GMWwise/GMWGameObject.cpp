@@ -108,14 +108,23 @@ extern "C"
 
 	//----------------------------------------------------------------
 	// Definie la position du "game object". -------------------------
-	double GMWSetPosition(double gameObjectID, double pos_x, double pos_y, double dir_x, double dir_y)
+	double GMWSet2DPosition(double gameObjectID, double pos_x, double pos_y, double dir_x, double dir_y)
+	{
+		return GMWSet3DPosition(gameObjectID, pos_x, pos_y, 0.f, dir_x, dir_y, 0.f);
+	}
+
+	//----------------------------------------------------------------
+	// Definie la position du "game object". -------------------------
+	double GMWSet3DPosition(double gameObjectID, double pos_x, double pos_y, double pos_z, double dir_x, double dir_y, double dir_z)
 	{
 		AkSoundPosition soundPos;
 		soundPos.Position.X = static_cast<float>(pos_x);
 		soundPos.Position.Z = static_cast<float>(pos_y);
+		soundPos.Position.Y = static_cast<float>(pos_z);
         soundPos.Orientation.X = static_cast<float>(dir_x);
         soundPos.Orientation.Z = static_cast<float>(dir_y);
-		soundPos.Position.Y = soundPos.Orientation.Y = 0;
+		soundPos.Orientation.Y = static_cast<float>(dir_z);
+
 		AK::SoundEngine::SetPosition(static_cast<AkGameObjectID>(gameObjectID), soundPos);
 
 		return EC_NONE;
