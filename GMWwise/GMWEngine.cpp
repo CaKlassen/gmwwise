@@ -46,9 +46,10 @@ extern "C"
 		AkMemSettings memSettings;
 		memSettings.uMaxNumPools = 20;
 
-        if(AK::MemoryMgr::Init(&memSettings) != AK_Success)
+		AKRESULT result = AK::MemoryMgr::Init(&memSettings);
+        if(result != AK_Success)
 		{
-			GMW_EXCEPTION("unable to initialize the memory manager of wwise");
+			GMW_EXCEPTION("unable to initialize the memory manager of wwise.");
 
             return EC_MEMORY;
 		}

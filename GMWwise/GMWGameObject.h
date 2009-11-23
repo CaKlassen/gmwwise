@@ -34,7 +34,18 @@ extern "C"
     // dir_x Direction sur l'axe des X.
     // dir_y Direction sur l'axe des Y.
 	// Renvoie toujours 0.
-	GMW_API double GMWSetPosition(double gameObjectID, double pos_x, double pos_y, double dir_x, double dir_y);
+	GMW_API double GMWSet2DPosition(double gameObjectID, double pos_x, double pos_y, double dir_x, double dir_y);
+
+	// Definie la position du "game object".
+	// gameObjectID Identifiant du "game object".
+	// pos_x Position sur l'axe des X.
+	// pos_y Position sur l'axe des Y.
+	// pos_z Position sur l'axe des Z.
+    // dir_x Direction sur l'axe des X.
+    // dir_y Direction sur l'axe des Y.
+	// dir_z Direction sur l'axe des Z.
+	// Renvoie toujours 0.
+	GMW_API double GMWSet3DPosition(double gameObjectID, double pos_x, double pos_y, double pos_z, double dir_x, double dir_y, double dir_z);
 
 	// Envoie d'un evenements dans la pile d'evenements de wwise.
 	// eventID  L'identifiant unique de l'evenement. 
