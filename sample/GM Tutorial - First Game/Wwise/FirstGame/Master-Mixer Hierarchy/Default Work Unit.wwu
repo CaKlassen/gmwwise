@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{2391B2C5-6262-4F09-93A7-0BE1CCA56F3B}" SchemaVersion="28">
+<WwiseDocument Type="WorkUnit" ID="{2391B2C5-6262-4F09-93A7-0BE1CCA56F3B}" SchemaVersion="46">
 	<Busses>
 		<Bus Name="Master Audio Bus" ID="{838DF126-F4AE-494E-92DF-DA5031E13E9A}" ShortID="71380060" />
 		<MotionBus Name="Master Motion Bus" ID="{9529508E-7446-4081-B73F-553B1FFB957F}" ShortID="834858780" />

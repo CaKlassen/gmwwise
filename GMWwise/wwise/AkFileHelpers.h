@@ -20,7 +20,7 @@ public:
 
 	// Wrapper for Win32 CreateFile().
 	static AKRESULT OpenFile(
-        AkLpCtstr       in_pszFilename,     // File name.
+        const AkOSChar*       in_pszFilename,     // File name.
         AkOpenMode      in_eOpenMode,       // Open mode.
         bool            in_bOverlappedIO,	// Use FILE_FLAG_OVERLAPPED flag.
         bool            in_bUnbufferedIO,   // Use FILE_FLAG_NO_BUFFERING flag.
@@ -114,7 +114,7 @@ public:
 
 	// Open file to use with ReadBlocking().
 	static AKRESULT OpenBlocking(
-        AkLpCtstr       in_pszFilename,     // File name.
+        const AkOSChar*       in_pszFilename,     // File name.
         AkFileHandle &  out_hFile           // Returned file handle.
 		)
 	{

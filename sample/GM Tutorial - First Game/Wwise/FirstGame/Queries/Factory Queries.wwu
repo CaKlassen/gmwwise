@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{7FBA6390-4CF1-44FA-9DA5-FC65F66E8FC0}" SchemaVersion="28">
+<WwiseDocument Type="WorkUnit" ID="{7FBA6390-4CF1-44FA-9DA5-FC65F66E8FC0}" SchemaVersion="46">
 	<Queries>
-		<Folder Name="Audio Source" ID="{E1FBD3A7-59FE-4064-8B8A-98F1BC63E8AF}">
+		<Folder Name="Audio Source" ID="{E1FBD3A7-59FE-4064-8B8A-98F1BC63E8AF}" ShortID="26745238">
 			<ChildrenList>
 				<Query Name="Audio Source - Sample Rate = 48000" ID="{5471EFA5-461E-46D5-B8FC-76FBDA2329E4}">
 					<PropertyList>
@@ -388,7 +388,7 @@
 				</Query>
 			</ChildrenList>
 		</Folder>
-		<Folder Name="Sound" ID="{C1F1E09A-134D-477F-B23D-A77A9C88A6C7}">
+		<Folder Name="Sound" ID="{C1F1E09A-134D-477F-B23D-A77A9C88A6C7}" ShortID="354356955">
 			<ChildrenList>
 				<Query Name="Sound = Voice" ID="{DB864841-3338-4AFF-9D3D-DA261AC25994}">
 					<PropertyList>
@@ -529,7 +529,7 @@
 				</Query>
 			</ChildrenList>
 		</Folder>
-		<Folder Name="Interactive Music" ID="{0EA68A78-EBCC-4711-AAA7-7D6C890983BE}">
+		<Folder Name="Interactive Music" ID="{0EA68A78-EBCC-4711-AAA7-7D6C890983BE}" ShortID="783787459">
 			<ChildrenList>
 				<Query Name="Streaming Tracks" ID="{9782FAF2-BE6D-4799-AED8-94AAFE6AB099}">
 					<PropertyList>
@@ -904,7 +904,7 @@
 				</Query>
 			</ChildrenList>
 		</Folder>
-		<Folder Name="Actor-Mixer Hierarchy" ID="{75E26115-FC3D-4E25-99F9-448BC918921E}">
+		<Folder Name="Actor-Mixer Hierarchy" ID="{75E26115-FC3D-4E25-99F9-448BC918921E}" ShortID="657523609">
 			<ChildrenList>
 				<Query Name="2D Positioning" ID="{93BB05B6-6653-4842-9DE8-07BF927ED117}">
 					<PropertyList>
@@ -1139,7 +1139,7 @@
 				</Query>
 			</ChildrenList>
 		</Folder>
-		<Folder Name="Master-Mixer Hierarchy" ID="{F23408F1-FA3E-4006-A7B4-2288E6885FC7}">
+		<Folder Name="Master-Mixer Hierarchy" ID="{F23408F1-FA3E-4006-A7B4-2288E6885FC7}" ShortID="654516827">
 			<ChildrenList>
 				<Query Name="Busses using Effect" ID="{1CD96671-0175-4AE2-A9EE-AC8CF681D49F}">
 					<PropertyList>

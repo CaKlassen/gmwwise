@@ -11,22 +11,22 @@ extern "C"
 	// Definie le chemin ou se trouve les banques sonores.
 	// banks_path Chemin du dossier ou ce trouve les banques sonores.
 	// Renvoie 0 sinon un code d'erreur.
-	GMW_API double GMWSetBasePath(const char* banks_path);
+	GMW_API double STDCALL GMWSetBasePath(const char* banks_path);
 
 	// Definie le sous repertoire de langue.
 	// lng_path Chemin du sous repertoire de langue.
 	// Renvoie 0 sinon un code d'erreur.
-	GMW_API double GMWSetLangSpecificDirName(const char* lng_path);
+	GMW_API double STDCALL GMWSetLangSpecificDirName(const char* lng_path);
 
 	// Chargement de la banque.
 	// bank_id Nom de la banque.
 	// Renvoie l'identifiant de la banque sinon un code d'erreur.
-	GMW_API double GMWLoadBank(const char* bank_name);
+	GMW_API double STDCALL GMWLoadBank(const char* bank_name);
 
 	// Dechargement de la banque.
 	// bank_id Identifiant de la banque.
 	// Renvoie 0 sinon un code d'erreur.
-	GMW_API double GMWUnloadBank(double bank_id);
+	GMW_API double STDCALL GMWUnloadBank(double bank_id);
 }
 
 #endif // _GMW_BANK_

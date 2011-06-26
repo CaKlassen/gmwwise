@@ -57,7 +57,7 @@ public:
 	// Returns its address.
 	static CAkFilePackage * Create( 
 		const AkFileHandle &in_hFile,			// Platform-independent handle of file package.
-		AkLpCtstr			in_pszPackageName,	// Name of the file package (for memory monitoring).
+		const AkOSChar*			in_pszPackageName,	// Name of the file package (for memory monitoring).
 		AkUInt32			in_uHeaderSize,		// Size reserved for file package header.
 		AkUInt32			in_uBlockAlign,		// Alignment of memory block.
 		AkUInt8 *&			out_pHeaderBuffer	// Returned address of memory for header.

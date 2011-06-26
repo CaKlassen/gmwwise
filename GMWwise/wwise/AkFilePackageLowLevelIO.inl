@@ -42,8 +42,7 @@
 
 template <class T_LLIOHOOK_FILELOC>
 CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::CAkFilePackageLowLevelIO()
-{
-	m_packages.Init();
+{	
 }
 
 template <class T_LLIOHOOK_FILELOC>
@@ -64,7 +63,7 @@ void CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::Term()
 // If the file is found in the LUTs, open is always synchronous.
 template <class T_LLIOHOOK_FILELOC>
 AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::Open( 
-    AkLpCtstr       in_pszFileName,     // File name.
+    const AkOSChar*       in_pszFileName,     // File name.
     AkOpenMode      in_eOpenMode,       // Open mode.
     AkFileSystemFlags * in_pFlags,      // Special flags. Can pass NULL.
 	bool &			io_bSyncOpen,		// If true, the file must be opened synchronously. Otherwise it is left at the File Location Resolver's discretion. Return false if Open needs to be deferred.
@@ -176,7 +175,7 @@ AkUInt32 CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::GetBlockSize(
 // Returns AK_InvalidLanguage if the language does not exist in the file package (if it is loaded).
 template <class T_LLIOHOOK_FILELOC>
 AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::SetLangSpecificDirName(
-    AkLpCtstr   in_pszDirName
+    const AkOSChar*   in_pszDirName
     )
 {
     AKRESULT eResult = T_LLIOHOOK_FILELOC::SetLangSpecificDirName( in_pszDirName );
@@ -238,7 +237,7 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::FindPackagedFile(
 // Also returns a package ID which can be used to unload it (see UnloadFilePackage()).
 template <class T_LLIOHOOK_FILELOC>
 AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::LoadFilePackage(
-    AkLpCtstr   in_pszFilePackageName,	// File package name. Location is resolved using base class' Open().
+    const AkOSChar*   in_pszFilePackageName,	// File package name. Location is resolved using base class' Open().
 	AkUInt32 &	out_uPackageID			// Returned package ID.
     )
 {
@@ -246,7 +245,7 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::LoadFilePackage(
 
 	// Use Low-Level IO basic services (path concatenation) to find full file path,
     // but not to open and read packaged file: need to read blocking and buffered.
-    AkTChar szFullFilePath[AK_MAX_PATH];
+    AkOSChar szFullFilePath[AK_MAX_PATH];
 	AKRESULT eRes = T_LLIOHOOK_FILELOC::GetFullFilePath(
         in_pszFilePackageName,
         NULL,
@@ -465,11 +464,11 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::SetLanguageLUT(
 		// the language ID, as stored in the package file header.
 
 		// Remove trailing slash out of the language specific directory name.
-		AkTChar * szLanguage = (AkTChar*)AkAlloca( numChars * sizeof(AkTChar) );
+		AkOSChar * szLanguage = (AkOSChar*)AkAlloca( numChars * sizeof(AkOSChar) );
 		if ( !szLanguage )
 			return AK_Fail;
 		
-		memcpy( szLanguage, T_LLIOHOOK_FILELOC::m_szLangSpecificDirName, numChars * sizeof(AkTChar) );
+		memcpy( szLanguage, T_LLIOHOOK_FILELOC::m_szLangSpecificDirName, numChars * sizeof(AkOSChar) );
 		szLanguage[numChars-1] = 0;
 
 		return in_pPackage->lut.SetCurLanguage( szLanguage );

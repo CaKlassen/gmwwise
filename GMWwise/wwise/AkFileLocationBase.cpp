@@ -54,9 +54,9 @@ CAkFileLocationBase::~CAkFileLocationBase()
 // Returns AK_Success if input flags are supported and the resulting path is not too long.
 // Returns AK_Fail otherwise.
 AKRESULT CAkFileLocationBase::GetFullFilePath(
-	AkLpCtstr			in_pszFileName,		// File name.
+	const AkOSChar*			in_pszFileName,		// File name.
 	AkFileSystemFlags * in_pFlags,			// Special flags. Can be NULL.
-	AkTChar *			out_pszFullFilePath // Full file path.
+	AkOSChar *			out_pszFullFilePath // Full file path.
 	)
 {
     if ( !in_pszFileName )
@@ -130,7 +130,7 @@ AKRESULT CAkFileLocationBase::GetFullFilePath(
 AKRESULT CAkFileLocationBase::GetFullFilePath(
 	AkFileID			in_fileID,			// File ID.
 	AkFileSystemFlags *	in_pFlags,			// Special flags.
-	AkTChar *			out_pszFullFilePath	// Full file path.
+	AkOSChar *			out_pszFullFilePath	// Full file path.
 	)
 {
     // If the file descriptor could not be found, or if the script-based FS does not exist,
@@ -185,7 +185,7 @@ AKRESULT CAkFileLocationBase::GetFullFilePath(
 	// Append file title.
 	if ( ( uiPathSize + MAX_FILETITLE_SIZE ) <= AK_MAX_PATH )
 	{
-		AkTChar * pszTitle = out_pszFullFilePath + uiPathSize;
+		AkOSChar * pszTitle = out_pszFullFilePath + uiPathSize;
 		size_t uNumCharsLeft = AK_MAX_PATH - uiPathSize;
 		if ( in_pFlags->uCodecID == AKCODECID_BANK )
 			swprintf( pszTitle, uNumCharsLeft, ID_TO_STRING_FORMAT_BANK, in_fileID );
@@ -206,7 +206,7 @@ AKRESULT CAkFileLocationBase::GetFullFilePath(
 }
 
 AKRESULT CAkFileLocationBase::SetBasePath(
-    AkLpCtstr   in_pszBasePath
+    const AkOSChar*   in_pszBasePath
     )
 {
 	if ( wcslen( in_pszBasePath ) + AkTemplMax( wcslen( m_szBankPath ), wcslen( m_szAudioSrcPath ) ) + wcslen( m_szLangSpecificDirName ) >= AK_MAX_PATH )
@@ -218,7 +218,7 @@ AKRESULT CAkFileLocationBase::SetBasePath(
 }
 
 AKRESULT CAkFileLocationBase::SetBankPath(
-    AkLpCtstr   in_pszBankPath
+    const AkOSChar*   in_pszBankPath
     )
 {
     if ( wcslen( m_szBasePath ) + AkTemplMax( wcslen( in_pszBankPath ), wcslen( m_szAudioSrcPath ) ) + wcslen( m_szLangSpecificDirName ) >= AK_MAX_PATH )
@@ -230,7 +230,7 @@ AKRESULT CAkFileLocationBase::SetBankPath(
 }
 
 AKRESULT CAkFileLocationBase::SetAudioSrcPath(
-    AkLpCtstr   in_pszAudioSrcPath
+    const AkOSChar*   in_pszAudioSrcPath
     )
 {
     if ( wcslen( m_szBasePath ) + AkTemplMax( wcslen( m_szBankPath ), wcslen( in_pszAudioSrcPath ) ) + wcslen( m_szLangSpecificDirName ) >= AK_MAX_PATH )
@@ -242,7 +242,7 @@ AKRESULT CAkFileLocationBase::SetAudioSrcPath(
 }
 
 AKRESULT CAkFileLocationBase::SetLangSpecificDirName(
-    AkLpCtstr   in_pszDirName
+    const AkOSChar*   in_pszDirName
     )
 {
     if ( wcslen( m_szBasePath ) + AkTemplMax( wcslen( m_szBankPath ), wcslen( m_szAudioSrcPath ) ) + wcslen( in_pszDirName ) >= AK_MAX_PATH )

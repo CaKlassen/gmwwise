@@ -49,7 +49,7 @@
 //		 AK::StreamMgr::IAkFileLocationResolver interfaces.
 //		 It should also define the following methods and attributes:
 //			- void Term()
-//			- AKRESULT SetLangSpecificDirName( AkLpCtstr in_pszDirName )
+//			- AKRESULT SetLangSpecificDirName( const AkOSChar* in_pszDirName )
 //			- m_szLangSpecificDirName: the current language, plus a slash (or backslash).
 // Note: This class uses AkFileDesc::uCustomParamSize to store the block size 
 //		 of files opened from a package, and relies on the fact that it is 0 
@@ -72,7 +72,7 @@ public:
 	// (with SetLangSpecificDirName()) but does not exist in the LUT, AK_Fail for any other reason.
 	// Also returns a package ID which can be used to unload it (see UnloadFilePackage()).
     AKRESULT LoadFilePackage(
-        AkLpCtstr   in_pszFilePackageName,	// File package name. Location is resolved using base class' Open().
+        const AkOSChar*   in_pszFilePackageName,	// File package name. Location is resolved using base class' Open().
 		AkUInt32 &	out_uPackageID			// Returned package ID.
         );
 	
@@ -96,7 +96,7 @@ public:
 	// on the language directoy name on all packages currently loaded.
 	// Returns AK_InvalidLanguage if the language does not exist in the file package (if it is loaded).
     AKRESULT SetLangSpecificDirName(
-        AkLpCtstr   in_pszDirName			// Language name with a trailing (back/)slash.
+        const AkOSChar*   in_pszDirName			// Language name with a trailing (back/)slash.
         );
 	
 
@@ -110,7 +110,7 @@ protected:
 	// If the file is found in the LUTs, open is always synchronous.
 	// Applies to AK soundbanks only.
     virtual AKRESULT Open( 
-        AkLpCtstr       in_pszFileName,     // File name.
+        const AkOSChar*       in_pszFileName,     // File name.
         AkOpenMode      in_eOpenMode,       // Open mode.
         AkFileSystemFlags * in_pFlags,      // Special flags. Can pass NULL.
 		bool &			io_bSyncOpen,		// If true, the file must be opened synchronously. Otherwise it is left at the File Location Resolver's discretion. Return false if Open needs to be deferred.

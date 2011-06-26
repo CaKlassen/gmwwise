@@ -115,7 +115,7 @@ public:
 
 	// Returns a file descriptor for a given file name (string).
     virtual AKRESULT Open(
-        AkLpCtstr				in_pszFileName,		// File name.
+        const AkOSChar*				in_pszFileName,		// File name.
 		AkOpenMode				in_eOpenMode,		// Open mode.
         AkFileSystemFlags *		in_pFlags,			// Special flags. Can pass NULL.
 		bool &					io_bSyncOpen,		// If true, the file must be opened synchronously. Otherwise it is left at the File Location Resolver's discretion. Return false if Open needs to be deferred.
@@ -163,11 +163,12 @@ public:
         );
 
 	// Returns a description for the streaming device above this low-level hook.
-#ifndef AK_OPTIMIZED
-    virtual AKRESULT GetDeviceDesc(
+    virtual void GetDeviceDesc(
         AkDeviceDesc &  		out_deviceDesc      // Device description.
         );
-#endif
+
+    // Returns custom profiling data: 1 if file opens are asynchronous, 0 otherwise.
+    virtual AkUInt32 GetDeviceData();
 
 protected:
 	AkDeviceID	m_deviceID;

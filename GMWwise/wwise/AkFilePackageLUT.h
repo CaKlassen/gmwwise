@@ -74,18 +74,18 @@ public:
 	// Returns AK_InvalidLanguage if a package is loaded but the language string cannot be found.
 	// Returns AK_Success otherwise.
 	AKRESULT SetCurLanguage(
-		AkLpCtstr			in_pszLanguage		// Language string.
+		const AkOSChar*			in_pszLanguage		// Language string.
 		);
 
 	// Find a soundbank ID by its name.
 	// Returns AK_INVALID_FILE_ID if no soundbank LUT is loaded.
 	AkFileID GetSoundBankID(
-		AkLpCtstr			in_pszBankName		// Soundbank name.
+		const AkOSChar*			in_pszBankName		// Soundbank name.
 		);
 
 protected:
-	static void RemoveFileExtension( AkTChar* in_pstring );
-	static void _MakeLower( AkTChar* in_pString );
+	static void RemoveFileExtension( AkOSChar* in_pstring );
+	static void _MakeLower( AkOSChar* in_pString );
 
 	//
 	// File LUTs.
@@ -120,7 +120,7 @@ private:
 	{
 	public:
 		// Returns AK_INVALID_UNIQUE_ID if ID is not found.
-		AkUInt32 GetID( AkLpCtstr in_pszString );
+		AkUInt32 GetID( const AkOSChar* in_pszString );
 	private:
 		struct StringEntry
 		{

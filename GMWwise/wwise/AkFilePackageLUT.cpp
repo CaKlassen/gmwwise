@@ -151,7 +151,7 @@ const CAkFilePackageLUT::AkFileEntry * CAkFilePackageLUT::LookupFile(
 // Returns AK_InvalidLanguage if a package is loaded but the language string cannot be found.
 // Returns AK_Success otherwise.
 AKRESULT CAkFilePackageLUT::SetCurLanguage(
-	AkLpCtstr			in_pszLanguage	// Language string.
+	const AkOSChar*			in_pszLanguage	// Language string.
 	)
 {
 	m_curLangID = AK_INVALID_LANGUAGE_ID;
@@ -166,7 +166,7 @@ AKRESULT CAkFilePackageLUT::SetCurLanguage(
 	return AK_Success;
 }
 
-void CAkFilePackageLUT::RemoveFileExtension( AkTChar* in_pstring )
+void CAkFilePackageLUT::RemoveFileExtension( AkOSChar* in_pstring )
 {
 	while( *in_pstring != 0 )
 	{
@@ -182,14 +182,14 @@ void CAkFilePackageLUT::RemoveFileExtension( AkTChar* in_pstring )
 // Find a soundbank ID by its name. 
 // Returns AK_INVALID_FILE_ID if no soundbank LUT is loaded.
 AkFileID CAkFilePackageLUT::GetSoundBankID( 
-	AkLpCtstr			in_pszBankName	// Soundbank name.
+	const AkOSChar*			in_pszBankName	// Soundbank name.
 	)
 {
 	if ( m_pSoundBanks )
 	{
 		// Remove the file extension if it was used.
 		AkUInt32 stringSize = (AkUInt32)wcslen( in_pszBankName ) + 1;
-		AkTChar* pStringWithoutExtension = (AkTChar *)AkAlloca( (stringSize) * sizeof( AkTChar ) );
+		AkOSChar* pStringWithoutExtension = (AkOSChar *)AkAlloca( (stringSize) * sizeof( AkOSChar ) );
 		AKPLATFORM::SafeStrCpy( pStringWithoutExtension, in_pszBankName, stringSize );
 		RemoveFileExtension( pStringWithoutExtension );
 		
@@ -199,10 +199,10 @@ AkFileID CAkFilePackageLUT::GetSoundBankID(
 	return AK_INVALID_FILE_ID;
 }
 
-void CAkFilePackageLUT::_MakeLower( AkTChar* in_pString )
+void CAkFilePackageLUT::_MakeLower( AkOSChar* in_pString )
 {
 	size_t uStrlen = wcslen( in_pString );
-	const AkTChar CaseDiff = L'a' - L'A';
+	const AkOSChar CaseDiff = L'a' - L'A';
 	for( size_t i = 0; i < uStrlen; ++i )
 	{
 		if( in_pString[i] >= L'A' && in_pString[i] <= L'Z' )
@@ -212,11 +212,11 @@ void CAkFilePackageLUT::_MakeLower( AkTChar* in_pString )
 	}
 }
 
-AkUInt32 CAkFilePackageLUT::StringMap::GetID( AkLpCtstr in_pszString )
+AkUInt32 CAkFilePackageLUT::StringMap::GetID( const AkOSChar* in_pszString )
 {
 	// Make string lower case.
 	size_t uStrLen = wcslen(in_pszString)+1;
-	AkTChar * pszLowerCaseString = (AkTChar*)AkAlloca(uStrLen*sizeof(AkTChar));
+	AkOSChar * pszLowerCaseString = (AkOSChar*)AkAlloca(uStrLen*sizeof(AkOSChar));
 	AKASSERT( pszLowerCaseString );
 	AKPLATFORM::SafeStrCpy(pszLowerCaseString, in_pszString, uStrLen );
 	_MakeLower( pszLowerCaseString );
@@ -229,7 +229,7 @@ AkUInt32 CAkFilePackageLUT::StringMap::GetID( AkLpCtstr in_pszString )
 	do
 	{
 		AkInt32 uThis = ( uBottom - uTop ) / 2 + uTop; 
-		AkTChar * pString = (AkTChar*)((AkUInt8*)this + pTable[ uThis ].uOffset);
+		AkOSChar * pString = (AkOSChar*)((AkUInt8*)this + pTable[ uThis ].uOffset);
 		int iCmp = wcscmp( pString, pszLowerCaseString );
 		if ( 0 == iCmp )
 			return pTable[uThis].uID;
