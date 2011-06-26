@@ -1,88 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{D92D87D3-6385-4B79-97D3-B88906E5EB3D}" SchemaVersion="28">
+<WwiseDocument Type="WorkUnit" ID="{D92D87D3-6385-4B79-97D3-B88906E5EB3D}" SchemaVersion="46">
 	<AudioObjects>
 		<Sound Name="bounce" ID="{7FB2C336-F5F5-41E5-A3E5-61F4CD522A6A}" ShortID="461834902" Type="SoundFX">
 			<PropertyList>
-				<Property Name="LanguageExclusion" Type="int64">
+				<Property Name="OverrideConversion" Type="bool">
 					<ValueList>
-						<Value Platform="Windows">0</Value>
-						<Value Platform="Wii">0</Value>
-						<Value Platform="Xbox360">0</Value>
-						<Value Platform="PS3">0</Value>
+						<Value Platform="Linked">True</Value>
 					</ValueList>
 				</Property>
 			</PropertyList>
 			<ChildrenList>
 				<AudioFileSource Name="bounce" ID="{6BC8695C-00DB-4A91-A5DA-09C0BE5400F2}" ShortID="510005442">
-					<PropertyList>
-						<Property Name="SampleRate" Type="int32">
-							<ValueList>
-								<Value Platform="Wii">32000</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
 					<Language>SFX</Language>
 					<AudioFile>bounce.wav</AudioFile>
-					<ConversionPluginInfoList>
-						<ConversionPluginInfo Platform="Windows">
-							<ConversionPlugin Name="" ID="{44A82019-8CDF-454F-81A1-5EB7284B244F}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-						<ConversionPluginInfo Platform="Wii">
-							<ConversionPlugin Name="" ID="{3120C095-9EDD-46B7-9197-49E77BCB56AB}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-						<ConversionPluginInfo Platform="Xbox360">
-							<ConversionPlugin Name="" ID="{5AD2D136-1B58-45D5-962C-CEA1BB8AB1B7}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-						<ConversionPluginInfo Platform="PS3">
-							<ConversionPlugin Name="" ID="{56213252-F7DB-42A2-9A03-259E25865150}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-					</ConversionPluginInfoList>
 				</AudioFileSource>
 			</ChildrenList>
 			<BusRouting Name="Master Audio Bus" ID="{838DF126-F4AE-494E-92DF-DA5031E13E9A}" />
+			<ConversionInfo>
+				<ConversionRef Name="New Conversion Settings" ID="{4407B168-4F23-4941-93CC-B356B4E312A8}" />
+			</ConversionInfo>
 			<ActiveSourceList>
 				<ActiveSource Name="bounce" ID="{6BC8695C-00DB-4A91-A5DA-09C0BE5400F2}" Platform="Linked" />
 			</ActiveSourceList>
 		</Sound>
 		<Sound Name="click" ID="{C4603ECE-10A8-41B1-8FA9-C16A77BC0EF9}" ShortID="115817198" Type="SoundFX">
 			<PropertyList>
-				<Property Name="LanguageExclusion" Type="int64">
+				<Property Name="OverrideConversion" Type="bool">
 					<ValueList>
-						<Value Platform="Windows">0</Value>
-						<Value Platform="Wii">0</Value>
-						<Value Platform="Xbox360">0</Value>
-						<Value Platform="PS3">0</Value>
+						<Value Platform="Linked">True</Value>
 					</ValueList>
 				</Property>
 			</PropertyList>
 			<ChildrenList>
 				<AudioFileSource Name="click" ID="{DBC50A22-EF89-489D-BB3F-763DA5215592}" ShortID="1067864134">
-					<PropertyList>
-						<Property Name="SampleRate" Type="int32">
-							<ValueList>
-								<Value Platform="Wii">32000</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
 					<Language>SFX</Language>
 					<AudioFile>click.wav</AudioFile>
-					<ConversionPluginInfoList>
-						<ConversionPluginInfo Platform="Windows">
-							<ConversionPlugin Name="" ID="{75AC22D7-9124-467D-BA44-55DC118B2DCF}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-						<ConversionPluginInfo Platform="Wii">
-							<ConversionPlugin Name="" ID="{6963F605-6E11-45FC-8E58-918669CE7458}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-						<ConversionPluginInfo Platform="Xbox360">
-							<ConversionPlugin Name="" ID="{075A6A0A-C7E2-4903-8261-C732ADE5E697}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-						<ConversionPluginInfo Platform="PS3">
-							<ConversionPlugin Name="" ID="{F5F855D9-670C-43B4-AFD8-A186B9BD54CD}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-					</ConversionPluginInfoList>
 				</AudioFileSource>
 			</ChildrenList>
 			<BusRouting Name="Master Audio Bus" ID="{838DF126-F4AE-494E-92DF-DA5031E13E9A}" />
+			<ConversionInfo>
+				<ConversionRef Name="New Conversion Settings" ID="{4407B168-4F23-4941-93CC-B356B4E312A8}" />
+			</ConversionInfo>
 			<ActiveSourceList>
 				<ActiveSource Name="click" ID="{DBC50A22-EF89-489D-BB3F-763DA5215592}" Platform="Linked" />
 			</ActiveSourceList>
@@ -94,12 +52,9 @@
 						<Value Platform="Linked">True</Value>
 					</ValueList>
 				</Property>
-				<Property Name="LanguageExclusion" Type="int64">
+				<Property Name="OverrideConversion" Type="bool">
 					<ValueList>
-						<Value Platform="Windows">0</Value>
-						<Value Platform="Wii">0</Value>
-						<Value Platform="Xbox360">0</Value>
-						<Value Platform="PS3">0</Value>
+						<Value Platform="Linked">True</Value>
 					</ValueList>
 				</Property>
 				<Property Name="Volume" Type="Real64">
@@ -110,40 +65,14 @@
 			</PropertyList>
 			<ChildrenList>
 				<AudioFileSource Name="music" ID="{83095091-FFFD-4AD0-853B-E3C4226E8AC3}" ShortID="194325527">
-					<PropertyList>
-						<Property Name="FixLoopPoints" Type="bool">
-							<ValueList>
-								<Value Platform="Linked">True</Value>
-							</ValueList>
-						</Property>
-						<Property Name="SampleRate" Type="int32">
-							<ValueList>
-								<Value Platform="Wii">32000</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
 					<Language>SFX</Language>
 					<AudioFile>music.wav</AudioFile>
-					<ConversionPluginInfoList>
-						<ConversionPluginInfo Platform="Windows">
-							<ConversionPlugin Name="" ID="{7A9F0D41-81FD-45D5-957F-A5399E7B2759}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-						<ConversionPluginInfo Platform="Wii">
-							<ConversionPlugin Name="" ID="{4067FF1C-A99C-4641-93EC-87D849BBC393}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-						<ConversionPluginInfo Platform="Xbox360">
-							<ConversionPlugin Name="" ID="{EE35D0B6-DB71-42C2-9A18-74E21FC59852}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-						<ConversionPluginInfo Platform="PS3">
-							<ConversionPlugin Name="" ID="{5041F048-381C-47CC-867E-4C894622B023}" PluginName="PCM" CompanyID="0" PluginID="1" />
-						</ConversionPluginInfo>
-					</ConversionPluginInfoList>
 				</AudioFileSource>
 			</ChildrenList>
 			<BusRouting Name="Master Audio Bus" ID="{838DF126-F4AE-494E-92DF-DA5031E13E9A}" />
-			<EffectInfo>
-				<NoEffect Platform="Linked" Index="0" />
-			</EffectInfo>
+			<ConversionInfo>
+				<ConversionRef Name="New Conversion Settings" ID="{4407B168-4F23-4941-93CC-B356B4E312A8}" />
+			</ConversionInfo>
 			<ActiveSourceList>
 				<ActiveSource Name="music" ID="{83095091-FFFD-4AD0-853B-E3C4226E8AC3}" Platform="Linked" />
 			</ActiveSourceList>

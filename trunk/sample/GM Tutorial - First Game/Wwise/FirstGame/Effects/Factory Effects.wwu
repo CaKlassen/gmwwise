@@ -1,266 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}" SchemaVersion="28">
+<WwiseDocument Type="WorkUnit" ID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}" SchemaVersion="46">
 	<Effects>
-		<Folder Name="Wwise Reverb" ID="{D5624AD7-D3AF-4B88-A27D-366C89D97D18}">
-			<ChildrenList>
-				<Effect Name="Large_Church" ID="{3BF05B48-A726-4652-80BF-88E8D2CAC463}" PluginName="Wwise Reverb" CompanyID="0" PluginID="103">
-					<PropertyList>
-						<Property Name="DecayTime" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">3</Value>
-							</ValueList>
-						</Property>
-						<Property Name="LowPassCutoffFreq" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">10000</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReflectionDelay" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0.03</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReflectionLevel" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">-25</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReverbDelay" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0.1</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-				</Effect>
-				<Effect Name="Medium_Room" ID="{94421D06-4AA4-406A-BC30-1065D189ADB3}" PluginName="Wwise Reverb" CompanyID="0" PluginID="103" />
-				<Effect Name="PA_Announcement" ID="{50549AF2-C43B-4CA1-9DC0-1B867E11EFD8}" PluginName="Wwise Reverb" CompanyID="0" PluginID="103">
-					<PropertyList>
-						<Property Name="LowPassCutoffFreq" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">7500</Value>
-							</ValueList>
-						</Property>
-						<Property Name="MainLevel" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">2</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReflectionLevel" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">-10</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReverbDelay" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0.15</Value>
-							</ValueList>
-						</Property>
-						<Property Name="WetDryMix" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">60</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-				</Effect>
-				<Effect Name="Small_Tiled_Room" ID="{8E7BC931-6AB1-4855-8BFC-4311D036DA72}" PluginName="Wwise Reverb" CompanyID="0" PluginID="103">
-					<PropertyList>
-						<Property Name="DecayTime" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">1</Value>
-							</ValueList>
-						</Property>
-						<Property Name="LowPassCutoffFreq" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">20000</Value>
-							</ValueList>
-						</Property>
-						<Property Name="MainLevel" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReflectionLevel" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReverbDelay" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0.02</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReverbLevel" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">-15</Value>
-							</ValueList>
-						</Property>
-						<Property Name="WetDryMix" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">35</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-				</Effect>
-				<Effect Name="Tunnel" ID="{CC868CF5-6305-47DA-A4F4-F10EFDF26374}" PluginName="Wwise Reverb" CompanyID="0" PluginID="103">
-					<PropertyList>
-						<Property Name="DecayTime" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">1.5</Value>
-							</ValueList>
-						</Property>
-						<Property Name="LowPassCutoffFreq" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">1000</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReflectionDelay" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0.01</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReflectionLevel" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">-10</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReverbDelay" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0.06</Value>
-							</ValueList>
-						</Property>
-						<Property Name="WetDryMix" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">65</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-				</Effect>
-				<Effect Name="Underground_Parking" ID="{F18E88EA-5948-46C1-BFFD-C37CE72F75B1}" PluginName="Wwise Reverb" CompanyID="0" PluginID="103">
-					<PropertyList>
-						<Property Name="DecayTime" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">4</Value>
-							</ValueList>
-						</Property>
-						<Property Name="LowPassCutoffFreq" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">2000</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReflectionDelay" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0.01</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReflectionLevel" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">-25</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReverbDelay" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0.12</Value>
-							</ValueList>
-						</Property>
-						<Property Name="WetDryMix" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">50</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-				</Effect>
-			</ChildrenList>
-		</Folder>
-		<Folder Name="Wwise Reverb Lite" ID="{2C8D7199-1108-45D0-8F53-AF0D5BE594EB}">
-			<ChildrenList>
-				<Effect Name="Bathroom" ID="{D9AAF15E-C0B2-4906-81F4-2B1A2B601C40}" PluginName="Wwise Reverb Lite" CompanyID="0" PluginID="104">
-					<PropertyList>
-						<Property Name="LowPassCutoffFreq" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">20000</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReverbTime" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0.4</Value>
-							</ValueList>
-						</Property>
-						<Property Name="WetDryMix" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">20</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-				</Effect>
-				<Effect Name="Big_Garage" ID="{A710D3B1-4A29-43F7-90AE-7D6BB417155E}" PluginName="Wwise Reverb Lite" CompanyID="0" PluginID="104">
-					<PropertyList>
-						<Property Name="LowPassCutoffFreq" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">5000</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReverbTime" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">3</Value>
-							</ValueList>
-						</Property>
-						<Property Name="WetDryMix" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">50</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-				</Effect>
-				<Effect Name="Large_Bright_Chamber" ID="{BEEC77A3-ECAB-4951-92F2-40B8DFAF3580}" PluginName="Wwise Reverb Lite" CompanyID="0" PluginID="104">
-					<PropertyList>
-						<Property Name="ReverbTime" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">3</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-				</Effect>
-				<Effect Name="Small_Wooden_Room" ID="{18D4F27B-A57F-4F50-9DB2-1242BB7C5C60}" PluginName="Wwise Reverb Lite" CompanyID="0" PluginID="104">
-					<PropertyList>
-						<Property Name="LowPassCutoffFreq" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">500</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReverbTime" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">0.4</Value>
-							</ValueList>
-						</Property>
-						<Property Name="WetDryMix" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">30</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-				</Effect>
-				<Effect Name="Tunnel_Light" ID="{87FE1B46-9E84-4433-8E34-EAEC5B2C7278}" PluginName="Wwise Reverb Lite" CompanyID="0" PluginID="104">
-					<PropertyList>
-						<Property Name="LowPassCutoffFreq" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">1000</Value>
-							</ValueList>
-						</Property>
-						<Property Name="ReverbTime" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">2</Value>
-							</ValueList>
-						</Property>
-						<Property Name="WetDryMix" Type="Real32">
-							<ValueList>
-								<Value Platform="NotApplicable">50</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-				</Effect>
-			</ChildrenList>
-		</Folder>
-		<Folder Name="Wwise Compressor" ID="{2990944C-71B4-45DD-B79B-286A4FC9A8BF}">
+		<Folder Name="Wwise Compressor" ID="{2990944C-71B4-45DD-B79B-286A4FC9A8BF}" ShortID="555449889">
 			<ChildrenList>
 				<Effect Name="Easy_Over" ID="{A0C919A6-9EA9-43EE-9DDD-FA47EE6B35DB}" PluginName="Wwise Compressor" CompanyID="0" PluginID="108">
 					<PropertyList>
@@ -288,9 +29,9 @@
 				</Effect>
 			</ChildrenList>
 		</Folder>
-		<Folder Name="Delay" ID="{5841DE6D-7BBE-45C5-8EC6-937D2DC6E9CA}">
+		<Folder Name="Delay" ID="{5841DE6D-7BBE-45C5-8EC6-937D2DC6E9CA}" ShortID="575406084">
 			<ChildrenList>
-				<Effect Name="Echo" ID="{795D3C01-0198-4685-B15D-88C67B16FF0C}" PluginName="Delay" CompanyID="0" PluginID="106">
+				<Effect Name="Echo" ID="{795D3C01-0198-4685-B15D-88C67B16FF0C}" PluginName="Wwise Delay" CompanyID="0" PluginID="106">
 					<PropertyList>
 						<Property Name="Feedback" Type="Real32">
 							<ValueList>
@@ -309,7 +50,7 @@
 						</Property>
 					</PropertyList>
 				</Effect>
-				<Effect Name="The_Slap" ID="{83E0619D-B89C-4190-9D6E-A353DE39D1E4}" PluginName="Delay" CompanyID="0" PluginID="106">
+				<Effect Name="The_Slap" ID="{83E0619D-B89C-4190-9D6E-A353DE39D1E4}" PluginName="Wwise Delay" CompanyID="0" PluginID="106">
 					<PropertyList>
 						<Property Name="DelayTime" Type="Real32">
 							<ValueList>
@@ -325,7 +66,7 @@
 				</Effect>
 			</ChildrenList>
 		</Folder>
-		<Folder Name="Wwise Peak Limiter" ID="{4C9634C8-7C90-40B0-BEDE-093ED0FE86CB}">
+		<Folder Name="Wwise Peak Limiter" ID="{4C9634C8-7C90-40B0-BEDE-093ED0FE86CB}" ShortID="1006247476">
 			<ChildrenList>
 				<Effect Name="Main_Comp" ID="{30EA6178-03D0-47F6-8C53-A5BF08F1082E}" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110">
 					<PropertyList>
@@ -372,7 +113,7 @@
 				</Effect>
 			</ChildrenList>
 		</Folder>
-		<Folder Name="Wwise Expander" ID="{FD6B7E1B-9E15-4483-BD9F-724AA9E04B04}">
+		<Folder Name="Wwise Expander" ID="{FD6B7E1B-9E15-4483-BD9F-724AA9E04B04}" ShortID="786036628">
 			<ChildrenList>
 				<Effect Name="Noise_Gate" ID="{747A6B61-E953-474C-8227-672C884DA616}" PluginName="Wwise Expander" CompanyID="0" PluginID="109">
 					<PropertyList>
@@ -390,7 +131,7 @@
 				</Effect>
 			</ChildrenList>
 		</Folder>
-		<Folder Name="Wwise Parametric EQ" ID="{B3505C97-A72E-4CCF-AECF-28B64CB4F662}">
+		<Folder Name="Wwise Parametric EQ" ID="{B3505C97-A72E-4CCF-AECF-28B64CB4F662}" ShortID="142064020">
 			<ChildrenList>
 				<Effect Name="Voice_EQ" ID="{B035777D-D60E-443B-ABDA-5E6C4679E270}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105">
 					<PropertyList>
@@ -471,7 +212,7 @@
 				</Effect>
 			</ChildrenList>
 		</Folder>
-		<Folder Name="Wwise Matrix Reverb" ID="{15437578-D8BA-4E3F-B5DA-E03465545132}">
+		<Folder Name="Wwise Matrix Reverb" ID="{15437578-D8BA-4E3F-B5DA-E03465545132}" ShortID="292445827">
 			<ChildrenList>
 				<Effect Name="Bathroom1" ID="{1969D30F-C165-45C0-B290-DE3ED07A7AA3}" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115">
 					<PropertyList>

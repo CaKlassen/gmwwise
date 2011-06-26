@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="9,00"
 	Name="GMWwise"
 	ProjectGUID="{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}"
 	RootNamespace="GMWwise"
 	Keyword="Win32Proj"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -42,7 +43,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="./"
+				AdditionalIncludeDirectories="./;&quot;$(WWISESDK)\include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;GMWWISE_EXPORTS;AKSOUNDENGINE_STATIC;_CRT_SECURE_NO_WARNINGS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -64,14 +65,16 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="AkAudioEngine.lib AkLowerEngine.lib AkMemoryMgr.lib AkStreamMgr.lib AkMusicEngine.lib Iphlpapi.lib ws2_32.lib dsound.lib dxguid.lib CommunicationCentral.lib ProxyCentral.lib ProxyMusic.lib"
+				AdditionalDependencies="AkSoundEngine.lib AkMemoryMgr.lib AkStreamMgr.lib AkMusicEngine.lib Iphlpapi.lib ws2_32.lib dsound.lib dxguid.lib CommunicationCentral.lib"
 				OutputFile="$(OutDir)\$(ProjectName)_profile.dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="&quot;C:\Program Files\Audiokinetic\Wwise SDK v2008.4 build 3007\Win32\Profile\lib&quot;"
+				AdditionalLibraryDirectories="&quot;$(WWISESDK)\Win32_vc90\$(ConfigurationName)\lib&quot;"
 				GenerateDebugInformation="false"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -91,9 +94,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -126,7 +126,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="./"
+				AdditionalIncludeDirectories="./;&quot;$(WWISESDK)\include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;GMWWISE_EXPORTS;AK_OPTIMIZED;AKSOUNDENGINE_STATIC;_CRT_SECURE_NO_WARNINGS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -148,13 +148,15 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="AkAudioEngine.lib AkMusicEngine.lib AkLowerEngine.lib AkStreamMgr.lib AkMemoryMgr.lib Iphlpapi.lib ws2_32.lib dsound.lib dxguid.lib"
+				AdditionalDependencies="AkSoundEngine.lib AkMusicEngine.lib AkStreamMgr.lib AkMemoryMgr.lib Iphlpapi.lib ws2_32.lib dsound.lib dxguid.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="&quot;C:\Program Files\Audiokinetic\Wwise SDK v2008.4 build 3007\Win32\Release\lib&quot;"
+				AdditionalLibraryDirectories="&quot;$(WWISESDK)\Win32_vc90\$(ConfigurationName)\lib&quot;"
 				GenerateDebugInformation="false"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -174,9 +176,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"

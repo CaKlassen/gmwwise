@@ -4,35 +4,37 @@
 
 namespace AK
 {
-#ifdef WIN32
-    void * AllocHook( size_t in_size )
+    void * __cdecl AllocHook( size_t in_size )
     {
         return malloc( in_size );
     }
-    
-    void FreeHook( void * in_ptr )
+    void __cdecl FreeHook( void * in_ptr )
     {
         free( in_ptr );
     }
-    
-    void * VirtualAllocHook(void * in_pMemAddress, size_t in_size, DWORD in_dwAllocationType, DWORD in_dwProtect)
+    void * __cdecl VirtualAllocHook(
+        void * in_pMemAddress,
+        size_t in_size,
+        DWORD in_dwAllocationType,
+        DWORD in_dwProtect
+        )
     {
         return VirtualAlloc( in_pMemAddress, in_size, in_dwAllocationType, in_dwProtect );
     }
-    
-    void VirtualFreeHook(void * in_pMemAddress, size_t in_size, DWORD in_dwFreeType)
+    void __cdecl VirtualFreeHook( 
+        void * in_pMemAddress,
+        size_t in_size,
+        DWORD in_dwFreeType
+        )
     {
         VirtualFree( in_pMemAddress, in_size, in_dwFreeType );
     }
-#endif
 }
 
 CAkFilePackageLowLevelIOBlocking g_lowLevelIO;
 
 #ifndef AK_OPTIMIZED
-    AkMemPoolId g_poolComm = AK_INVALID_POOL_ID;
-    AK::Comm::ICommunicationCentral * g_pCommCentral = NULL;         
-    AK::Comm::IProxyFrameworkConnected * g_pProxyFramework = NULL;
+    AkMemPoolId g_poolComm = AK_INVALID_POOL_ID;    
 #   define COMM_POOL_SIZE          (256 * 1024)
 #   define COMM_POOL_BLOCK_SIZE    (48)
 #endif
@@ -93,18 +95,14 @@ extern "C"
         }
 
 #ifndef AK_OPTIMIZED
-        AK::ProxyMusic::Init();
-
-        g_poolComm = AK::MemoryMgr::CreatePool(NULL, COMM_POOL_SIZE, COMM_POOL_BLOCK_SIZE, AK::Comm::DEFAULT_MEMORY_POOL_ATTRIBUTES );
-        assert( g_poolComm != AK_INVALID_POOL_ID );
-        AK_SETPOOLNAME( g_poolComm, L"Communication" );
-
-        g_pProxyFramework = AkCreateProxyFramework( g_poolComm );
-        g_pCommCentral  = AkCreateCommunicationCentral( g_poolComm );
-
-        g_pCommCentral->Init( g_pProxyFramework, g_pProxyFramework );
-        g_pProxyFramework->Init();
-        g_pProxyFramework->SetNotificationChannel( g_pCommCentral->GetNotificationChannel() );
+        // Initialize communication.
+        AkCommSettings settingsComm;
+        AK::Comm::GetDefaultInitSettings( settingsComm );
+        if ( AK::Comm::Init( settingsComm ) != AK_Success )
+        {
+            AKASSERT( !"Cannot initialize music communication" );
+            return EC_COM;
+        }
 #endif
 
         return EC_NONE;
@@ -115,24 +113,7 @@ extern "C"
     double GMWShutdown(void)
     {
 #ifndef AK_OPTIMIZED
-	    if(g_pProxyFramework)
-	    {
-		    g_pProxyFramework->Term();
-		    g_pProxyFramework->Destroy();
-		    g_pProxyFramework = NULL;
-	    }
-
-	    if(g_pCommCentral)
-	    {
-		    g_pCommCentral->Term();
-		    g_pCommCentral->Destroy();
-		    g_pCommCentral = NULL;
-	    }
-
-	    if(AK::MemoryMgr::IsInitialized())
-	    {
-		    AK::MemoryMgr::DestroyPool(g_poolComm);
-	    }
+        AK::Comm::Term();	   
 #endif // AK_OPTIMIZED		
 		GMWClearBanks();		
 
@@ -156,10 +137,6 @@ extern "C"
 	// Traitement des evenements. ------------------------------------
     double GMWProcessAudio(void)
     {
-#ifndef AK_OPTIMIZED
-		g_pCommCentral->Process();
-#endif
-
         AK::SoundEngine::RenderAudio();
 
 		return EC_NONE;

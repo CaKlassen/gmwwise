@@ -10,7 +10,7 @@
 // 
 // See AkFilePackageLowLevelIO.h for details on using file packages.
 // 
-// Copyright (c) 2006-2008 Audiokinetic Inc. / All Rights Reserved
+// Copyright (c) 2006 Audiokinetic Inc. / All Rights Reserved
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -21,11 +21,11 @@
 #include "wwise/AkDefaultIOHookBlocking.h"
 
 class CAkFilePackageLowLevelIOBlocking 
-	: public CAkFilePackageLowLevelIO<CAkDefaultIOHookBlocking>
+    : public CAkFilePackageLowLevelIO<CAkDefaultIOHookBlocking>
 {
 public:
-	CAkFilePackageLowLevelIOBlocking() {}
-	virtual ~CAkFilePackageLowLevelIOBlocking() {}
+    CAkFilePackageLowLevelIOBlocking() {}
+    virtual ~CAkFilePackageLowLevelIOBlocking() {}
 };
 
 #endif //_AK_FILE_PACKAGE_LOW_LEVEL_IO_BLOCKING_H_

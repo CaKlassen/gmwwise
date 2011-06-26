@@ -35,16 +35,16 @@ public:
 	// Bank path is appended to base path whenever uCompanyID is AK and uCodecID specifies a sound bank.
 	// Language specific dir name is appended to path whenever "bIsLanguageSpecific" is true.
 	AKRESULT SetBasePath(
-		AkLpCtstr   in_pszBasePath
+		const AkOSChar*   in_pszBasePath
 		);
 	AKRESULT SetBankPath(
-		AkLpCtstr   in_pszBankPath
+		const AkOSChar*   in_pszBankPath
 		);
 	AKRESULT SetAudioSrcPath(
-		AkLpCtstr   in_pszAudioSrcPath
+		const AkOSChar*   in_pszAudioSrcPath
 		);
 	AKRESULT SetLangSpecificDirName(
-		AkLpCtstr   in_pszDirName
+		const AkOSChar*   in_pszDirName
 		);
 
 	//
@@ -55,9 +55,9 @@ public:
 	// Returns AK_Success if input flags are supported and the resulting path is not too long.
 	// Returns AK_Fail otherwise.
 	AKRESULT GetFullFilePath(
-		AkLpCtstr			in_pszFileName,		// File name.
+		const AkOSChar*			in_pszFileName,		// File name.
 		AkFileSystemFlags * in_pFlags,			// Special flags. Can be NULL.
-		AkTChar *			out_pszFullFilePath // Full file path.
+		AkOSChar *			out_pszFullFilePath // Full file path.
 		);
 
 	// ID overload.
@@ -71,16 +71,16 @@ public:
 	AKRESULT GetFullFilePath(
 		AkFileID			in_fileID,			// File ID.
 		AkFileSystemFlags *	in_pFlags,			// Special flags.
-		AkTChar *			out_pszFullFilePath	// Full file path.
+		AkOSChar *			out_pszFullFilePath	// Full file path.
 		);
 
 protected:
 
 	// Internal user paths.
-	AkTChar			m_szBasePath[AK_MAX_PATH];
-	AkTChar			m_szBankPath[AK_MAX_PATH];
-	AkTChar			m_szAudioSrcPath[AK_MAX_PATH];
-	AkTChar			m_szLangSpecificDirName[AK_MAX_PATH];
+	AkOSChar			m_szBasePath[AK_MAX_PATH];
+	AkOSChar			m_szBankPath[AK_MAX_PATH];
+	AkOSChar			m_szAudioSrcPath[AK_MAX_PATH];
+	AkOSChar			m_szLangSpecificDirName[AK_MAX_PATH];
 
 };
 

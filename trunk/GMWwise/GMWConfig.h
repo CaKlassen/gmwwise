@@ -21,11 +21,17 @@ See the GNU Lesser General Public License for more details.
 #include <string>
 #include <sstream>
 
-#define GMW_API extern "C" __declspec(dllexport)
+#define GMW_API __declspec(dllexport)
 
-#define GMW_VERSION_STRING "1.0"
+#if _MSC_VER <= 1400
+#   define STDCALL __stdcall
+#else
+#   define STDCALL
+#endif
 
-#define GMW_EXCEPTION(msg) MessageBox(NULL, msg, "GMWwise Exception (version 1.0)", MB_OK | MB_ICONSTOP)
+#define GMW_VERSION_STRING "1.1"
+
+#define GMW_EXCEPTION(msg) MessageBox(NULL, msg, "GMWwise Exception (version 1.1)", MB_OK | MB_ICONSTOP)
 
 #include <AK/SoundEngine/Common/AkSoundEngine.h>
 #include <AK/IBytes.h>
@@ -37,10 +43,7 @@ See the GNU Lesser General Public License for more details.
 #include <AK/SoundEngine/Common/AkStreamMgrModule.h>
 
 #ifndef AK_OPTIMIZED
-#   include <AK/Comm/CommunicationCentralFactory.h>
-#   include <AK/Comm/ICommunicationCentral.h>
-#   include <AK/Comm/ProxyFrameworkFactory.h>
-#   include <AK/Comm/IProxyFrameworkConnected.h>
+#   include <AK/Comm/AkCommunication.h>
 #endif
 
 enum ExceptionCode
@@ -53,6 +56,9 @@ enum ExceptionCode
 	EC_SOUND_ENGINE,
 	EC_MUSIC_ENGINE,
 	EC_BANK,
+#ifndef AK_OPTIMIZED
+    EC_COM,
+#endif
 };
 
 #endif // _GMW_CONFIG_

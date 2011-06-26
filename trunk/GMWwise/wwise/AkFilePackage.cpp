@@ -27,7 +27,7 @@
 // Creates a memory pool to contain the header of the file package. Returns its address.
 CAkFilePackage * CAkFilePackage::Create( 
 	const AkFileHandle &in_hFile,			// Platform-independent handle of file package.
-	AkLpCtstr			
+	const AkOSChar*			
 #ifndef AK_OPTIMIZED
 		in_pszPackageName
 #endif

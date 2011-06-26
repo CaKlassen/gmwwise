@@ -88,7 +88,7 @@ void CAkDefaultIOHookBlocking::Term()
 
 // Returns a file descriptor for a given file name (string).
 AKRESULT CAkDefaultIOHookBlocking::Open( 
-    AkLpCtstr       in_pszFileName,     // File name.
+    const AkOSChar*       in_pszFileName,     // File name.
     AkOpenMode      in_eOpenMode,       // Open mode.
     AkFileSystemFlags * in_pFlags,      // Special flags. Can pass NULL.
 	bool &			io_bSyncOpen,		// If true, the file must be opened synchronously. Otherwise it is left at the File Location Resolver's discretion. Return false if Open needs to be deferred.
@@ -103,7 +103,7 @@ AKRESULT CAkDefaultIOHookBlocking::Open(
 		io_bSyncOpen = true;
 
 		// Get the full file path, using path concatenation logic.
-		AkTChar szFullFilePath[AK_MAX_PATH];
+		AkOSChar szFullFilePath[AK_MAX_PATH];
 		if ( GetFullFilePath( in_pszFileName, in_pFlags, szFullFilePath ) == AK_Success )
 		{
 			// Open the file without FILE_FLAG_OVERLAPPED and FILE_FLAG_NO_BUFFERING flags.
@@ -159,7 +159,7 @@ AKRESULT CAkDefaultIOHookBlocking::Open(
 		io_bSyncOpen = true;
 
 		// Get the full file path, using path concatenation logic.
-		AkTChar szFullFilePath[AK_MAX_PATH];
+		AkOSChar szFullFilePath[AK_MAX_PATH];
 		if ( GetFullFilePath( in_fileID, in_pFlags, szFullFilePath ) == AK_Success )
 		{
 			// Open the file without FILE_FLAG_OVERLAPPED and FILE_FLAG_NO_BUFFERING flags.
@@ -218,13 +218,15 @@ AKRESULT CAkDefaultIOHookBlocking::Read(
 	overlapped.OffsetHigh = (DWORD)( ( io_transferInfo.uFilePosition >> 32 ) & 0xFFFFFFFF );
 	overlapped.hEvent = NULL;
 
+    AkUInt32 uSizeTransferred;
 	if ( ::ReadFile( 
 			in_fileDesc.hFile,
 			out_pBuffer,
 			io_transferInfo.uRequestedSize,
-			&io_transferInfo.uSizeTransferred,
+			&uSizeTransferred,
 			&overlapped ) )
 	{
+        AKASSERT( uSizeTransferred == io_transferInfo.uRequestedSize );
 		return AK_Success;
 	}
     return AK_Fail;
@@ -246,13 +248,15 @@ AKRESULT CAkDefaultIOHookBlocking::Write(
 	overlapped.OffsetHigh = (DWORD)( ( io_transferInfo.uFilePosition >> 32 ) & 0xFFFFFFFF );
 	overlapped.hEvent = NULL;
 
+    AkUInt32 uSizeTransferred;
 	if ( ::WriteFile( 
 			in_fileDesc.hFile,
 			in_pData,
 			io_transferInfo.uRequestedSize,
-			&io_transferInfo.uSizeTransferred,
+			&uSizeTransferred,
 			&overlapped ) )
 	{
+        AKASSERT( uSizeTransferred == io_transferInfo.uRequestedSize );
 		return AK_Success;
 	}
 	return AK_Fail;
@@ -277,11 +281,11 @@ AkUInt32 CAkDefaultIOHookBlocking::GetBlockSize(
 
 
 // Returns a description for the streaming device above this low-level hook.
-#ifndef AK_OPTIMIZED
-AKRESULT CAkDefaultIOHookBlocking::GetDeviceDesc(
+void CAkDefaultIOHookBlocking::GetDeviceDesc(
     AkDeviceDesc &  out_deviceDesc      // Description of associated low-level I/O device.
     )
 {
+#ifndef AK_OPTIMIZED
 	if ( m_deviceID != AK_INVALID_DEVICE_ID )
 	{
 		out_deviceDesc.deviceID       = m_deviceID;
@@ -290,11 +294,15 @@ AKRESULT CAkDefaultIOHookBlocking::GetDeviceDesc(
 		AKPLATFORM::SafeStrCpy( out_deviceDesc.szDeviceName, WIN32_BLOCKING_DEVICE_NAME, AK_MONITOR_DEVICENAME_MAXLENGTH );
 		out_deviceDesc.uStringSize   = (AkUInt32)wcslen( out_deviceDesc.szDeviceName ) + 1;
 
-		return AK_Success;
+		return;
 	}
 	
 	assert( !"Low-Level device was not initialized" );
-	return AK_Fail;
-}
 #endif
+}
 
+// Returns custom profiling data: 1 if file opens are asynchronous, 0 otherwise.
+AkUInt32 CAkDefaultIOHookBlocking::GetDeviceData()
+{
+    return ( m_bAsyncOpen ) ? 1 : 0;
+}
