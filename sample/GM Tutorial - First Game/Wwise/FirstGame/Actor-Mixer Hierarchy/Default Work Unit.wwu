@@ -11,14 +11,46 @@
 			</PropertyList>
 			<ChildrenList>
 				<AudioFileSource Name="bounce" ID="{6BC8695C-00DB-4A91-A5DA-09C0BE5400F2}" ShortID="510005442">
+					<PropertyList>
+						<Property Name="OverrideConversion" Type="bool">
+							<ValueList>
+								<Value Platform="Linked">True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<Language>SFX</Language>
 					<AudioFile>bounce.wav</AudioFile>
 				</AudioFileSource>
 			</ChildrenList>
 			<BusRouting Name="Master Audio Bus" ID="{838DF126-F4AE-494E-92DF-DA5031E13E9A}" />
-			<ConversionInfo>
-				<ConversionRef Name="New Conversion Settings" ID="{4407B168-4F23-4941-93CC-B356B4E312A8}" />
-			</ConversionInfo>
+			<EffectInfo>
+				<CustomEffect Platform="Linked" Index="0" CreatedFrom="{9B6E8B78-EF8C-494C-AADA-D01CF51B5FAC}">
+					<Effect Name="Large_Church1 (Define custom)" ID="{16A0FB91-65F5-4746-9710-D8868508ED3A}" ShortID="854684644" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115">
+						<PropertyList>
+							<Property Name="HFRatio" Type="Real32">
+								<ValueList>
+									<Value Platform="NotApplicable">6</Value>
+								</ValueList>
+							</Property>
+							<Property Name="NumberOfDelays" Type="int32">
+								<ValueList>
+									<Value Platform="NotApplicable">12</Value>
+								</ValueList>
+							</Property>
+							<Property Name="PreDelay" Type="Real32">
+								<ValueList>
+									<Value Platform="NotApplicable">0.1</Value>
+								</ValueList>
+							</Property>
+							<Property Name="WetLevel" Type="Real32">
+								<ValueList>
+									<Value Platform="NotApplicable">-30</Value>
+								</ValueList>
+							</Property>
+						</PropertyList>
+					</Effect>
+				</CustomEffect>
+			</EffectInfo>
 			<ActiveSourceList>
 				<ActiveSource Name="bounce" ID="{6BC8695C-00DB-4A91-A5DA-09C0BE5400F2}" Platform="Linked" />
 			</ActiveSourceList>
@@ -38,9 +70,6 @@
 				</AudioFileSource>
 			</ChildrenList>
 			<BusRouting Name="Master Audio Bus" ID="{838DF126-F4AE-494E-92DF-DA5031E13E9A}" />
-			<ConversionInfo>
-				<ConversionRef Name="New Conversion Settings" ID="{4407B168-4F23-4941-93CC-B356B4E312A8}" />
-			</ConversionInfo>
 			<ActiveSourceList>
 				<ActiveSource Name="click" ID="{DBC50A22-EF89-489D-BB3F-763DA5215592}" Platform="Linked" />
 			</ActiveSourceList>
@@ -65,14 +94,92 @@
 			</PropertyList>
 			<ChildrenList>
 				<AudioFileSource Name="music" ID="{83095091-FFFD-4AD0-853B-E3C4226E8AC3}" ShortID="194325527">
+					<PropertyList>
+						<Property Name="OverrideConversion" Type="bool">
+							<ValueList>
+								<Value Platform="Linked">True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ConversionInfo>
+						<CustomConversion CreatedFrom="{6D1B890C-9826-4384-BF07-C15223E9FB56}">
+							<Conversion Name="Default Conversion Settings (Custom)" ID="{46C9570A-9613-4F47-B6F9-659EDEDB96AD}">
+								<PropertyList>
+									<Property Name="Channels" Type="int32">
+										<ValueList>
+											<Value Platform="NGP">4</Value>
+											<Value Platform="Windows">4</Value>
+											<Value Platform="Wii">4</Value>
+											<Value Platform="Xbox360">4</Value>
+											<Value Platform="3DS">4</Value>
+											<Value Platform="PS3">4</Value>
+											<Value Platform="iOS">4</Value>
+											<Value Platform="Mac">4</Value>
+										</ValueList>
+									</Property>
+									<Property Name="LRMix" Type="Real64">
+										<ValueList>
+											<Value Platform="NGP">0</Value>
+											<Value Platform="Windows">0</Value>
+											<Value Platform="Wii">0</Value>
+											<Value Platform="Xbox360">0</Value>
+											<Value Platform="3DS">0</Value>
+											<Value Platform="PS3">0</Value>
+											<Value Platform="iOS">0</Value>
+											<Value Platform="Mac">0</Value>
+										</ValueList>
+									</Property>
+									<Property Name="SampleRate" Type="int32">
+										<ValueList>
+											<Value Platform="NGP">0</Value>
+											<Value Platform="Windows">0</Value>
+											<Value Platform="Wii">0</Value>
+											<Value Platform="Xbox360">0</Value>
+											<Value Platform="3DS">0</Value>
+											<Value Platform="PS3">0</Value>
+											<Value Platform="iOS">0</Value>
+											<Value Platform="Mac">0</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+								<ConversionPluginInfoList>
+									<ConversionPluginInfo Platform="NGP">
+										<ConversionPlugin Name="" ID="{387846A5-8DC9-4DB1-A9CD-8C68B0FB0944}" PluginName="PCM" CompanyID="0" PluginID="1" />
+									</ConversionPluginInfo>
+									<ConversionPluginInfo Platform="Windows">
+										<ConversionPlugin Name="" ID="{84EF0D20-020B-4A79-81EC-6064D9D148F5}" PluginName="Vorbis" CompanyID="0" PluginID="4" />
+									</ConversionPluginInfo>
+									<ConversionPluginInfo Platform="Wii">
+										<ConversionPlugin Name="" ID="{D34D48B7-988A-4AF7-8A82-14A0457C1B71}" PluginName="PCM" CompanyID="0" PluginID="1" />
+									</ConversionPluginInfo>
+									<ConversionPluginInfo Platform="Xbox360">
+										<ConversionPlugin Name="" ID="{EDDEAC8D-5869-45A3-B30C-4122F880747E}" PluginName="PCM" CompanyID="0" PluginID="1" />
+									</ConversionPluginInfo>
+									<ConversionPluginInfo Platform="3DS">
+										<ConversionPlugin Name="" ID="{B1F0C89D-57B0-46BA-A3DB-A19D118D16E0}" PluginName="PCM" CompanyID="0" PluginID="1" />
+									</ConversionPluginInfo>
+									<ConversionPluginInfo Platform="PS3">
+										<ConversionPlugin Name="" ID="{47D47EDD-D0CB-4BE8-84D8-5D9E965060C8}" PluginName="PCM" CompanyID="0" PluginID="1" />
+									</ConversionPluginInfo>
+									<ConversionPluginInfo Platform="iOS">
+										<ConversionPlugin Name="" ID="{3821FA9D-0B53-461F-A295-2F51406CDC97}" PluginName="PCM" CompanyID="0" PluginID="1" />
+									</ConversionPluginInfo>
+									<ConversionPluginInfo Platform="Mac">
+										<ConversionPlugin Name="" ID="{8280450C-8CC5-437D-AC1E-03B13800940D}" PluginName="PCM" CompanyID="0" PluginID="1" />
+									</ConversionPluginInfo>
+								</ConversionPluginInfoList>
+							</Conversion>
+						</CustomConversion>
+					</ConversionInfo>
 					<Language>SFX</Language>
 					<AudioFile>music.wav</AudioFile>
 				</AudioFileSource>
 			</ChildrenList>
 			<BusRouting Name="Master Audio Bus" ID="{838DF126-F4AE-494E-92DF-DA5031E13E9A}" />
-			<ConversionInfo>
-				<ConversionRef Name="New Conversion Settings" ID="{4407B168-4F23-4941-93CC-B356B4E312A8}" />
-			</ConversionInfo>
+			<EffectInfo>
+				<NoEffect Platform="Linked" Index="0" />
+				<NoEffect Platform="Linked" Index="1" />
+			</EffectInfo>
 			<ActiveSourceList>
 				<ActiveSource Name="music" ID="{83095091-FFFD-4AD0-853B-E3C4226E8AC3}" Platform="Linked" />
 			</ActiveSourceList>
