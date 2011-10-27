@@ -29,7 +29,7 @@ See the GNU Lesser General Public License for more details.
 #   define STDCALL
 #endif
 
-#define GMW_VERSION_STRING "1.1"
+#define GMW_VERSION_STRING "1.2"
 
 #define GMW_EXCEPTION(msg) MessageBox(NULL, msg, "GMWwise Exception (version 1.1)", MB_OK | MB_ICONSTOP)
 
