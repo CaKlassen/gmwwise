@@ -72,6 +72,11 @@ global.dll_GMWPostTrigger=external_define(dll_name, "GMWPostTrigger", dll_cdecl,
 
 global.dll_GMWSetSwitch=external_define(dll_name, "GMWSetSwitch", dll_cdecl, ty_real, 3, ty_real, ty_real, ty_real);
 
+// Microphone
+global.dll_GMWStartRecord=external_define(dll_name, "GMWStartRecord", dll_cdecl, ty_real, 0);
+
+global.dll_GMWStopRecord=external_define(dll_name, "GMWStopRecord", dll_cdecl, ty_real, 0);
+
 #define UnloadGMWwise
 ////////////////////////////////////////////////////////
 // Liberation de la dll de GMWwise.
@@ -268,7 +273,7 @@ external_call(global.dll_GMWSetRTPCValue, argument0, argument1, argument2);
 // - argument0 _dRtpcID ID of the RTPC.
 // - argument1 _dGameObjectID Associated game object ID.
 ////////////////////////////////////////////////////////
-external_call(global.dll_GMWGetRTPCValue, argument0, argument1, argument2);
+external_call(global.dll_GMWGetRTPCValue, argument0, argument1);
 
 #define GMWRegisterPlugin
 ////////////////////////////////////////////////////////
@@ -303,3 +308,14 @@ external_call(global.dll_GMWRegisterPlugin, argument0);
 // 0 Vorbis
 ////////////////////////////////////////////////////////
 external_call(global.dll_GMWRegisterCodec, argument0);
+
+#define GMWStartRecord
+////////////////////////////////////////////////////////
+// Start recording.
+////////////////////////////////////////////////////////
+external_call(global.dll_GMWStartRecord);
+#define GMWStopRecord
+////////////////////////////////////////////////////////
+// Stop recording.
+////////////////////////////////////////////////////////
+external_call(global.dll_GMWStopRecord);

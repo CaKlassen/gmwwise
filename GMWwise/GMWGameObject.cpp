@@ -222,7 +222,17 @@ extern "C"
 	{
 		AkRtpcValue value;
 		AK::SoundEngine::Query::RTPCValue_type type = AK::SoundEngine::Query::RTPCValue_GameObject;
-		AK::SoundEngine::Query::GetRTPCValue(static_cast<AkRtpcID>(_dRtpcID), static_cast<AkGameObjectID>(_dGameObjectID), value, type);
+		AKRESULT result = AK::SoundEngine::Query::GetRTPCValue(static_cast<AkRtpcID>(_dRtpcID), static_cast<AkGameObjectID>(_dGameObjectID), value, type);
+		if(result ==  AK_IDNotFound)
+		{
+			GMW_EXCEPTION("The game object was not registered or the rtpc name could not be found");
+			return EC_BAD_ARGS;
+		}
+		else if(result == AK_Fail)
+		{
+			GMW_EXCEPTION("The RTPC value could not be obtained");
+			return EC_RTPC;
+		}
 
 		return value;
 	}
