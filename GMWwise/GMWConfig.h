@@ -41,6 +41,7 @@ See the GNU Lesser General Public License for more details.
 #include <AK/Tools/Common/AkPlatformFuncs.h>
 #include <AK/MusicEngine/Common/AkMusicEngine.h>
 #include <AK/SoundEngine/Common/AkStreamMgrModule.h>
+#include <AK/SoundEngine/Common/AkQueryParameters.h>
 
 #include <AK/Plugin/AkAudioInputSourceFactory.h>
 #include <AK/Plugin/AkCompressorFXFactory.h>

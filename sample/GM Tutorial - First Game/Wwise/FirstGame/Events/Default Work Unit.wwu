@@ -1,45 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{2C39B16B-CBFC-4C06-9E6B-DD783E0816C7}" SchemaVersion="46">
+<WwiseDocument Type="WorkUnit" ID="{2C39B16B-CBFC-4C06-9E6B-DD783E0816C7}" SchemaVersion="51">
 	<Events>
-		<Event Name="Play_Music" ID="{9FFE38B9-02BB-4BA3-A335-BD1F8DAD1B55}">
+		<WorkUnit Name="Default Work Unit" ID="{2C39B16B-CBFC-4C06-9E6B-DD783E0816C7}" PersistMode="Standalone">
 			<ChildrenList>
-				<Action Name="Play" ID="{EBE6580A-F6E9-401D-8DEA-148F9F20B087}" ShortID="997214166" Type="Play" Scope="One" Global="false">
-					<PropertyList>
-						<Property Name="FadeTime" Type="Real64">
-							<ValueList>
-								<Value Platform="NotApplicable">2</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ElementList>
-						<Element ID="{C2D0FA87-7CA6-47EB-91C6-42174FD12AEF}" Global="false">
-							<ObjectRef Name="music" ID="{C63C52ED-E1B6-4447-B507-FB51BD69F6F8}" WorkUnitID="{D92D87D3-6385-4B79-97D3-B88906E5EB3D}" />
-						</Element>
-					</ElementList>
-				</Action>
+				<Event Name="Play_Music" ID="{9FFE38B9-02BB-4BA3-A335-BD1F8DAD1B55}">
+					<ChildrenList>
+						<Action Name="Play" ID="{EBE6580A-F6E9-401D-8DEA-148F9F20B087}" ShortID="997214166" Type="Play" Scope="One" Global="false">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="2" />
+							</PropertyList>
+							<ElementList>
+								<Element ID="{C2D0FA87-7CA6-47EB-91C6-42174FD12AEF}" Global="false">
+									<ObjectRef Name="music" ID="{C63C52ED-E1B6-4447-B507-FB51BD69F6F8}" WorkUnitID="{D92D87D3-6385-4B79-97D3-B88906E5EB3D}" />
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Bounce" ID="{F9B53594-FFD8-4548-AE71-8BA7FDA2D000}">
+					<ChildrenList>
+						<Action Name="Play" ID="{051DB07F-CECD-42B4-905F-8E41EA74C2AF}" ShortID="248523116" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{EA6246AB-8DD1-4565-81C3-8C9BAFDBAC31}" Global="false">
+									<ObjectRef Name="bounce" ID="{7FB2C336-F5F5-41E5-A3E5-61F4CD522A6A}" WorkUnitID="{D92D87D3-6385-4B79-97D3-B88906E5EB3D}" />
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Click" ID="{EE448F67-5A54-417E-AB39-53E3E2A892E8}">
+					<ChildrenList>
+						<Action Name="Play" ID="{CE92E056-AA80-4667-8288-36C4A649F2BC}" ShortID="293155211" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{C428F526-565D-40E2-AA21-A79D334E30C5}" Global="false">
+									<ObjectRef Name="click" ID="{C4603ECE-10A8-41B1-8FA9-C16A77BC0EF9}" WorkUnitID="{D92D87D3-6385-4B79-97D3-B88906E5EB3D}" />
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
-		</Event>
-		<Event Name="Play_Bounce" ID="{F9B53594-FFD8-4548-AE71-8BA7FDA2D000}">
-			<ChildrenList>
-				<Action Name="Play" ID="{051DB07F-CECD-42B4-905F-8E41EA74C2AF}" ShortID="248523116" Type="Play" Scope="One" Global="false">
-					<ElementList>
-						<Element ID="{EA6246AB-8DD1-4565-81C3-8C9BAFDBAC31}" Global="false">
-							<ObjectRef Name="bounce" ID="{7FB2C336-F5F5-41E5-A3E5-61F4CD522A6A}" WorkUnitID="{D92D87D3-6385-4B79-97D3-B88906E5EB3D}" />
-						</Element>
-					</ElementList>
-				</Action>
-			</ChildrenList>
-		</Event>
-		<Event Name="Play_Click" ID="{EE448F67-5A54-417E-AB39-53E3E2A892E8}">
-			<ChildrenList>
-				<Action Name="Play" ID="{CE92E056-AA80-4667-8288-36C4A649F2BC}" ShortID="293155211" Type="Play" Scope="One" Global="false">
-					<ElementList>
-						<Element ID="{C428F526-565D-40E2-AA21-A79D334E30C5}" Global="false">
-							<ObjectRef Name="click" ID="{C4603ECE-10A8-41B1-8FA9-C16A77BC0EF9}" WorkUnitID="{D92D87D3-6385-4B79-97D3-B88906E5EB3D}" />
-						</Element>
-					</ElementList>
-				</Action>
-			</ChildrenList>
-		</Event>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>
