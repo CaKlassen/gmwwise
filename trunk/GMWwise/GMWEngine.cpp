@@ -13,6 +13,7 @@ See the GNU Lesser General Public License for more details.
 */
 #include "GMWEngine.h"
 #include "GMWBank.h"
+#include "wwise/SoundInputMgr.h"
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
 
 namespace AK
@@ -117,6 +118,7 @@ extern "C"
             return EC_COM;
         }
 #endif
+		SoundInputMgr::Instance().Initialize();
 
         return EC_NONE;
     }
@@ -125,6 +127,8 @@ extern "C"
 	// FShutdown Wwise and free all resources. -----------------------
     double GMWShutdown(void)
     {
+		SoundInputMgr::Instance().Term();
+
 #ifndef AK_OPTIMIZED
         AK::Comm::Term();	   
 #endif // AK_OPTIMIZED		
@@ -183,10 +187,10 @@ extern "C"
     GMW_API double STDCALL GMWRegisterPlugin(double _dType)
     {
         int nType = (int)_dType;
-        if(nType < 0 || nType > 11)
+        if(nType < 0)
         {
             char pcMessage[256];
-            sprintf(pcMessage, "Bad type ID (%d): ID must be higher or equal to 0 and lower or equal to 11", nType);
+            sprintf(pcMessage, "Bad type ID (%d): ID must be higher or equal to 0", nType);
             GMW_EXCEPTION(pcMessage);
 
             return EC_BAD_ARGS;
@@ -212,7 +216,7 @@ extern "C"
             
             // Audio Input
         case 3:
-            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeSource, AKCOMPANYID_AUDIOKINETIC, AKSOURCEID_AUDIOINPUT, CreateAudioInputSource, CreateAudioInputSourceParams);
+            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeSource, AKCOMPANYID_AUDIOKINETIC, AKSOURCEID_AUDIOINPUT, CreateAudioInputSource, CreateAudioInputSourceParams);			
             break;
 
 //             // MP3 Input

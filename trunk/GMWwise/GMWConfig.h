@@ -29,9 +29,9 @@ See the GNU Lesser General Public License for more details.
 #   define STDCALL
 #endif
 
-#define GMW_VERSION_STRING "1.2.1"
+#define GMW_VERSION_STRING "1.2.2"
 
-#define GMW_EXCEPTION(msg) MessageBox(NULL, msg, "GMWwise Exception (version 1.2.1)", MB_OK | MB_ICONSTOP)
+#define GMW_EXCEPTION(msg) MessageBox(NULL, msg, "GMWwise Exception (version 1.2.2)", MB_OK | MB_ICONSTOP)
 
 #include <AK/SoundEngine/Common/AkSoundEngine.h>
 #include <AK/IBytes.h>
@@ -60,6 +60,7 @@ enum ExceptionCode
 	EC_SOUND_ENGINE,		///<
 	EC_MUSIC_ENGINE,		///<
 	EC_BANK,				///<
+	EC_RTPC,
 #ifndef AK_OPTIMIZED
     EC_COM,					///<
 #endif
