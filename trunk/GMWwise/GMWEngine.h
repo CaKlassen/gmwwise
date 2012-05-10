@@ -69,6 +69,7 @@ extern "C"
     ///			8 Expander
     ///			9 Peak Limiter
     ///			10 Roomverb.
+	///			11 Pitch Shifter
     GMW_API double STDCALL GMWRegisterPlugin(double _dType);
 
     /// @brief Register a wwise codec.

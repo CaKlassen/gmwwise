@@ -255,6 +255,11 @@ extern "C"
             nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_ROOMVERB, CreateRoomVerbFX, CreateRoomVerbFXParams);
             break;
 
+			// Pitch Shifter.
+		case 11:
+			nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_PITCHSHIFTER, CreatePitchShifterFX, CreatePitchShifterFXParams);
+			break;
+
         default:
             GMW_EXCEPTION("Unimplemented");
         }
