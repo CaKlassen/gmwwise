@@ -1,3 +1,16 @@
+/*
+Author : cédric liaudet
+URL    : http://code.google.com/p/gmwwise/
+
+=================================================================================
+This library is free software; you can redistribute it and/or modify 
+it under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
+This library is distributed in the hope that it will be useful, but without any warranty; 
+without even the implied warranty of merchantability or fitness for a particular purpose. 
+See the GNU Lesser General Public License for more details.
+=================================================================================
+*/
 #ifndef _GMW_BANK_
 #define _GMW_BANK_
 
@@ -5,27 +18,35 @@
 
 extern "C"
 {
-	// Fermeture de toute les banques.
+	/// @brief Close every banks.
 	void GMWClearBanks(void);
 
-	// Definie le chemin ou se trouve les banques sonores.
-	// banks_path Chemin du dossier ou ce trouve les banques sonores.
-	// Renvoie 0 sinon un code d'erreur.
+	/// @brief Set the path to load bank.
+	///
+	/// @param banks_path The path.
+	///
+	/// @return 0 or an error code.
 	GMW_API double STDCALL GMWSetBasePath(const char* banks_path);
 
-	// Definie le sous repertoire de langue.
-	// lng_path Chemin du sous repertoire de langue.
-	// Renvoie 0 sinon un code d'erreur.
+	/// @brief Define the subdirectory for language.
+	///
+	/// @param lng_path Subdirectory.
+	/// 
+	/// @return 0 or an error code.
 	GMW_API double STDCALL GMWSetLangSpecificDirName(const char* lng_path);
 
-	// Chargement de la banque.
-	// bank_id Nom de la banque.
-	// Renvoie l'identifiant de la banque sinon un code d'erreur.
+	/// @brief Load bank by name.
+	/// 
+	/// @param bank_name Name of the bank.
+	/// 
+	/// @return Id of the loaded bank or an error code.
 	GMW_API double STDCALL GMWLoadBank(const char* bank_name);
 
-	// Dechargement de la banque.
-	// bank_id Identifiant de la banque.
-	// Renvoie 0 sinon un code d'erreur.
+	/// @brief Unload bank by id.
+	///
+	/// @param bank_id Bank to unload.
+	/// 
+	/// @return 0 or an error code.
 	GMW_API double STDCALL GMWUnloadBank(double bank_id);
 }
 

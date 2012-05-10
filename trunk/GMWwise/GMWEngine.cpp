@@ -1,3 +1,16 @@
+/*
+Author : cédric liaudet
+URL    : http://code.google.com/p/gmwwise/
+
+=================================================================================
+This library is free software; you can redistribute it and/or modify 
+it under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
+This library is distributed in the hope that it will be useful, but without any warranty; 
+without even the implied warranty of merchantability or fitness for a particular purpose. 
+See the GNU Lesser General Public License for more details.
+=================================================================================
+*/
 #include "GMWEngine.h"
 #include "GMWBank.h"
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
@@ -42,7 +55,7 @@ CAkFilePackageLowLevelIOBlocking g_lowLevelIO;
 extern "C"
 { 
 	//----------------------------------------------------------------
-    // Initialise Wwise. ---------------------------------------------
+    // Initialization of Wwise. --------------------------------------
 	double GMWInit(void)
     {
 		AkMemSettings memSettings;
@@ -109,7 +122,7 @@ extern "C"
     }
 
 	//----------------------------------------------------------------
-	// Ferme Wwise et libere tout les donnees. -----------------------
+	// FShutdown Wwise and free all resources. -----------------------
     double GMWShutdown(void)
     {
 #ifndef AK_OPTIMIZED
@@ -134,7 +147,7 @@ extern "C"
     }
 
 	//----------------------------------------------------------------
-	// Traitement des evenements. ------------------------------------
+	// Update the sound engine. --------------------------------------
     double GMWProcessAudio(void)
     {
         AK::SoundEngine::RenderAudio();
@@ -143,10 +156,10 @@ extern "C"
     }
 
 	//----------------------------------------------------------------
-	// Definie l'etat d'un groupe d'etat. ----------------------------
-	double GMWSetState(double stateGroup, double state)
+	//  Set state of the specified group. ----------------------------
+	double GMWSetState(double _dStateGroup, double _dState)
 	{
-		if(stateGroup < 0)
+		if(_dStateGroup < 0)
 		{
 			GMW_EXCEPTION("Bad state group ID : ID must be higher or equal to 0");
 
@@ -160,16 +173,16 @@ extern "C"
 			return EC_BAD_ARGS;
 		}
 
-		AK::SoundEngine::SetState(static_cast<AkStateGroupID>(stateGroup), static_cast<AkStateID>(state));
+		AK::SoundEngine::SetState(static_cast<AkStateGroupID>(_dStateGroup), static_cast<AkStateID>(_dState));
 
 		return EC_NONE;
 	}
 
     //----------------------------------------------------------------
-    // Enregistrement d'un plugin wwise. -----------------------------
-    GMW_API double STDCALL GMWRegisterPlugin(double type)
+    // Register a wwise plugin. --------------------------------------
+    GMW_API double STDCALL GMWRegisterPlugin(double _dType)
     {
-        int nType = (int)type;
+        int nType = (int)_dType;
         if(nType < 0 || nType > 11)
         {
             char pcMessage[256];
@@ -254,11 +267,11 @@ extern "C"
         return EC_NONE;
     }
 
-     //----------------------------------------------------------------
-    // Enregistrement d'un codec. -------------------------------------
-    GMW_API double STDCALL GMWRegisterCodec(double type)
+    //----------------------------------------------------------------
+    // Register a wwise codec. ---------------------------------------
+    GMW_API double STDCALL GMWRegisterCodec(double _dType)
     {
-        if(type != 0)
+        if(_dType != 0)
         {
             GMW_EXCEPTION("Bad type ID : ID must be higher or equal to 0 and lower or equal to 0 (currently, only vorbis codec is supported)");
 
@@ -266,7 +279,7 @@ extern "C"
         }
 
         AKRESULT nResult;
-        switch((int)type)
+        switch((int)_dType)
         {
         // Vorbis codec.
         case 0:

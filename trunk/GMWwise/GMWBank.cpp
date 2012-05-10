@@ -1,3 +1,16 @@
+/*
+Author : cédric liaudet
+URL    : http://code.google.com/p/gmwwise/
+
+=================================================================================
+This library is free software; you can redistribute it and/or modify 
+it under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
+This library is distributed in the hope that it will be useful, but without any warranty; 
+without even the implied warranty of merchantability or fitness for a particular purpose. 
+See the GNU Lesser General Public License for more details.
+=================================================================================
+*/
 #include "GMWBank.h"
 #include "GMWStringUtil.h"
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
@@ -12,7 +25,7 @@ extern "C"
 	static wchar_t* wlng_path = 0;
 	
 	//----------------------------------------------------------------
-	// Fermeture de toute les banques. -------------------------------
+	// Close every banks. --------------------------------------------
 	void GMWClearBanks(void)
 	{
 		gmw::StringUtil::free(wbanks_path);
@@ -37,7 +50,7 @@ extern "C"
 	}
 
 	//----------------------------------------------------------------
-	// Definie le chemin ou se trouve les banques sonores. -----------
+	// Set the path to load bank. ------------------------------------
 	double GMWSetBasePath(const char* banks_path)
 	{
 		wbanks_path = gmw::StringUtil::str2wstr(banks_path);
@@ -54,7 +67,7 @@ extern "C"
 	}
 
 	//----------------------------------------------------------------
-	// Definie le sous repertoire de langue. -------------------------
+	// Define the subdirectory for language. -------------------------
 	double GMWSetLangSpecificDirName(const char* lng_path)
 	{
 		wlng_path = gmw::StringUtil::str2wstr(lng_path);
@@ -71,7 +84,7 @@ extern "C"
 	}
 
 	//----------------------------------------------------------------
-	// Chargement de la banque. --------------------------------------
+	// Load bank by name. --------------------------------------------
 	double GMWLoadBank(const char* bank_name)
 	{
         AkBankID bankID;
@@ -118,7 +131,7 @@ extern "C"
 	}
 
 	//----------------------------------------------------------------
-	// Dechargement de la banque. ------------------------------------
+	// Unload bank by id. --------------------------------------------
 	double GMWUnloadBank(double bank_id)
 	{
 		if(bank_id < 0)

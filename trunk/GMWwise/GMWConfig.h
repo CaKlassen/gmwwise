@@ -31,7 +31,7 @@ See the GNU Lesser General Public License for more details.
 
 #define GMW_VERSION_STRING "1.2"
 
-#define GMW_EXCEPTION(msg) MessageBox(NULL, msg, "GMWwise Exception (version 1.1)", MB_OK | MB_ICONSTOP)
+#define GMW_EXCEPTION(msg) MessageBox(NULL, msg, "GMWwise Exception (version 1.2)", MB_OK | MB_ICONSTOP)
 
 #include <AK/SoundEngine/Common/AkSoundEngine.h>
 #include <AK/IBytes.h>
@@ -69,18 +69,19 @@ See the GNU Lesser General Public License for more details.
 #   include <AK/Comm/AkCommunication.h>
 #endif
 
+/// @enum List of error code.
 enum ExceptionCode
 {
-	EC_BAD_ARGS = -1,
-	EC_NONE = 0,
-	EC_MEMORY,
-	EC_IO,
-	EC_STREAM_MGR,
-	EC_SOUND_ENGINE,
-	EC_MUSIC_ENGINE,
-	EC_BANK,
+	EC_BAD_ARGS = -1,		///< Bad arguments
+	EC_NONE = 0,			///< No error
+	EC_MEMORY,				///<
+	EC_IO,					///< I/O error
+	EC_STREAM_MGR,			///<
+	EC_SOUND_ENGINE,		///<
+	EC_MUSIC_ENGINE,		///<
+	EC_BANK,				///<
 #ifndef AK_OPTIMIZED
-    EC_COM,
+    EC_COM,					///<
 #endif
 };
 
