@@ -66,6 +66,8 @@ global.dll_GMWStopAll=external_define(dll_name, "GMWStopAll", dll_cdecl, ty_real
 
 global.dll_GMWSetRTPCValue=external_define(dll_name, "GMWSetRTPCValue", dll_cdecl, ty_real, 3, ty_real, ty_real, ty_real);
 
+global.dll_GMWGetRTPCValue=external_define(dll_name, "GMWGetRTPCValue", dll_cdecl, ty_real, 2, ty_real, ty_real);
+
 global.dll_GMWPostTrigger=external_define(dll_name, "GMWPostTrigger", dll_cdecl, ty_real, 2, ty_real, ty_real);
 
 global.dll_GMWSetSwitch=external_define(dll_name, "GMWSetSwitch", dll_cdecl, ty_real, 3, ty_real, ty_real, ty_real);
@@ -253,12 +255,20 @@ external_call(global.dll_GMWSetSwitch, argument0, argument1, argument2);
 
 #define GMWSetRTPCValue
 ////////////////////////////////////////////////////////
-// Set RTPC Value - Ajout Martin Bussy-Pâris/Julien Renoux (oubli update)
-// - argument0 rtpcID
-// - argument1 rtpcValue
-// - argument2 gameObjectID
+// Set the value of the real-time parameter control by ID.
+// - argument0 _dRtpcID ID of the game parameter.
+// - argument1 _dRtpcValue Value to set.
+// - argument2 _dGameObjectID Associated game object ID.
 ////////////////////////////////////////////////////////
 external_call(global.dll_GMWSetRTPCValue, argument0, argument1, argument2);
+
+#define GMWGetRTPCValue
+////////////////////////////////////////////////////////
+// Retrieves RTPC value.
+// - argument0 _dRtpcID ID of the RTPC.
+// - argument1 _dGameObjectID Associated game object ID.
+////////////////////////////////////////////////////////
+external_call(global.dll_GMWGetRTPCValue, argument0, argument1, argument2);
 
 #define GMWRegisterPlugin
 ////////////////////////////////////////////////////////

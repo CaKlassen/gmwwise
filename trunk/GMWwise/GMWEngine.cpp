@@ -166,7 +166,7 @@ extern "C"
 			return EC_BAD_ARGS;
 		}
 
-		if(state < 0)
+		if(_dState < 0)
 		{
 			GMW_EXCEPTION("Bad state ID : ID must be higher or equal to 0");
 

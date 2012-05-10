@@ -72,37 +72,54 @@ extern "C"
 	/// @return 0.
 	GMW_API double STDCALL GMWSet3DPosition(double _dGameObjectID, double _dPos_x, double _dPos_y, double _dPos_z, double _dDir_x, double _dDir_y, double _dDir_z);
 
-	// Envoie d'un evenements dans la pile d'evenements de wwise.
-	// eventID  L'identifiant unique de l'evenement. 
-	// gameObjectID Identifiant du "game object" associe a l'evenement.
-	// Renvoie l'identifiant de l'evenement sinon un code d'erreur.
-    GMW_API double STDCALL GMWPostEvent(double  eventID,  double  gameObjectID);
+	/// @brief Post an event to the sound engine by ID.
+	///
+	/// @param _dEventID  Unique ID of the event.
+	/// @param _dGameObjectID Associated game object ID.
+	/// 
+	/// @return The playing ID of the event launched or an error code.
+    GMW_API double STDCALL GMWPostEvent(double  _dEventID,  double  _dGameObjectID);
 
-	// Envoie d'une trigger dans la pile d'evenements.
-	// triggerID Identifiant unique du trigger.
-	// gameObjectID Identifiant du "game object".
-	// Renvoie 0 ou un code d'erreur.
-	GMW_API double STDCALL GMWPostTrigger(double triggerID, double gameObjectID);
+	/// @brief Post the specified trigger by ID.
+	/// 
+	/// @param _dTriggerID ID of the trigger.
+	/// @param _dGameObjectID Associated game object ID .
+	///
+	/// @return 0 or an error code.
+	GMW_API double STDCALL GMWPostTrigger(double _dTriggerID, double _dGameObjectID);
 
-	// Stop tout les evenements associe au "game object".
-	// gameObjectID Identifiant du "game object".
-	// Renvoie toujours 0.
-	// * si aucun "game object" specifie alors tout les evenements sont stoppe.
-	GMW_API double GMWStopAll(double gameObjectID = AK_INVALID_GAME_OBJECT);
+	/// @brief Stop the current content playing associated to the specified game object ID. If no game object is specified, all sounds will be stopped.
+	///
+	/// @param _dGameObjectID (Optional)Specify a game object to stop only playback associated to the provided game object ID. 
+	///
+	/// @return 0.
+	GMW_API double GMWStopAll(double _dGameObjectID = AK_INVALID_GAME_OBJECT);
 
-	// Definie la valeur d'un parametre de jeu.
-	// rtpcID Identifiant du parametre.
-	// rtpcValue Nouvelle valeur du parametre.
-	// gameObjectID Identifiant du "game object" auquel le parametre est attache.
-	// Renvoie toujours 0.
-    GMW_API double STDCALL GMWSetRTPCValue(double rtpcID, double rtpcValue, double gameObjectID);
+	/// @brief Set the value of the real-time parameter control by ID.
+	///
+	/// @param _dRtpcID ID of the game parameter.
+	/// @param _dRtpcValue Value to set.
+	/// @param _dGameObjectID Associated game object ID.
+	///
+	/// @return 0.
+    GMW_API double STDCALL GMWSetRTPCValue(double _dRtpcID, double _dRtpcValue, double _dGameObjectID);
 
-	// Definie l'etat du groupe switch.
-	// switchGroup Identifiant du groupe switch.
-	// switchID Identifiant du nouveau switch.
-	// gameObjectID Identifiant du "game object" auquel le switch est attache.
-	// Renvoie 0 ou un code d'erreur.
-	GMW_API double STDCALL GMWSetSwitch(double switchGroup, double switchID, double gameObjectID);
+	/// @brief Retrieves RTPC value.
+	/// 
+	/// @param _dRtpcID ID of the RTPC.
+	/// @param _dGameObjectID Associated game object ID.
+	/// 
+	/// @return The RTPC value.
+	GMW_API double STDCALL GMWGetRTPCValue(double _dRtpcID, double _dGameObjectID);
+
+	/// @brief Set the state of a switch group by ID.
+	///
+	/// @param _dSwitchGroup ID of the switch group.
+	/// @param _dSwitchID ID of the switch group.
+	/// @param _dGameObjectID Associated game object ID.
+	///
+	/// @return 0 or an error code.
+	GMW_API double STDCALL GMWSetSwitch(double _dSwitchGroup, double _dSwitchID, double _dGameObjectID);
 }
 
 #endif // _GMW_GAME_OBJECT_

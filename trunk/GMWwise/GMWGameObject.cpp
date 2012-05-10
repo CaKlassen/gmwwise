@@ -64,7 +64,7 @@ extern "C"
 			return EC_BAD_ARGS;
 		}
 
-		groupsOfGameObjs::iterator it = groups.find(groupID);
+		groupsOfGameObjs::iterator it = groups.find(_dGroupID);
 		if(it == groups.end())
 		{
 			std::list<AkGameObjectID> gameObjs;
@@ -81,7 +81,7 @@ extern "C"
 	}
 
 	//----------------------------------------------------------------
-	// Suppression d'une "game object". ------------------------------
+	// Remove a game object. -----------------------------------------
 	double GMWUnregisterGameObj(double _dGameObjectID, double _dGroupID)
 	{
 		if(AK::SoundEngine::UnregisterGameObj(static_cast<AkGameObjectID>(_dGameObjectID)) != AK_Success)
@@ -144,28 +144,28 @@ extern "C"
 	}
 
 	//----------------------------------------------------------------
-	// Envoie d'un evenements dans la pile d'evenements de wwise. ----
-    double GMWPostEvent(double  eventID,  double  gameObjectID)
+	// Post an event to the sound engine by ID. ----------------------
+    double GMWPostEvent(double  _dEventID,  double  _dGameObjectID)
     {
-		if(eventID < 0)
+		if(_dEventID < 0)
 		{
 			GMW_EXCEPTION("Bad event ID : ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
-		else if(gameObjectID < 0)
+		else if(_dGameObjectID < 0)
 		{
 			GMW_EXCEPTION("Bad game object ID : ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
 
-		AkPlayingID id = AK::SoundEngine::PostEvent(static_cast<AkUniqueID>(eventID), static_cast<AkGameObjectID>(gameObjectID));
+		AkPlayingID id = AK::SoundEngine::PostEvent(static_cast<AkUniqueID>(_dEventID), static_cast<AkGameObjectID>(_dGameObjectID));
 		if(id == AK_INVALID_PLAYING_ID)
 		{
 			std::stringstream sstr;
-			sstr << "unable to post the specified event " << eventID 
-				 << " for the specified game object "     << gameObjectID;
+			sstr << "unable to post the specified event " << _dEventID 
+				 << " for the specified game object "     << _dGameObjectID;
             GMW_EXCEPTION(sstr.str().c_str());
 
 			return EC_BAD_ARGS;
@@ -175,64 +175,77 @@ extern "C"
     }
 
 	//----------------------------------------------------------------
-	// Envoie d'une trigger dans la pile d'evenements. ---------------
-	double GMWPostTrigger(double triggerID, double gameObjectID)
+	// Post the specified trigger by ID. -----------------------------
+	double GMWPostTrigger(double _dTriggerID, double _dGameObjectID)
 	{
-		if(triggerID < 0)
+		if(_dTriggerID < 0)
 		{
 			GMW_EXCEPTION("Bad trigger ID : ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
-		else if(gameObjectID < 0)
+		else if(_dGameObjectID < 0)
 		{
 			GMW_EXCEPTION("Bad game object ID : ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
 
-		AK::SoundEngine::PostTrigger(static_cast<AkTriggerID>(triggerID), static_cast<AkGameObjectID>(gameObjectID));
+		AK::SoundEngine::PostTrigger(static_cast<AkTriggerID>(_dTriggerID), static_cast<AkGameObjectID>(_dGameObjectID));
 
 		return EC_NONE;
 	}
 
 	//----------------------------------------------------------------
-	// Stop tout les evenements associe au "game object". ------------
-	double GMWStopAll(double gameObjectID)
+	// Stop the current content playing associated to the specified 
+	// game object ID. If no game object is specified, all sounds will 
+	// be stopped ----------------------------------------------------
+	double GMWStopAll(double _dGameObjectID)
 	{
-		AK::SoundEngine::StopAll(static_cast<AkGameObjectID>(gameObjectID));
+		AK::SoundEngine::StopAll(static_cast<AkGameObjectID>(_dGameObjectID));
 
 		return EC_NONE;
 	}
 
 	//----------------------------------------------------------------
-	// Definie la valeur d'un parametre de jeu. ----------------------
-    double GMWSetRTPCValue(double rtpcID, double rtpcValue, double gameObjectID)
+	// Set the value of the real-time parameter control by ID. -------
+    double GMWSetRTPCValue(double _dRtpcID, double _dRtpcValue, double _dGameObjectID)
     {
-        AK::SoundEngine::SetRTPCValue(static_cast<AkRtpcID>(rtpcID), static_cast<AkRtpcValue>(rtpcValue), static_cast<AkGameObjectID>(gameObjectID));
+        AK::SoundEngine::SetRTPCValue(static_cast<AkRtpcID>(_dRtpcID), static_cast<AkRtpcValue>(_dRtpcValue), static_cast<AkGameObjectID>(_dGameObjectID));
 
         return EC_NONE;
     }
 
 	//----------------------------------------------------------------
-	// Definie l'etat du groupe switch. ------------------------------
-	double GMWSetSwitch(double switchGroup, double switchID, double gameObjectID)
+	// Retrieves RTPC value. -----------------------------------------
+	double GMWGetRTPCValue(double _dRtpcID, double _dGameObjectID)
 	{
-		if(switchGroup < 0)
+		AkRtpcValue value;
+		AK::SoundEngine::Query::RTPCValue_type type = AK::SoundEngine::Query::RTPCValue_GameObject;
+		AK::SoundEngine::Query::GetRTPCValue(static_cast<AkRtpcID>(_dRtpcID), static_cast<AkGameObjectID>(_dGameObjectID), value, type);
+
+		return value;
+	}
+
+	//----------------------------------------------------------------
+	// Set the state of a switch group by ID. ------------------------
+	double GMWSetSwitch(double _dSwitchGroup, double _dSwitchID, double _dGameObjectID)
+	{
+		if(_dSwitchGroup < 0)
 		{
 			GMW_EXCEPTION("Bad switch group ID : ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
 
-		if(switchID < 0)
+		if(_dSwitchID < 0)
 		{
 			GMW_EXCEPTION("Bad switch ID : ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
 
-		AK::SoundEngine::SetSwitch(static_cast<AkSwitchGroupID>(switchGroup), static_cast<AkSwitchStateID>(switchID), static_cast<AkGameObjectID>(gameObjectID));
+		AK::SoundEngine::SetSwitch(static_cast<AkSwitchGroupID>(_dSwitchGroup), static_cast<AkSwitchStateID>(_dSwitchID), static_cast<AkGameObjectID>(_dGameObjectID));
 
 		return EC_NONE;
 	}
