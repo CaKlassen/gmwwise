@@ -289,6 +289,7 @@ external_call(global.dll_GMWGetRTPCValue, argument0, argument1, argument2);
 //			9 Peak Limiter
 //			10 Roomverb.
 //			11 Pitch Shifter
+//			12 Meter
 ////////////////////////////////////////////////////////
 external_call(global.dll_GMWRegisterPlugin, argument0);
 

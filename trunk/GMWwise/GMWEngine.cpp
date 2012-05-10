@@ -260,6 +260,11 @@ extern "C"
 			nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_PITCHSHIFTER, CreatePitchShifterFX, CreatePitchShifterFXParams);
 			break;
 
+			// Meter
+		case 12:
+			nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_METER, CreateMeterFX, CreateMeterFXParams);
+			break;
+
         default:
             GMW_EXCEPTION("Unimplemented");
         }
