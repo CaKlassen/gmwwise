@@ -1,3 +1,16 @@
+/*
+Author : cédric liaudet
+URL    : http://code.google.com/p/gmwwise/
+
+=================================================================================
+This library is free software; you can redistribute it and/or modify 
+it under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
+This library is distributed in the hope that it will be useful, but without any warranty; 
+without even the implied warranty of merchantability or fitness for a particular purpose. 
+See the GNU Lesser General Public License for more details.
+=================================================================================
+*/
 #ifndef _GMW_ENGINE_
 #define _GMW_ENGINE_
 
@@ -5,50 +18,69 @@
 
 extern "C"
 {
-	// Initialise Wwise.
-    // Renvoie 0 sinon un code d'erreur.
+	/// @brief Initialization of Wwise.
+	/// 
+	/// @return 0 or an error code.
+	/// 
+	/// @remarks
+	///		Have to called in first.
 	GMW_API double STDCALL GMWInit(void);
 
-	// Ferme Wwise et libere tout les donnees
-	// Renvoie toujours 0.
+	/// @brief Shutdown Wwise and free all resources.
+	///
+	/// @return 0.
+	///
+	/// @remarks
+	///		Have to called in last.
     GMW_API double STDCALL GMWShutdown(void);
 
-	// Traitement des evenements.
-	// A faire chaque frame.
-	// Renvoie toujours 0.
+	/// @brief Update the sound engine.
+	/// 	
+	/// @return 0.
+	///
+	/// @remarks
+	///		Have to be called once per frame.
     GMW_API double STDCALL GMWProcessAudio(void);
 
-	// Definie l'etat d'un groupe d'etat.
-	// stateGroup Identifiant du groupe d'etat.
-	// state Identifiant du nouvel etat.
-	// Renvoie 0 ou un code d'erreur.
-	GMW_API double STDCALL GMWSetState(double stateGroup, double state);	
+	/// @brief Set state of the specified group.
+	/// 
+	/// @param _dStateGroup ID of the group.
+	/// @param _dState New value to set.
+	/// 
+	/// @return 0 or an error code.
+	GMW_API double STDCALL GMWSetState(double _dStateGroup, double _dState);	
 
-    // Enregistrement d'un plugin wwise.
-    // type Type de plugin.
-    // Renvoie 0 ou un code d'erreur.
-    // 
-    // List des types:
-    // 0 Sine
-    // 1 Tone Generator
-    // 2 Silence
-    // 3 Audio Input
-    // 4 Delay
-    // 5 Parametric EQ
-    // 6 Matrix Reverb
-    // 7 Compressor
-    // 8 Expander
-    // 9 Peak Limiter
-    // 10 Roomverb.
-    GMW_API double STDCALL GMWRegisterPlugin(double type);
+    /// @brief Register a wwise plugin.
+	///
+	/// @param _dType Type of plugin.
+	/// 
+	/// @return 0 or an error code.
+    ///
+	/// @remarks
+	///		Plugin list:
+    ///			0 Sine
+    ///			1 Tone Generator
+    ///			2 Silence
+    ///			3 Audio Input
+    ///			4 Delay
+    ///			5 Parametric EQ
+    ///			6 Matrix Reverb
+    ///			7 Compressor
+    ///			8 Expander
+    ///			9 Peak Limiter
+    ///			10 Roomverb.
+    GMW_API double STDCALL GMWRegisterPlugin(double _dType);
 
-    // Enregistrement d'un codec.
-    // type Type de codec.
-    // Renvoie 0 ou un code d'erreur.
-    //
-    // List des codecs:
-    // 0 Vorbis
-    GMW_API double STDCALL GMWRegisterCodec(double type);
+    /// @brief Register a wwise codec.
+	/// 
+	/// @param _dType Type of codec.
+	/// 
+	/// @return 0 or an error code.
+	/// 
+	/// @remarks
+	///		Codecs list:
+    ///			0 Vorbis
+    GMW_API double STDCALL GMWRegisterCodec(double _dType);
 }
 
 #endif // _GMW_ENGINE_

@@ -1,3 +1,16 @@
+/*
+Author : cédric liaudet
+URL    : http://code.google.com/p/gmwwise/
+
+=================================================================================
+This library is free software; you can redistribute it and/or modify 
+it under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
+This library is distributed in the hope that it will be useful, but without any warranty; 
+without even the implied warranty of merchantability or fitness for a particular purpose. 
+See the GNU Lesser General Public License for more details.
+=================================================================================
+*/
 #ifndef _GMW_GAME_OBJECT_
 #define _GMW_GAME_OBJECT_
 
@@ -5,47 +18,59 @@
 
 extern "C"
 {
-	// Enregistrement d'un groupe de "game object".
-	// groupID Identifiant du groupe  de "game object".
-	// Renvoie toujours 0.
-	GMW_API double STDCALL GMWRegisterGroupGameObj(double groupID);
+	/// @brief Register a group of game object.
+	/// 
+	/// @param _dGroupID ID of the group.
+	/// 
+	/// @return 0.
+	GMW_API double STDCALL GMWRegisterGroupGameObj(double _dGroupID);
 
-	// Suppression d'un groupe de "game object".
-	// groupID Identifiant du groupe de "game object".
-	// Renvoie toujours 0.
-	GMW_API double STDCALL GMWUnregisterGroupGameObj(double groupID);
+	/// @brief Remove a group of game object.
+	/// 
+	/// @param _dGroupID ID of the group to remove.
+	/// 
+	/// @return 0.	
+	GMW_API double STDCALL GMWUnregisterGroupGameObj(double _dGroupID);
 
-	// Enregistrement d'un "game object".
-	// gameObjectID Identifiant du "game object".
-	// groupID Identifiant du groupe de "game object".
-	// Renvoie 0 sinon une code d'erreur.
-	GMW_API double STDCALL GMWRegisterGameObj(double gameObjectID, double groupID);
+	/// @brief Register a game object.
+	/// 
+	/// @param _dGameObjectID ID of the game object to register.
+	/// @param _dGroupID ID of the group.
+	/// 
+	/// @return 0 or an error code.
+	GMW_API double STDCALL GMWRegisterGameObj(double _dGameObjectID, double _dGroupID);
 
-	// Suppression d'une "game object".
-	// gameObjectID Identifiant du "game object".
-	// groupID Identifiant du groupe de "game object".
-	// Renvoie 0 sinon un code d'erreur.
-	GMW_API double STDCALL GMWUnregisterGameObj(double gameObjectID, double groupID);
+	/// @brief Remove a game object.
+	///
+	/// @param _dGameObjectID ID of the game object to remove.
+	/// @param _dGroupID ID of the group.
+	/// 
+	/// @return 0 or an error code.
+	GMW_API double STDCALL GMWUnregisterGameObj(double _dGameObjectID, double _dGroupID);
 
-	// Definie la position du "game object".
-	// gameObjectID Identifiant du "game object".
-	// pos_x Position sur l'axe des X.
-	// pos_y Position sur l'axe des Y.
-    // dir_x Direction sur l'axe des X.
-    // dir_y Direction sur l'axe des Y.
-	// Renvoie toujours 0.
-	GMW_API double STDCALL GMWSet2DPosition(double gameObjectID, double pos_x, double pos_y, double dir_x, double dir_y);
+	/// @brief Set the position of the specified game object.
+	///
+	/// @param _dGameObjectID ID of the game object.
+	/// @param _dPos_x Position on the x-axis.
+	/// @param _dPos_y Position on the y-axis.
+    /// @param _dDir_x Orientation on the x-axis.
+    /// @param _dDir_y Orientation on the y-axis.
+	/// 
+	/// @return 0.
+	GMW_API double STDCALL GMWSet2DPosition(double _dGameObjectID, double _dPos_x, double _dPos_y, double _dDir_x, double _dDir_y);
 
-	// Definie la position du "game object".
-	// gameObjectID Identifiant du "game object".
-	// pos_x Position sur l'axe des X.
-	// pos_y Position sur l'axe des Y.
-	// pos_z Position sur l'axe des Z.
-    // dir_x Direction sur l'axe des X.
-    // dir_y Direction sur l'axe des Y.
-	// dir_z Direction sur l'axe des Z.
-	// Renvoie toujours 0.
-	GMW_API double STDCALL GMWSet3DPosition(double gameObjectID, double pos_x, double pos_y, double pos_z, double dir_x, double dir_y, double dir_z);
+	/// @brief Set the position of the specified game object.
+	///
+	/// @param _dGameObjectID ID of the game object.
+	/// @param _dPos_x Position on the x-axis.
+	/// @param _dPos_y Position on the y-axis.
+	/// @param _dPos_z Position on the z-axis.
+	/// @param _dDir_x Orientation on the x-axis.
+	/// @param _dDir_y Orientation on the y-axis.
+	/// @param _dDir_z Orientation on the z-axis.
+	/// 
+	/// @return 0.
+	GMW_API double STDCALL GMWSet3DPosition(double _dGameObjectID, double _dPos_x, double _dPos_y, double _dPos_z, double _dDir_x, double _dDir_y, double _dDir_z);
 
 	// Envoie d'un evenements dans la pile d'evenements de wwise.
 	// eventID  L'identifiant unique de l'evenement. 
