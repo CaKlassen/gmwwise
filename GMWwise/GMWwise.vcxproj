@@ -69,7 +69,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>AkSoundEngine.lib;AkMemoryMgr.lib;AkStreamMgr.lib;AkMusicEngine.lib;Iphlpapi.lib;ws2_32.lib;dsound.lib;dxguid.lib;CommunicationCentral.lib;AkAudioInputSource.lib;AkCompressorFX.lib;AkConvolutionReverbFX.lib;AkDelayFX.lib;AkExpanderFX.lib;AkFlangerFX.lib;AkGuitarDistortionFX.lib;AkMatrixReverbFX.lib;AkMeterFX.lib;AkMotionGenerator.lib;AkParametricEQFX.lib;AkPeakLimiterFX.lib;AkRoomVerbFX.lib;AkRumble.lib;AkSilenceSource.lib;AkSineSource.lib;AkSoundSeedImpactFX.lib;AkSoundSeedWind.lib;AkSoundSeedWoosh.lib;AkToneSource.lib;AkTremoloFX.lib;AkVorbisDecoder.lib;AkPitchShifterFX.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <OutputFile>$(OutDir)$(ProjectName)_profile.dll</OutputFile>
       <AdditionalLibraryDirectories>$(WWISESDK)\Win32_vc110\$(Configuration)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -96,7 +96,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>AkSoundEngine.lib;AkMusicEngine.lib;AkStreamMgr.lib;AkMemoryMgr.lib;Iphlpapi.lib;ws2_32.lib;dsound.lib;dxguid.lib;AkAudioInputSource.lib;AkCompressorFX.lib;AkConvolutionReverbFX.lib;AkDelayFX.lib;AkExpanderFX.lib;AkFlangerFX.lib;AkGuitarDistortionFX.lib;AkMatrixReverbFX.lib;AkMeterFX.lib;AkMotionGenerator.lib;AkParametricEQFX.lib;AkPeakLimiterFX.lib;AkRoomVerbFX.lib;AkRumble.lib;AkSilenceSource.lib;AkSineSource.lib;AkSoundSeedImpactFX.lib;AkSoundSeedWind.lib;AkSoundSeedWoosh.lib;AkToneSource.lib;AkTremoloFX.lib;AkVorbisDecoder.lib;AkPitchShifterFX.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(WWISESDK)\Win32_vc90\$(Configuration)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(WWISESDK)\Win32_vc110\$(Configuration)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
