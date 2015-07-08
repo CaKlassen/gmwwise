@@ -6,9 +6,9 @@
 // Exposes basic path functions for convenience.
 // For more details on resolving file location, refer to section "File Location" inside
 // "Going Further > Overriding Managers > Streaming / Stream Manager > Low-Level I/O"
-// of the SDK documentation.
+// of the SDK documentation. 
 //
-// Copyright (c) 2006-2008 Audiokinetic Inc. / All Rights Reserved
+// Copyright (c) 2006 Audiokinetic Inc. / All Rights Reserved
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -17,8 +17,7 @@
 
 struct AkFileSystemFlags;
 
-#include "GMWConfig.h"
-#include <AK/SoundEngine/Common/AkTypes.h>
+#include <AK/SoundEngine/Common/IAkStreamMgr.h>
 
 class CAkFileLocationBase
 {
@@ -43,9 +42,7 @@ public:
 	AKRESULT SetAudioSrcPath(
 		const AkOSChar*   in_pszAudioSrcPath
 		);
-	AKRESULT SetLangSpecificDirName(
-		const AkOSChar*   in_pszDirName
-		);
+	// Note: SetLangSpecificDirName() does not exist anymore. See release note WG-19397 (Wwise 2011.2).
 
 	//
 	// Path resolving services.
@@ -55,22 +52,24 @@ public:
 	// Returns AK_Success if input flags are supported and the resulting path is not too long.
 	// Returns AK_Fail otherwise.
 	AKRESULT GetFullFilePath(
-		const AkOSChar*			in_pszFileName,		// File name.
+		const AkOSChar *	in_pszFileName,		// File name.
 		AkFileSystemFlags * in_pFlags,			// Special flags. Can be NULL.
+		AkOpenMode			in_eOpenMode,		// File open mode (read, write, ...).
 		AkOSChar *			out_pszFullFilePath // Full file path.
-		);
+		);  
 
-	// ID overload.
+	// ID overload. 
 	// The name of the file will be formatted as ID.ext. This is meant to be used with options
 	// "Use SoundBank Names" unchecked, and/or "Copy Streamed Files" in the SoundBank Settings.
 	// For more details, refer to the SoundBank Settings in Wwise Help, and to section "Identifying Banks" inside
-	// "Sound Engine Integration Walkthrough > Integrate Wwise Elements into Your Game > Integrating Banks >
+	// "Sound Engine Integration Walkthrough > Integrate Wwise Elements into Your Game > Integrating Banks > 
 	// Integration Details - Banks > General Information" of the SDK documentation.
 	// Returns AK_Success if input flags are supported and the resulting path is not too long.
 	// Returns AK_Fail otherwise.
 	AKRESULT GetFullFilePath(
 		AkFileID			in_fileID,			// File ID.
-		AkFileSystemFlags *	in_pFlags,			// Special flags.
+		AkFileSystemFlags *	in_pFlags,			// Special flags. 
+		AkOpenMode			in_eOpenMode,		// File open mode (read, write, ...).
 		AkOSChar *			out_pszFullFilePath	// Full file path.
 		);
 
@@ -80,7 +79,6 @@ protected:
 	AkOSChar			m_szBasePath[AK_MAX_PATH];
 	AkOSChar			m_szBankPath[AK_MAX_PATH];
 	AkOSChar			m_szAudioSrcPath[AK_MAX_PATH];
-	AkOSChar			m_szLangSpecificDirName[AK_MAX_PATH];
 
 };
 

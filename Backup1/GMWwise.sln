@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GMWwise", "GMWwise\GMWwise.vcproj", "{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Profile|Win32 = Profile|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Profile|Win32.ActiveCfg = Profile|Win32
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Profile|Win32.Build.0 = Profile|Win32
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Release|Win32.ActiveCfg = Release|Win32
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

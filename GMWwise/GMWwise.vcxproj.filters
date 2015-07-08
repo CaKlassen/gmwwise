@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files\wwise">
+      <UniqueIdentifier>{1974206e-590b-43d1-917e-f4f223c46ea2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\wwise">
+      <UniqueIdentifier>{fd5fc872-7dd6-492b-8c9a-b324c9f0ce2c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GMWBank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GMWEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GMWGameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GMWListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GMWStringUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wwise\AkDefaultIOHookBlocking.cpp">
+      <Filter>Source Files\wwise</Filter>
+    </ClCompile>
+    <ClCompile Include="wwise\AkDefaultLowLevelIODispatcher.cpp">
+      <Filter>Source Files\wwise</Filter>
+    </ClCompile>
+    <ClCompile Include="wwise\AkFileLocationBase.cpp">
+      <Filter>Source Files\wwise</Filter>
+    </ClCompile>
+    <ClCompile Include="wwise\AkFilePackage.cpp">
+      <Filter>Source Files\wwise</Filter>
+    </ClCompile>
+    <ClCompile Include="wwise\AkFilePackageLUT.cpp">
+      <Filter>Source Files\wwise</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GMWBank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GMWConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GMWEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GMWGameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GMWListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GMWStringUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wwise\AkFilePackageLUT.h">
+      <Filter>Header Files\wwise</Filter>
+    </ClInclude>
+    <ClInclude Include="wwise\AkDefaultIOHookBlocking.h">
+      <Filter>Header Files\wwise</Filter>
+    </ClInclude>
+    <ClInclude Include="wwise\AkDefaultLowLevelIODispatcher.h">
+      <Filter>Header Files\wwise</Filter>
+    </ClInclude>
+    <ClInclude Include="wwise\AkFileHelpers.h">
+      <Filter>Header Files\wwise</Filter>
+    </ClInclude>
+    <ClInclude Include="wwise\AkFileLocationBase.h">
+      <Filter>Header Files\wwise</Filter>
+    </ClInclude>
+    <ClInclude Include="wwise\AkFilePackage.h">
+      <Filter>Header Files\wwise</Filter>
+    </ClInclude>
+    <ClInclude Include="wwise\AkFilePackageLowLevelIO.h">
+      <Filter>Header Files\wwise</Filter>
+    </ClInclude>
+    <ClInclude Include="wwise\AkFilePackageLowLevelIOBlocking.h">
+      <Filter>Header Files\wwise</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\sample\GMWwise.gml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="wwise\AkFilePackageLowLevelIO.inl">
+      <Filter>Header Files\wwise</Filter>
+    </None>
+  </ItemGroup>
+</Project>

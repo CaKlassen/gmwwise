@@ -16,14 +16,17 @@
 // matches the name of the directory that is created by the Wwise Bank Manager,
 // except for the trailing slash.
 //
-// Copyright (c) 2007-2008 Audiokinetic Inc. / All Rights Reserved
+// Copyright (c) 2007-2009 Audiokinetic Inc. / All Rights Reserved
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "wwise/AkFilePackageLUT.h"
+
+//#include "stdafx.h"
+#include "AkFilePackageLUT.h"
 #include <AK/SoundEngine/Common/AkMemoryMgr.h>
 #include <AK/SoundEngine/Common/AkSoundEngine.h>	// For string hash.
 #include <AK/Tools/Common/AkPlatformFuncs.h>
+#include <AK/Tools/Common/AkFNVHash.h>
 
 #ifdef _DEBUG
 	template<bool> struct AkCompileTimeAssert;
@@ -33,13 +36,17 @@
 	#define AK_STATIC_ASSERT(e)
 #endif
 
+#define AK_MAX_EXTERNAL_NAME_SIZE		260
+
 CAkFilePackageLUT::CAkFilePackageLUT()
 :m_curLangID( AK_INVALID_LANGUAGE_ID )
 ,m_pLangMap( NULL )
 ,m_pSoundBanks( NULL )
 ,m_pStmFiles( NULL )
+,m_pExternals( NULL )
 {
-	AK_STATIC_ASSERT(sizeof(AkFileEntry) == 24);
+	AK_STATIC_ASSERT(sizeof(AkFileEntry<AkFileID>) == 20);
+	AK_STATIC_ASSERT(sizeof(AkFileEntry<AkUInt64>) == 24);
 }
 
 CAkFilePackageLUT::~CAkFilePackageLUT()
@@ -60,6 +67,7 @@ AKRESULT CAkFilePackageLUT::Setup(
 		AkUInt32			uLanguageMapSize;
 		AkUInt32			uSoundBanksLUTSize;
 		AkUInt32			uStmFilesLUTSize;
+		AkUInt32			uExternalsLUTSize;
 	};
 	FileHeaderFormat * pHeader = (FileHeaderFormat*)in_pData;
 
@@ -67,7 +75,8 @@ AKRESULT CAkFilePackageLUT::Setup(
 	if ( in_uHeaderSize < sizeof(FileHeaderFormat)
 			+ pHeader->uLanguageMapSize
 			+ pHeader->uSoundBanksLUTSize
-			+ pHeader->uStmFilesLUTSize )
+			+ pHeader->uStmFilesLUTSize
+			+ pHeader->uExternalsLUTSize)
 	{
 		return AK_Fail;
 	}
@@ -78,17 +87,23 @@ AKRESULT CAkFilePackageLUT::Setup(
 
 	// Get address of maps and LUTs.
 	in_pData += sizeof(FileHeaderFormat);
+
 	m_pLangMap		= (StringMap*)in_pData;
 	in_pData += pHeader->uLanguageMapSize;
-	m_pSoundBanks	= (FileLUT*)in_pData;
+
+	m_pSoundBanks	= (FileLUT<AkFileID>*)in_pData;
 	in_pData += pHeader->uSoundBanksLUTSize;
-	m_pStmFiles		= (FileLUT*)in_pData;
-	
+
+	m_pStmFiles		= (FileLUT<AkFileID>*)in_pData;
+	in_pData += pHeader->uStmFilesLUTSize;
+
+	m_pExternals	= (FileLUT<AkUInt64>*)in_pData;
+
 	return AK_Success;
 }
 
 // Find a file entry by ID.
-const CAkFilePackageLUT::AkFileEntry * CAkFilePackageLUT::LookupFile(
+const CAkFilePackageLUT::AkFileEntry<AkFileID> * CAkFilePackageLUT::LookupFile(
 	AkFileID			in_uID,			// File ID.
 	AkFileSystemFlags * in_pFlags		// Special flags. Do not pass NULL.
 	)
@@ -99,51 +114,33 @@ const CAkFilePackageLUT::AkFileEntry * CAkFilePackageLUT::LookupFile(
 		&& m_pSoundBanks
 		&& m_pSoundBanks->HasFiles() )
 	{
-		return LookupFile( in_uID, m_pSoundBanks, in_pFlags->bIsLanguageSpecific );
+		return LookupFile<AkFileID>( in_uID, m_pSoundBanks, in_pFlags->bIsLanguageSpecific );
 	}
 	else if ( m_pStmFiles && m_pStmFiles->HasFiles() )
 	{
 		// We assume that the file is a streamed audio file.
-		return LookupFile( in_uID, m_pStmFiles, in_pFlags->bIsLanguageSpecific );
+		return LookupFile<AkFileID>( in_uID, m_pStmFiles, in_pFlags->bIsLanguageSpecific );
 	}
 	// No table loaded.
 	return NULL;
 }
 
-// Helper: Find a file entry by ID.
-const CAkFilePackageLUT::AkFileEntry * CAkFilePackageLUT::LookupFile(
-	AkFileID			in_uID,					// File ID.
-	const FileLUT *		in_pLut,				// LUT to search.
-	bool				in_bIsLanguageSpecific	// True: match language ID.
+// Find a file entry by ID.
+const CAkFilePackageLUT::AkFileEntry<AkUInt64> * CAkFilePackageLUT::LookupFile(
+	AkUInt64			in_uID,			// File ID.
+	AkFileSystemFlags * in_pFlags		// Special flags. Do not pass NULL.
 	)
 {
-	const AkFileEntry * pTable	= in_pLut->FileEntries();
+	AKASSERT( in_pFlags );
 
-	AKASSERT( pTable && in_pLut->HasFiles() );
-	AkUInt16 uLangID = in_bIsLanguageSpecific ? m_curLangID : AK_INVALID_LANGUAGE_ID;
-
-	// Binary search. LUT items should be sorted by fileID, then by language ID.
-	AkInt32 uTop = 0, uBottom = in_pLut->NumFiles()-1;
-	do
+	if ( in_pFlags->uCompanyID == AKCOMPANYID_AUDIOKINETIC_EXTERNAL 
+		&& m_pExternals 
+		&& m_pExternals->HasFiles() )
 	{
-		AkInt32 uThis = ( uBottom - uTop ) / 2 + uTop; 
-		if ( pTable[ uThis ].fileID > in_uID ) 
-			uBottom = uThis - 1;
-		else if ( pTable[ uThis ].fileID < in_uID ) 
-			uTop = uThis + 1;
-		else
-		{
-			// Correct ID. Check language.
-			if ( pTable[ uThis ].uLanguageID > uLangID ) 
-				uBottom = uThis - 1;
-			else if ( pTable[ uThis ].uLanguageID < uLangID ) 
-				uTop = uThis + 1;
-			else
-				return pTable + uThis;
-		}
+		return LookupFile<AkUInt64>( in_uID, m_pExternals, in_pFlags->bIsLanguageSpecific );
 	}
-	while ( uTop <= uBottom );
 
+	// No table loaded.
 	return NULL;
 }
 
@@ -158,8 +155,11 @@ AKRESULT CAkFilePackageLUT::SetCurLanguage(
 	if ( m_pLangMap && in_pszLanguage )
 	{
 		AkUInt16 uLangID = (AkUInt16)m_pLangMap->GetID( in_pszLanguage );
-		if ( uLangID == AK_INVALID_UNIQUE_ID )
+		if ( uLangID == AK_INVALID_UNIQUE_ID 
+			&& m_pLangMap->GetNumStrings() > 1 )	// Do not return AK_InvalidLanguage if package contains only SFX data.
+		{
 			return AK_InvalidLanguage;
+		}
 		m_curLangID = uLangID;
 	}
 
@@ -168,14 +168,17 @@ AKRESULT CAkFilePackageLUT::SetCurLanguage(
 
 void CAkFilePackageLUT::RemoveFileExtension( AkOSChar* in_pstring )
 {
-	while( *in_pstring != 0 )
+	int i = (int)AKPLATFORM::OsStrLen(in_pstring) - 1;
+
+	while (i >= 0)
 	{
-		if( *in_pstring == L'.' )
+		if (in_pstring[i] == AKTEXT('.'))
 		{
-			*in_pstring = 0;
+			in_pstring[i] = AKTEXT('\0');
 			return;
 		}
-		++in_pstring;
+
+		i--;
 	}
 }
 
@@ -185,27 +188,50 @@ AkFileID CAkFilePackageLUT::GetSoundBankID(
 	const AkOSChar*			in_pszBankName	// Soundbank name.
 	)
 {
-	if ( m_pSoundBanks )
+	// Remove the file extension if it was used.
+	AkUInt32 stringSize = (AkUInt32)AKPLATFORM::OsStrLen( in_pszBankName ) + 1;
+	AkOSChar* pStringWithoutExtension = (AkOSChar *)AkAlloca( (stringSize) * sizeof( AkOSChar ) );
+	AKPLATFORM::SafeStrCpy( pStringWithoutExtension, in_pszBankName, stringSize );
+	RemoveFileExtension( pStringWithoutExtension );
+	
+	// Hash
+	return AK::SoundEngine::GetIDFromString( pStringWithoutExtension );
+}
+
+AkUInt64 CAkFilePackageLUT::GetExternalID( 
+	const AkOSChar*			in_pszExternalName		// External Source name.
+	)
+{
+	char* szString; 
+    CONVERT_OSCHAR_TO_CHAR(in_pszExternalName, szString);
+	
+	size_t stringSize = strlen( szString );
+
+	// 1- Make lower case.
+	_MakeLowerA( szString, stringSize );
+
+	AK::FNVHash64 MainHash;
+	return MainHash.Compute( (const unsigned char *) szString, (unsigned int)stringSize );
+}
+
+void CAkFilePackageLUT::_MakeLowerA( char* in_pString, size_t in_strlen )
+{
+	for( size_t i = 0; i < in_strlen; ++i )
 	{
-		// Remove the file extension if it was used.
-		AkUInt32 stringSize = (AkUInt32)wcslen( in_pszBankName ) + 1;
-		AkOSChar* pStringWithoutExtension = (AkOSChar *)AkAlloca( (stringSize) * sizeof( AkOSChar ) );
-		AKPLATFORM::SafeStrCpy( pStringWithoutExtension, in_pszBankName, stringSize );
-		RemoveFileExtension( pStringWithoutExtension );
-		
-		// Hash
-		return AK::SoundEngine::GetIDFromString( pStringWithoutExtension );
+		if( in_pString[i] >= 'A' && in_pString[i] <= 'Z' )
+		{
+			in_pString[i] += 0x20;  
+		}
 	}
-	return AK_INVALID_FILE_ID;
 }
 
 void CAkFilePackageLUT::_MakeLower( AkOSChar* in_pString )
 {
-	size_t uStrlen = wcslen( in_pString );
-	const AkOSChar CaseDiff = L'a' - L'A';
+	size_t uStrlen = AKPLATFORM::OsStrLen( in_pString );
+	const AkOSChar CaseDiff = AKTEXT('a') - AKTEXT('A');
 	for( size_t i = 0; i < uStrlen; ++i )
 	{
-		if( in_pString[i] >= L'A' && in_pString[i] <= L'Z' )
+		if( in_pString[i] >= AKTEXT('A') && in_pString[i] <= AKTEXT('Z') )
 		{
 			in_pString[i] += CaseDiff;
 		}
@@ -215,7 +241,7 @@ void CAkFilePackageLUT::_MakeLower( AkOSChar* in_pString )
 AkUInt32 CAkFilePackageLUT::StringMap::GetID( const AkOSChar* in_pszString )
 {
 	// Make string lower case.
-	size_t uStrLen = wcslen(in_pszString)+1;
+	size_t uStrLen = AKPLATFORM::OsStrLen(in_pszString)+1;
 	AkOSChar * pszLowerCaseString = (AkOSChar*)AkAlloca(uStrLen*sizeof(AkOSChar));
 	AKASSERT( pszLowerCaseString );
 	AKPLATFORM::SafeStrCpy(pszLowerCaseString, in_pszString, uStrLen );
@@ -230,7 +256,7 @@ AkUInt32 CAkFilePackageLUT::StringMap::GetID( const AkOSChar* in_pszString )
 	{
 		AkInt32 uThis = ( uBottom - uTop ) / 2 + uTop; 
 		AkOSChar * pString = (AkOSChar*)((AkUInt8*)this + pTable[ uThis ].uOffset);
-		int iCmp = wcscmp( pString, pszLowerCaseString );
+		int iCmp = AKPLATFORM::OsStrCmp( pString, pszLowerCaseString );
 		if ( 0 == iCmp )
 			return pTable[uThis].uID;
 		else if ( iCmp > 0 )	//in_pTable[ uThis ].pString > pszLowerCaseString 

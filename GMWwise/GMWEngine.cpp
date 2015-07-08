@@ -13,7 +13,7 @@ See the GNU Lesser General Public License for more details.
 */
 #include "GMWEngine.h"
 #include "GMWBank.h"
-#include "wwise/SoundInputMgr.h"
+//#include "wwise/SoundInputMgr.h"
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
 
 namespace AK
@@ -118,7 +118,7 @@ extern "C"
             return EC_COM;
         }
 #endif
-		SoundInputMgr::Instance().Initialize();
+		//SoundInputMgr::Instance().Initialize();
 
         return EC_NONE;
     }
@@ -127,7 +127,7 @@ extern "C"
 	// FShutdown Wwise and free all resources. -----------------------
     double GMWShutdown(void)
     {
-		SoundInputMgr::Instance().Term();
+		//SoundInputMgr::Instance().Term();
 
 #ifndef AK_OPTIMIZED
         AK::Comm::Term();	   

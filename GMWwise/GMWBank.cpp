@@ -41,10 +41,17 @@ extern "C"
 			GMW_EXCEPTION(sstr.str().c_str());
 
 			std::vector<AkBankID>::iterator it = banksLoaded.begin(), it_end = banksLoaded.end();
+			
+			/*
 			for(; it <= it_end; it++)
 			{
-				AK::SoundEngine::UnloadBank((*it));
+				AK::SoundEngine::UnloadBank(*it, );
 			}
+			*/
+
+			// Clear all banks
+			AK::SoundEngine::ClearBanks();
+
 			banksLoaded.clear();
 		}
 	}
@@ -62,23 +69,6 @@ extern "C"
 		}
         else
             g_lowLevelIO.SetBasePath(wbanks_path);
-		
-		return EC_NONE;
-	}
-
-	//----------------------------------------------------------------
-	// Define the subdirectory for language. -------------------------
-	double GMWSetLangSpecificDirName(const char* lng_path)
-	{
-		wlng_path = gmw::StringUtil::str2wstr(lng_path);
-        if(!wlng_path)
-		{
-            GMW_EXCEPTION("Unable to set language specific dirname.");
-
-			return EC_IO;
-		}
-        else
-            g_lowLevelIO.SetLangSpecificDirName(wlng_path);
 		
 		return EC_NONE;
 	}
@@ -141,7 +131,7 @@ extern "C"
 			return EC_BAD_ARGS;
 		}
 
-		if(AK::SoundEngine::UnloadBank(static_cast<AkBankID>(bank_id)) != AK_Success)
+		if(AK::SoundEngine::UnloadBank(static_cast<AkBankID>(bank_id), NULL, NULL) != AK_Success)
 		{
 			GMW_EXCEPTION("Unable to unload the bank.");
 

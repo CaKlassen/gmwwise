@@ -1,10 +1,10 @@
 //////////////////////////////////////////////////////////////////////
 //
-// AkFilePackageLowLevelIO.inl
+// AkFilePackageLowLevelIO.h
 //
 // CAkFilePackageLowLevelIO extends a Low-Level I/O device by providing 
 // the ability to reference files that are part of a file package.
-// 
+//
 // It can extend either blocking or deferred I/O hooks (both inheriting from
 // AK::StreamMgr::IAkLowLevelIOHook), since its base class is templated. 
 // In either case, the base class must also implement 
@@ -29,41 +29,44 @@
 // matches the name of the directory that is created by the Wwise Bank Manager,
 // except for the trailing slash.
 //
-// The map of soundbank names is optionally stored in the header. When this is the case, 
-// users can also load banks through the string overload of LoadBank().
+// The type of package is also a template argument. By default, it is a disk package
+// (see AkDiskPackage.h).
 //
-// Copyright (c) 2006-2008 Audiokinetic Inc. / All Rights Reserved
+// Copyright (c) 2006 Audiokinetic Inc. / All Rights Reserved
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "wwise/AkFilePackageLowLevelIO.h"
-#include "wwise/AkFileHelpers.h"
+#include "AkFilePackageLowLevelIO.h"
+#include "AkFileHelpers.h"
 #include <AK/Tools/Common/AkPlatformFuncs.h>
 
-template <class T_LLIOHOOK_FILELOC>
-CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::CAkFilePackageLowLevelIO()
-{	
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::CAkFilePackageLowLevelIO()
+: m_bRegisteredToLangChg( false )
+{
 }
 
-template <class T_LLIOHOOK_FILELOC>
-CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::~CAkFilePackageLowLevelIO()
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::~CAkFilePackageLowLevelIO()
 {
 }
 
 // Initialize/terminate.
-template <class T_LLIOHOOK_FILELOC>
-void CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::Term()
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+void CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::Term()
 {
-    T_LLIOHOOK_FILELOC::Term();
-	UnloadAllFilePackages();
+    UnloadAllFilePackages();
 	m_packages.Term();
+	if ( m_bRegisteredToLangChg )
+		AK::StreamMgr::RemoveLanguageChangeObserver( this );
+	T_LLIOHOOK_FILELOC::Term();
 }
 
-// Override Open (string): Search file in each LUTx first. If it cannot be found, use base class services.
+// Override Open (string): Search file in each LUT first. If it cannot be found, use base class services.
 // If the file is found in the LUTs, open is always synchronous.
-template <class T_LLIOHOOK_FILELOC>
-AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::Open( 
-    const AkOSChar*       in_pszFileName,     // File name.
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::Open( 
+    const AkOSChar* in_pszFileName,     // File name.
     AkOpenMode      in_eOpenMode,       // Open mode.
     AkFileSystemFlags * in_pFlags,      // Special flags. Can pass NULL.
 	bool &			io_bSyncOpen,		// If true, the file must be opened synchronously. Otherwise it is left at the File Location Resolver's discretion. Return false if Open needs to be deferred.
@@ -72,27 +75,45 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::Open(
 {
     // If the file is an AK sound bank, try to find the identifier in the lookup table first.
     if ( in_eOpenMode == AK_OpenModeRead 
-		&& in_pFlags 
-		&& in_pFlags->uCompanyID == AKCOMPANYID_AUDIOKINETIC 
-		&& in_pFlags->uCodecID == AKCODECID_BANK )
-	{
-		// Search file in each package.
-		ListFilePackages::Iterator it = m_packages.Begin();
-		while ( it != m_packages.End() )
+		&& in_pFlags )
+    {
+		if( in_pFlags->uCompanyID == AKCOMPANYID_AUDIOKINETIC 
+			&& in_pFlags->uCodecID == AKCODECID_BANK )
 		{
-			AkFileID fileID = (*it)->lut.GetSoundBankID( in_pszFileName );
-			if ( fileID != AK_INVALID_FILE_ID )
+			// Search file in each package.
+			ListFilePackages::Iterator it = m_packages.Begin();
+			while ( it != m_packages.End() )
 			{
-				// Found the ID in the lut. 
-				if ( FindPackagedFile( *it, fileID, in_pFlags, out_fileDesc ) == AK_Success )
+				AkFileID fileID = (*it)->lut.GetSoundBankID( in_pszFileName );
+
+				if ( FindPackagedFile( (T_PACKAGE*)(*it), fileID, in_pFlags, out_fileDesc ) == AK_Success )
 				{
+					// Found the ID in the lut. 
 					io_bSyncOpen = true;	// File is opened, now.
 					return AK_Success;
 				}
+				++it;
 			}
-			++it;
 		}
-    }
+		else if ( in_pFlags->uCompanyID == AKCOMPANYID_AUDIOKINETIC_EXTERNAL )
+		{
+			// Search file in each package.
+			ListFilePackages::Iterator it = m_packages.Begin();
+			while ( it != m_packages.End() )
+			{
+				AkUInt64 fileID = (*it)->lut.GetExternalID( in_pszFileName );
+
+				if ( FindPackagedFile( (T_PACKAGE*)(*it), fileID, in_pFlags, out_fileDesc ) == AK_Success )
+				{
+					// Found the ID in the lut. 
+					io_bSyncOpen = true;	// File is opened, now.
+					return AK_Success;
+				}
+
+				++it;
+			}
+		}
+	}
 
     // It is not a soundbank, or it is not in the file package LUT. Use default implementation.
     return T_LLIOHOOK_FILELOC::Open( 
@@ -105,8 +126,8 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::Open(
 
 // Override Open (ID): Search file in each LUT first. If it cannot be found, use base class services.
 // If the file is found in the LUTs, open is always synchronous.
-template <class T_LLIOHOOK_FILELOC>
-AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::Open( 
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::Open( 
     AkFileID        in_fileID,          // File ID.
     AkOpenMode      in_eOpenMode,       // Open mode.
     AkFileSystemFlags * in_pFlags,      // Special flags. Can pass NULL.
@@ -117,18 +138,38 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::Open(
     // Try to find the identifier in the lookup table first.
     if ( in_eOpenMode == AK_OpenModeRead 
 		&& in_pFlags 
-		&& in_pFlags->uCompanyID == AKCOMPANYID_AUDIOKINETIC )
+		&& in_pFlags->uCompanyID == AKCOMPANYID_AUDIOKINETIC)
 	{
 		// Search file in each package.
 		ListFilePackages::Iterator it = m_packages.Begin();
 		while ( it != m_packages.End() )
 		{
-			if ( FindPackagedFile( *it, in_fileID, in_pFlags, out_fileDesc ) == AK_Success )
+			if ( FindPackagedFile( (T_PACKAGE*)(*it), in_fileID, in_pFlags, out_fileDesc ) == AK_Success )
 			{
 				// File found. Return now.
 				io_bSyncOpen = true;	// File is opened, now.
 				return AK_Success;
 			}
+			++it;
+		}
+	}
+	else if ( in_pFlags->uCompanyID == AKCOMPANYID_AUDIOKINETIC_EXTERNAL )
+	{
+		// Search file in each package.
+		ListFilePackages::Iterator it = m_packages.Begin();
+		while ( it != m_packages.End() )
+		{	
+			AkOSChar szFileName[20];
+			AK_OSPRINTF(szFileName, 20, AKTEXT("%u.wem"), (unsigned int)in_fileID);
+			AkUInt64 fileID = (*it)->lut.GetExternalID(szFileName);
+
+			if ( FindPackagedFile( (T_PACKAGE*)(*it), fileID, in_pFlags, out_fileDesc ) == AK_Success )
+			{
+				// Found the ID in the lut. 
+				io_bSyncOpen = true;	// File is opened, now.
+				return AK_Success;
+			}
+
 			++it;
 		}
 	}
@@ -143,12 +184,12 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::Open(
 }
 
 // Override Close: Do not close handle if file descriptor is part of the current packaged file.
-template <class T_LLIOHOOK_FILELOC>
-AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::Close(
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::Close(
     AkFileDesc & in_fileDesc      // File descriptor.
     )
 {
-	// Do not close handle if it is that of the file package (closed only in ResetFS()).
+	// Do not close handle if it is that of the file package (closed only in UnloadFilePackage()).
     if ( !IsInPackage( in_fileDesc ) )
         return T_LLIOHOOK_FILELOC::Close( in_fileDesc );
     
@@ -156,8 +197,8 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::Close(
 }
 
 // Override GetBlockSize: Get the block size of the LUT if a file package is loaded.
-template <class T_LLIOHOOK_FILELOC>
-AkUInt32 CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::GetBlockSize(
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+AkUInt32 CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::GetBlockSize(
     AkFileDesc &  in_fileDesc     // File descriptor.
     )
 {
@@ -170,58 +211,51 @@ AkUInt32 CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::GetBlockSize(
 	return T_LLIOHOOK_FILELOC::GetBlockSize( in_fileDesc );
 }
 
-// Override base class' SetLangSpecificDirName() (if defined): Need to set current language based 
-// on the language directoy name on all packages currently loaded.
-// Returns AK_InvalidLanguage if the language does not exist in the file package (if it is loaded).
-template <class T_LLIOHOOK_FILELOC>
-AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::SetLangSpecificDirName(
-    const AkOSChar*   in_pszDirName
-    )
+// Updates language of all loaded packages. Packages keep a language ID to help them find 
+// language-specific assets quickly.
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+void CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::OnLanguageChange( 
+	const AkOSChar * const in_pLanguageName	// New language name.
+	)
 {
-    AKRESULT eResult = T_LLIOHOOK_FILELOC::SetLangSpecificDirName( in_pszDirName );
-    if ( eResult == AK_Success )
-    {
-        // If a package is loaded, use the language directory name to set up the
-        // current language ID for correct language specific file mapping.
-		// Do this for all packages loaded.
-		ListFilePackages::Iterator it = m_packages.Begin();
-		while ( it != m_packages.End() )
-		{
-			AKRESULT eSetLangRes = SetLanguageLUT( *it );
-			if ( eSetLangRes != AK_Success )
-				eResult = eSetLangRes;
-			++it;
-		}
-
-    }
-    return eResult;
+	// Set language on all loaded packages.
+	ListFilePackages::Iterator it = m_packages.Begin();
+	while ( it != m_packages.End() )
+	{
+		(*it)->lut.SetCurLanguage( in_pLanguageName );
+		++it;
+	}
 }
 
 // Searches the LUT to find the file data associated with the FileID.
 // Returns AK_Success if the file is found.
-template <class T_LLIOHOOK_FILELOC>
-AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::FindPackagedFile( 
-	CAkFilePackage *	in_pPackage,	// Package to search into.
-    AkFileID			in_fileID,		// File ID.
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE> 
+template <class T_FILEID>
+AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::FindPackagedFile( 
+	T_PACKAGE *			in_pPackage,	// Package to search into.
+    T_FILEID			in_fileID,		// File ID.
     AkFileSystemFlags * in_pFlags,		// Special flags. Can pass NULL.
     AkFileDesc &		out_fileDesc	// Returned file descriptor.
     )
 {
 	AKASSERT( in_pPackage && in_pFlags );
-	const CAkFilePackageLUT::AkFileEntry * pEntry = in_pPackage->lut.LookupFile( in_fileID, in_pFlags );
+	const CAkFilePackageLUT::AkFileEntry<T_FILEID> * pEntry = in_pPackage->lut.LookupFile( in_fileID, in_pFlags );
 
 	if ( pEntry )
 	{
 		// Fill file descriptor.
         out_fileDesc.deviceID   = T_LLIOHOOK_FILELOC::m_deviceID;
-        out_fileDesc.hFile      = in_pPackage->GetHandle();
-        out_fileDesc.iFileSize	= pEntry->iFileSize;
+        in_pPackage->GetHandleForFileDesc( out_fileDesc.hFile );
+        out_fileDesc.iFileSize	= pEntry->uFileSize;
         out_fileDesc.uSector	= pEntry->uStartBlock;
 		out_fileDesc.pCustomParam = NULL;
 		// NOTE: We use the uCustomParamSize to store the block size.
 		// We will determine whether this file was opened from a package by comparing 
 		// uCustomParamSize with 0 (see IsInPackage()).
         out_fileDesc.uCustomParamSize = pEntry->uBlockSize;
+
+		// Deal with custom parameters in derived classes.
+		InitFileDesc(in_pPackage, out_fileDesc);
         return AK_Success;
     }
     return AK_FileNotFound;
@@ -232,33 +266,48 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::FindPackagedFile(
 // Overrides of Open() will search files in loaded LUTs first, then use default Low-Level I/O 
 // services if they cannot be found.
 // Any number of packages can be loaded at a time. Each LUT is searched until a match is found.
-// Returns AK_Success if successful, AK_InvalidLanguage if the language was already set 
-// (with SetLangSpecificDirName()) but does not exist in the LUT, AK_Fail for any other reason.
+// Returns AK_Success if successful, AK_InvalidLanguage if the current language 
+// does not exist in the LUT (not necessarily an error), AK_Fail for any other reason.
 // Also returns a package ID which can be used to unload it (see UnloadFilePackage()).
-template <class T_LLIOHOOK_FILELOC>
-AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::LoadFilePackage(
-    const AkOSChar*   in_pszFilePackageName,	// File package name. Location is resolved using base class' Open().
-	AkUInt32 &	out_uPackageID			// Returned package ID.
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::LoadFilePackage(
+    const AkOSChar *    in_pszFilePackageName,	// File package name. 
+	AkUInt32 &			out_uPackageID,			// Returned package ID.
+	AkMemPoolId			in_memPoolID /*= AK_DEFAULT_POOL_ID	*/ // Memory pool in which the LUT is written. Passing AK_DEFAULT_POOL_ID will create a new pool automatically. 
     )
 {
 	// Open package file.
-
-	// Use Low-Level IO basic services (path concatenation) to find full file path,
-    // but not to open and read packaged file: need to read blocking and buffered.
-    AkOSChar szFullFilePath[AK_MAX_PATH];
-	AKRESULT eRes = T_LLIOHOOK_FILELOC::GetFullFilePath(
-        in_pszFilePackageName,
-        NULL,
-        szFullFilePath );  
-    if ( eRes != AK_Success )
+	AkFilePackageReader filePackageReader;
+	AKRESULT eRes = filePackageReader.Open( in_pszFilePackageName, true );	// Open from SFX-only directory.
+	if ( eRes != AK_Success )
         return eRes;
 
-	// Low-level raw open to perform blocking reads.
-	AkFileHandle hPackageFile;
-	eRes = CAkFileHelpers::OpenBlocking( szFullFilePath, hPackageFile );
-    if ( eRes != AK_Success )
-        return eRes;
+	filePackageReader.SetName( in_pszFilePackageName );
 
+	T_PACKAGE * pPackage;
+	eRes = _LoadFilePackage( in_pszFilePackageName, filePackageReader, AK_DEFAULT_PRIORITY, in_memPoolID, pPackage );
+	if ( eRes == AK_Success
+		|| eRes == AK_InvalidLanguage )
+	{
+		AKASSERT( pPackage );
+		// Add to packages list.
+		m_packages.AddFirst( pPackage );
+		
+		out_uPackageID = pPackage->ID();
+	}
+	return eRes;
+}
+	
+// Loads a file package, with a given file package reader.
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::_LoadFilePackage(
+    const AkOSChar*			in_pszFilePackageName,	// File package name. 
+	AkFilePackageReader &	in_reader,				// File package reader.
+	AkPriority				in_readerPriority,		// File package reader priority heuristic.
+	AkMemPoolId				in_memPoolID,			// Memory pool in which the LUT is written. Passing AK_DEFAULT_POOL_ID will create a new pool automatically. 
+	T_PACKAGE *&			out_pPackage			// Returned package
+    )
+{
 	// Read header chunk definition.
 	struct AkFilePackageHeader
 	{
@@ -266,30 +315,29 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::LoadFilePackage(
 		AkUInt32 uHeaderSize;
 	};
 
-	AkUInt8 * pBufferForHeader;
+	AkUInt32 uReadBufferSize = AkMax( 2 * in_reader.GetBlockSize(), sizeof(AkFilePackageHeader) );
+	AkUInt8 * pBufferForHeader = (AkUInt8*)AkAlloca( uReadBufferSize );
 	AkUInt32 uSizeToRead;
-	bool bAligned = ( sizeof(AkFilePackageHeader) % CAkFileHelpers::s_uRequiredBlockSize ) > 0;
+	bool bAligned = ( sizeof(AkFilePackageHeader) % in_reader.GetBlockSize() ) > 0;
 	if ( bAligned )
 	{
 		// Header size is not a multiple of the required block size. Allocate an aligned buffer on the stack.
-		pBufferForHeader = (AkUInt8*)AkAlloca( 2 * CAkFileHelpers::s_uRequiredBlockSize );
-		pBufferForHeader += ( CAkFileHelpers::s_uRequiredBlockSize - *(AkUInt32*)pBufferForHeader % CAkFileHelpers::s_uRequiredBlockSize );
-		uSizeToRead = CAkFileHelpers::s_uRequiredBlockSize;
+		pBufferForHeader += ( in_reader.GetBlockSize() - (AkUIntPtr)pBufferForHeader % in_reader.GetBlockSize() );
+		uSizeToRead = in_reader.GetBlockSize();
 	}
 	else
 	{
 		// Header size is a multiple of the required block size. 
-		pBufferForHeader = (AkUInt8*)AkAlloca( sizeof(AkFilePackageHeader) );
 		uSizeToRead = sizeof(AkFilePackageHeader);
 	}
 
 	AkUInt32 uSizeRead;
-	eRes = CAkFileHelpers::ReadBlocking( hPackageFile, pBufferForHeader, 0, uSizeToRead, uSizeRead );
+	AKRESULT eRes = in_reader.Read( pBufferForHeader, uSizeToRead, uSizeRead, in_readerPriority );
 	if ( eRes != AK_Success
 		|| uSizeRead < sizeof(AkFilePackageHeader) )
 	{
 		AKASSERT( !"Could not read package, or package is invalid" );
-		CAkFileHelpers::CloseFile( hPackageFile );
+		in_reader.Close();
         return AK_Fail;
 	}
 
@@ -299,47 +347,24 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::LoadFilePackage(
 		|| 0 == uFileHeader.uHeaderSize )
 	{
 		AKASSERT( !"Invalid file package header" );
-		CAkFileHelpers::CloseFile( hPackageFile );
+		in_reader.Close();
         return AK_Fail;
 	}
 
-	// Open the file package using our parent's low-level I/O implementation.
-	// The handle and block size are kept by the CAkFilePackage object.
-	// However, the handle is managed by class T_LLIOHOOK_FILELOC.
-	AkFileDesc fileDesc;
-	bool bSyncOpen = true;
-	eRes = T_LLIOHOOK_FILELOC::Open( 
-		in_pszFilePackageName, 
-		AK_OpenModeRead,
-		NULL,
-		bSyncOpen,
-		fileDesc );
-	AKASSERT( bSyncOpen || !"Illegal to reset bSyncOpen in Low-Level IO" );
-	if ( eRes != AK_Success )
-	{
-		CAkFileHelpers::CloseFile( hPackageFile );
-		return eRes;
-	}
-
-
 	// Create file package.
-	// NOTE: The header size written in the file package excludes the AKPK_HEADER_CHUNK_DEF_SIZE.
-	// CAkFilePackage::Create() takes the size that will be reserved for the header. It has to
-	// contain the header and header chunk, and be a multiple of the I/O block size for parsing
-	// because we will use it as the I/O buffer for reading.
-	AkUInt32 uReservedHeaderSize = ( ( uFileHeader.uHeaderSize + AKPK_HEADER_CHUNK_DEF_SIZE + CAkFileHelpers::s_uRequiredBlockSize - 1 ) / CAkFileHelpers::s_uRequiredBlockSize ) * CAkFileHelpers::s_uRequiredBlockSize;
-	// IMPORTANT: do not use hPackageFile, which is used only to read the header with minimal I/O constraints.
+	AkUInt32 uReservedHeaderSize;
 	AkUInt8 * pFilePackageHeader;
-	CAkFilePackage * pPackage = CAkFilePackage::Create( 
-		fileDesc.hFile,			// File handle of the package. 
+	out_pPackage = T_PACKAGE::Create(
+		in_reader,
 		in_pszFilePackageName,
+		in_memPoolID,
+		uFileHeader.uHeaderSize + AKPK_HEADER_CHUNK_DEF_SIZE,	// NOTE: The header size written in the file package excludes the AKPK_HEADER_CHUNK_DEF_SIZE.
 		uReservedHeaderSize,
-		T_LLIOHOOK_FILELOC::GetBlockSize( fileDesc ),
 		pFilePackageHeader );
-	if ( !pPackage || !pFilePackageHeader )
+	if ( !out_pPackage )
 	{
 		AKASSERT( !"Could not create file package" );
-		CAkFileHelpers::CloseFile( hPackageFile );
+		in_reader.Close();
         return AK_Fail;
 	}
 
@@ -353,55 +378,55 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::LoadFilePackage(
 		AkUInt32 uSizeToCopy = uSizeRead - sizeof(AkFilePackageHeader);
 		AKPLATFORM::AkMemCpy( pFilePackageHeader+AKPK_HEADER_CHUNK_DEF_SIZE, pBufferForHeader, uSizeToCopy );
 		// Adjust header size and read offset.
-		assert( uHeaderSize >= uSizeToCopy );
+		if ( uSizeToCopy > uHeaderSize )
+			uSizeToCopy = uHeaderSize;
 		uHeaderSize -= uSizeToCopy;
 		uHeaderReadOffset += uSizeToCopy;
 		// Round it up to required block size. It should be equal to the size that was reserved (minus what was already read).
-		uHeaderSize = ( ( uHeaderSize + CAkFileHelpers::s_uRequiredBlockSize - 1 ) / CAkFileHelpers::s_uRequiredBlockSize ) * CAkFileHelpers::s_uRequiredBlockSize;
-		assert( uHeaderSize == uReservedHeaderSize - uSizeRead );
+		uHeaderSize = ( ( uHeaderSize + in_reader.GetBlockSize() - 1 ) / in_reader.GetBlockSize() ) * in_reader.GetBlockSize();
+		AKASSERT( uHeaderSize == uReservedHeaderSize - uSizeRead );
 	}
 
 	// Stream in remaining of the header.
 	if ( uHeaderSize > 0 )
 	{
-		assert( uHeaderReadOffset % CAkFileHelpers::s_uRequiredBlockSize == 0 );
-		if ( CAkFileHelpers::ReadBlocking( hPackageFile, pFilePackageHeader+uHeaderReadOffset, uSizeRead, uHeaderSize, uSizeRead ) != AK_Success
+		AKASSERT( uHeaderReadOffset % in_reader.GetBlockSize() == 0 );
+		if ( in_reader.Read( pFilePackageHeader+uHeaderReadOffset, uHeaderSize, uSizeRead, in_readerPriority ) != AK_Success
 			|| uSizeRead < uHeaderSize )
 		{
 			AKASSERT( !"Could not read file package" );
-			CAkFileHelpers::CloseFile( hPackageFile );
-			T_LLIOHOOK_FILELOC::Close( fileDesc );
-			pPackage->Destroy();
+			out_pPackage->Destroy();
 			return AK_Fail;
 		}
 	}
 
-	// Close package file handle used for parsing.
-	CAkFileHelpers::CloseFile( hPackageFile );
-
 	// Parse LUT.
-	eRes = pPackage->lut.Setup( pFilePackageHeader, uFileHeader.uHeaderSize + AKPK_HEADER_CHUNK_DEF_SIZE );
+	eRes = out_pPackage->lut.Setup( pFilePackageHeader, uFileHeader.uHeaderSize + AKPK_HEADER_CHUNK_DEF_SIZE );
 	if ( eRes != AK_Success )
 	{
-		T_LLIOHOOK_FILELOC::Close( fileDesc );
-		pPackage->Destroy();
+		out_pPackage->Destroy();
 		return eRes;
 	}
 
-	// Add to packages list.
-	m_packages.AddFirst( pPackage );
+	// Register to language change notifications if it wasn't already done
+	if ( !m_bRegisteredToLangChg )
+	{
+		if ( AK::StreamMgr::AddLanguageChangeObserver( LanguageChangeHandler, this ) != AK_Success )
+		{
+			out_pPackage->Destroy();
+			return AK_Fail;
+		}
+		m_bRegisteredToLangChg = true;
+	}
 
-	// Return package ID.
-	out_uPackageID = pPackage->ID();
-	
-    // Use the current language path (if defined) to set the language ID, 
+	// Use the current language path (if defined) to set the language ID, 
     // for language specific file mapping.
-    return SetLanguageLUT( pPackage );
+	return out_pPackage->lut.SetCurLanguage( AK::StreamMgr::GetCurrentLanguage() );
 }
 
 // Unload a file package.
-template <class T_LLIOHOOK_FILELOC>
-AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::UnloadFilePackage( 
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::UnloadFilePackage( 
 	AkUInt32	in_uPackageID			// Package ID.
 	)
 {
@@ -413,9 +438,7 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::UnloadFilePackage(
 			CAkFilePackage * pPackage = (*it);
 			it = m_packages.Erase( it );
 
-			// Close package file handle.
-			CAkFileHelpers::CloseFile( pPackage->GetHandle() );
-
+			// Destroy package.
 			pPackage->Destroy();
 
 			return AK_Success;
@@ -424,13 +447,13 @@ AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::UnloadFilePackage(
 			++it;
 	}
 
-	assert( !"Invalid package ID" );
+	AKASSERT( !"Invalid package ID" );
 	return AK_Fail;
 }
 
 // Unload all file packages.
-template <class T_LLIOHOOK_FILELOC>
-void CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::UnloadAllFilePackages()
+template <class T_LLIOHOOK_FILELOC, class T_PACKAGE>
+AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC,T_PACKAGE>::UnloadAllFilePackages()
 {
 	ListFilePackages::IteratorEx it = m_packages.BeginEx();
 	while ( it != m_packages.End() )
@@ -438,41 +461,11 @@ void CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::UnloadAllFilePackages()
 		CAkFilePackage * pPackage = (*it);
 		it = m_packages.Erase( it );
 
-		// Close package file handle.
-		CAkFileHelpers::CloseFile( pPackage->GetHandle() );
-
+		// Destroy package.
 		pPackage->Destroy();
 	}
+
+	return AK_Success;
 }
 
-// This method uses the language-specific directory name (obtained from policy
-// T_LLIOHOOK_FILELOC::m_szLangSpecificDirName) to compute a language name, 
-// then sets the current language of the given package.
-// Returns AK_Success if a LanguageID is found, or if no package is loaded,
-// AK_InvalidLanguage if the LanguageID is not found in the package,
-// AK_Fail for any other reason.
-template <class T_LLIOHOOK_FILELOC>
-AKRESULT CAkFilePackageLowLevelIO<T_LLIOHOOK_FILELOC>::SetLanguageLUT(
-	CAkFilePackage *	in_pPackage		// File package item.
-	)
-{
-	const size_t numChars = wcslen( T_LLIOHOOK_FILELOC::m_szLangSpecificDirName );
-
-    if ( numChars > 0 )
-    {
-        // A language specific directory is specified. Use its name to find
-		// the language ID, as stored in the package file header.
-
-		// Remove trailing slash out of the language specific directory name.
-		AkOSChar * szLanguage = (AkOSChar*)AkAlloca( numChars * sizeof(AkOSChar) );
-		if ( !szLanguage )
-			return AK_Fail;
-		
-		memcpy( szLanguage, T_LLIOHOOK_FILELOC::m_szLangSpecificDirName, numChars * sizeof(AkOSChar) );
-		szLanguage[numChars-1] = 0;
-
-		return in_pPackage->lut.SetCurLanguage( szLanguage );
-	}
-	return in_pPackage->lut.SetCurLanguage( NULL );
-}
 

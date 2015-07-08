@@ -9,55 +9,12 @@
 // CAkFilePackage objects can be chained together using the ListFilePackages
 // typedef defined below.
 // 
-// Copyright (c) 2007-2008 Audiokinetic Inc. / All Rights Reserved
+// Copyright (c) 2007-2009 Audiokinetic Inc. / All Rights Reserved
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "wwise/AkFilePackage.h"
-
-//-----------------------------------------------------------------------------
-// Name: CAkFilePackage 
-// Desc: This class represents a file package. It holds a system file handle
-// and a look-up table (CAkFilePackageLUT). It manages memory for the LUT and
-// for itself. However, management of the file handle is left for users of this
-// class: the handle would typically be created before calling Create(), and closed
-// before calling Destroy() (accessed through getter GetHandle()).
-//-----------------------------------------------------------------------------
-
-// Creates a memory pool to contain the header of the file package. Returns its address.
-CAkFilePackage * CAkFilePackage::Create( 
-	const AkFileHandle &in_hFile,			// Platform-independent handle of file package.
-	const AkOSChar*			
-#ifndef AK_OPTIMIZED
-		in_pszPackageName
-#endif
-		,	// Name of the file package (for memory monitoring).
-	AkUInt32			in_uHeaderSize,		// Size reserved for file package header.
-	AkUInt32			in_uBlockAlign,		// Alignment of memory block.
-	AkUInt8 *&			out_pHeaderBuffer	// Returned address of memory for header.
-	)
-{
-	AKASSERT( in_uHeaderSize > 0 );
-	
-	// Create memory pool and copy header.
-	// The pool must be big enough to hold both the buffer for the LUT's header
-	// and a CAkFilePackage object.
-	AkUInt32 uMemSize = in_uHeaderSize + sizeof( CAkFilePackage );
-	AkMemPoolId poolID = AK::MemoryMgr::CreatePool( NULL, uMemSize, uMemSize, AkMalloc | AkFixedSizeBlocksMode, in_uBlockAlign );
-	if ( poolID == AK_INVALID_POOL_ID )
-		return NULL;
-	AK_SETPOOLNAME( poolID, in_pszPackageName );
-
-	AkUInt8 * pToRelease = (AkUInt8*)AK::MemoryMgr::GetBlock( poolID );
-	
-	// Construct a CAkFilePackage at the end of this memory region.
-	CAkFilePackage * pFilePackage = AkPlacementNew( pToRelease + in_uHeaderSize ) CAkFilePackage( in_hFile, poolID, pToRelease );
-	assert( pFilePackage );	// Must succeed.
-
-	out_pHeaderBuffer = pToRelease;
-
-	return pFilePackage;
-}
+//#include "stdafx.h"
+#include "AkFilePackage.h"
 
 // Destroy file package and free memory / destroy pool.
 void CAkFilePackage::Destroy()
@@ -65,25 +22,40 @@ void CAkFilePackage::Destroy()
 	// Cache memory pointer and pool ID because memory pool is destroyed _after_ deleting this.
 	AkMemPoolId	poolID	= m_poolID;
 	void * pToRelease	= m_pToRelease;
+	bool bIsInternalPool = m_bIsInternalPool;
 
 	// Call destructor.
 	this->~CAkFilePackage();
 
 	// Free memory.
-	ClearMemory( poolID, pToRelease );
+	ClearMemory( poolID, pToRelease, bIsInternalPool );
 }
 
 void CAkFilePackage::ClearMemory(
 	AkMemPoolId in_poolID,			// Pool to destroy.
-	void *		in_pMemToRelease	// Memory block to free before destroying pool.
+	void *		in_pMemToRelease,	// Memory block to free before destroying pool.
+	bool		in_bIsInternalPool	// Pool was created internally (and needs to be destroyed).
 	)
 {
 	if ( in_poolID != AK_INVALID_POOL_ID )
 	{
 		if ( in_pMemToRelease )
 		{
-			AK::MemoryMgr::ReleaseBlock( in_poolID, in_pMemToRelease );
+			if ( in_bIsInternalPool )
+			{
+				AK::MemoryMgr::ReleaseBlock( in_poolID, in_pMemToRelease );
+				// Destroy pool
+				AKVERIFY( AK::MemoryMgr::DestroyPool( in_poolID ) == AK_Success );
+			}
+			else
+			{
+				if ( AK::MemoryMgr::GetPoolAttributes( in_poolID ) & AkBlockMgmtMask )
+					AK::MemoryMgr::ReleaseBlock( in_poolID, in_pMemToRelease );
+				else
+					AkFree( in_poolID, in_pMemToRelease );
+			}
 		}
-		AKVERIFY( AK::MemoryMgr::DestroyPool( in_poolID ) == AK_Success );
+		else
+			AKASSERT( !in_bIsInternalPool );	// Internal pools allocation is guaranteed.
 	}
 }

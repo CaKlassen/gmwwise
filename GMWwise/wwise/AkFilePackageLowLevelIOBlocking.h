@@ -17,15 +17,15 @@
 #ifndef _AK_FILE_PACKAGE_LOW_LEVEL_IO_BLOCKING_H_
 #define _AK_FILE_PACKAGE_LOW_LEVEL_IO_BLOCKING_H_
 
-#include "wwise/AkFilePackageLowLevelIO.h"
-#include "wwise/AkDefaultIOHookBlocking.h"
+#include "AkFilePackageLowLevelIO.h"
+#include "AkDefaultIOHookBlocking.h"
 
 class CAkFilePackageLowLevelIOBlocking 
-    : public CAkFilePackageLowLevelIO<CAkDefaultIOHookBlocking>
+	: public CAkFilePackageLowLevelIO<CAkDefaultIOHookBlocking>
 {
 public:
-    CAkFilePackageLowLevelIOBlocking() {}
-    virtual ~CAkFilePackageLowLevelIOBlocking() {}
+	CAkFilePackageLowLevelIOBlocking() {}
+	virtual ~CAkFilePackageLowLevelIOBlocking() {}
 };
 
 #endif //_AK_FILE_PACKAGE_LOW_LEVEL_IO_BLOCKING_H_
