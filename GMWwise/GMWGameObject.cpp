@@ -53,9 +53,9 @@ extern "C"
 
 	//----------------------------------------------------------------
 	// Register a game object. ---------------------------------------
-	double GMWRegisterGameObj(double _dGameObjectID, double _dGroupID)
+	double GMWRegisterGameObj(double _dGameObjectID, std::string gameObjectName, double _dGroupID)
 	{
-		if(AK::SoundEngine::RegisterGameObj(static_cast<AkGameObjectID>(_dGameObjectID)) != AK_Success)
+		if(AK::SoundEngine::RegisterGameObj(static_cast<AkGameObjectID>(_dGameObjectID), gameObjectName.c_str()) != AK_Success)
 		{
 			std::stringstream sstr;
 			sstr << "Unable to register this game object : " << _dGameObjectID;
