@@ -35,10 +35,11 @@ extern "C"
 	/// @brief Register a game object.
 	/// 
 	/// @param _dGameObjectID ID of the game object to register.
+	/// @param _dGameObjectName Name of the game object to register
 	/// @param _dGroupID ID of the group.
 	/// 
 	/// @return 0 or an error code.
-	GMW_API double STDCALL GMWRegisterGameObj(double _dGameObjectID, std::string gameObjectName, double _dGroupID);
+	GMW_API double STDCALL GMWRegisterGameObj(double _dGameObjectID, double _dGroupID, char * _dGameObjectName);
 
 	/// @brief Remove a game object.
 	///

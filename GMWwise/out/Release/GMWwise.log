@@ -1,4 +1,4 @@
-﻿Build started 2015-07-08 11:47:46 PM.
+﻿Build started 2015-07-09 6:27:17 PM.
      1>Project "C:\Users\Chris\Desktop\GMWwise\GMWwise\GMWwise.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I./ /I"C:\Program Files (x86)\Audiokinetic\Wwise v2014.1.5 build 5282\SDK\include" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D GMWWISE_EXPORTS /D AK_OPTIMIZED /D AKSOUNDENGINE_STATIC /D _CRT_SECURE_NO_WARNINGS /D _WINDLL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"out/Release\\" /Fd"out/Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt GMWBank.cpp GMWEngine.cpp GMWGameObject.cpp GMWListener.cpp GMWStringUtil.cpp wwise\AkDefaultIOHookBlocking.cpp wwise\AkDefaultLowLevelIODispatcher.cpp wwise\AkFileLocationBase.cpp wwise\AkFilePackage.cpp wwise\AkFilePackageLUT.cpp
@@ -31,4 +31,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.96
+Time Elapsed 00:00:06.13

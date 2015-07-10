@@ -28,11 +28,11 @@ extern "C"
 	{
 		AkListenerPosition listenerPosition;
 		listenerPosition.Position.X = static_cast<float>(pos_x);
-		listenerPosition.Position.Z = static_cast<float>(pos_y);
-		listenerPosition.Position.Y = static_cast<float>(pos_z);
+		listenerPosition.Position.Y = static_cast<float>(pos_y);
+		listenerPosition.Position.Z = static_cast<float>(pos_z);
 		listenerPosition.OrientationFront.X = static_cast<float>(o_x);
-		listenerPosition.OrientationFront.Z = static_cast<float>(o_y);		
-		listenerPosition.OrientationFront.Y = static_cast<float>(o_z);
+		listenerPosition.OrientationFront.Y = static_cast<float>(o_y);		
+		listenerPosition.OrientationFront.Z = static_cast<float>(o_z);
 
 		AK::SoundEngine::SetListenerPosition(listenerPosition);
 

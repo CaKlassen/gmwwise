@@ -53,12 +53,12 @@ extern "C"
 
 	//----------------------------------------------------------------
 	// Register a game object. ---------------------------------------
-	double GMWRegisterGameObj(double _dGameObjectID, std::string gameObjectName, double _dGroupID)
+	double GMWRegisterGameObj(double _dGameObjectID, double _dGroupID, char * _dGameObjectName)
 	{
-		if(AK::SoundEngine::RegisterGameObj(static_cast<AkGameObjectID>(_dGameObjectID), gameObjectName.c_str()) != AK_Success)
+		if(AK::SoundEngine::RegisterGameObj(static_cast<AkGameObjectID>(_dGameObjectID), (const char*) _dGameObjectName) != AK_Success)
 		{
 			std::stringstream sstr;
-			sstr << "Unable to register this game object : " << _dGameObjectID;
+			sstr << "Unable to register this game object: " << _dGameObjectID;
 			GMW_EXCEPTION(sstr.str().c_str());
 
 			return EC_BAD_ARGS;
@@ -132,11 +132,11 @@ extern "C"
 	{
 		AkSoundPosition soundPos;
 		soundPos.Position.X = static_cast<float>(_dPos_x);
-		soundPos.Position.Z = static_cast<float>(_dPos_y);
-		soundPos.Position.Y = static_cast<float>(_dPos_z);
+		soundPos.Position.Y = static_cast<float>(_dPos_y);
+		soundPos.Position.Z = static_cast<float>(_dPos_z);
         soundPos.Orientation.X = static_cast<float>(_dDir_x);
-        soundPos.Orientation.Z = static_cast<float>(_dDir_y);
-		soundPos.Orientation.Y = static_cast<float>(_dDir_z);
+        soundPos.Orientation.Y = static_cast<float>(_dDir_y);
+		soundPos.Orientation.Z = static_cast<float>(_dDir_z);
 
 		AK::SoundEngine::SetPosition(static_cast<AkGameObjectID>(_dGameObjectID), soundPos);
 
