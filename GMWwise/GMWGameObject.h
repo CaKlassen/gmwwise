@@ -104,6 +104,14 @@ extern "C"
 	///
 	/// @return 0.
     GMW_API double STDCALL GMWSetRTPCValue(double _dRtpcID, double _dRtpcValue, double _dGameObjectID);
+	
+	/// @brief Set the value of the global real-time parameter control by ID.
+	///
+	/// @param _dRtpcID ID of the game parameter.
+	/// @param _dRtpcValue Value to set.
+	///
+	/// @return 0.
+	GMW_API double STDCALL GMWSetGlobalRTPCValue(double rtpcID, double rtpcValue);
 
 	/// @brief Retrieves RTPC value.
 	/// 

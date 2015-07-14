@@ -216,6 +216,20 @@ extern "C"
         return EC_NONE;
     }
 
+	/**
+	 * This function sets a global RTPC to a specific value.
+	 *
+	 * @param rtpcID - the ID of the RTPC
+	 * @param rtpcValue - the new value of the RTPC
+	 * @return double - the error code
+	 */
+	double GMWSetGlobalRTPCValue(double rtpcID, double rtpcValue)
+	{
+		AK::SoundEngine::SetRTPCValue(static_cast<AkRtpcID>(rtpcID), static_cast<AkRtpcValue>(rtpcValue));
+		
+        return EC_NONE;
+	}
+
 	//----------------------------------------------------------------
 	// Retrieves RTPC value. -----------------------------------------
 	double GMWGetRTPCValue(double _dRtpcID, double _dGameObjectID)
