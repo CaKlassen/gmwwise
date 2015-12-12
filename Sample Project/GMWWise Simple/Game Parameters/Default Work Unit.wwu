@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C0A2E769-7BFB-41D2-B79F-2CD3B74C1015}" SchemaVersion="69">
+	<GameParameters>
+		<WorkUnit Name="Default Work Unit" ID="{C0A2E769-7BFB-41D2-B79F-2CD3B74C1015}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="music_volume" ID="{DC6AE30E-3B2C-4B30-B0C5-D6C62C26BDBF}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>
