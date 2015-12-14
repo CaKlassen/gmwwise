@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{B94765FF-9F33-41A3-AAE8-4700EDCBA0E3}" SchemaVersion="69">
+	<SoundcasterSessions>
+		<WorkUnit Name="Default Work Unit" ID="{B94765FF-9F33-41A3-AAE8-4700EDCBA0E3}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="mix" ID="{34B56076-D3E4-4727-8A13-979BDD678CF2}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_Music" ID="{E208FDD2-7E95-4E86-B20F-4EDB4FA7CF33}" WorkUnitID="{8162C473-785C-4BB0-8C16-0C3D51BE073C}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Bounce" ID="{C34FA5B2-B64E-4256-8DF1-34547D25A91A}" WorkUnitID="{8162C473-785C-4BB0-8C16-0C3D51BE073C}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="music_volume" ID="{DC6AE30E-3B2C-4B30-B0C5-D6C62C26BDBF}"/>
+							<Value>100</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="plugged_ears" ID="{8E5EBC44-3970-4F57-9A02-78A34487F1F8}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="wood" ID="{62C22913-3DC9-4E00-818A-8E3E0B77AFE1}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundcasterSessions>
+</WwiseDocument>
