@@ -67,7 +67,7 @@ global.WWX_WALL_WOOD = 2058049674;
 global.WWP_MUSIC_VOLUME = 1006694123;
 
 // Set the music volume to max and start playing it
-global.VOLUME = 1;
+global.VOLUME = 100;
 
 gmwSetGlobalParameter(global.WWP_MUSIC_VOLUME, global.VOLUME);
 gmwPostEvent(global.WWE_PLAY_MUSIC, id);
@@ -156,7 +156,7 @@ gmwProcess();
             <string>// Toggling music
 if (keyboard_check_pressed(ord("M")))
 {
-    if (global.VOLUME == 1)
+    if (global.VOLUME == 100)
     {
         // Mute the music
         global.VOLUME = 0;
@@ -165,7 +165,7 @@ if (keyboard_check_pressed(ord("M")))
     else
     {
         // Mute the music
-        global.VOLUME = 1;
+        global.VOLUME = 100;
         gmwSetGlobalParameter(global.WWP_MUSIC_VOLUME, global.VOLUME);
     }
 }
@@ -183,7 +183,7 @@ if (keyboard_check_pressed(vk_space))
     {
         // Set the ear state to plugged ears
         global.PLUGGED_EARS = true;
-        gmwSetState(global.WWSG_AUDIO_TYPE, global.WWS_REGULAR_EARS);
+        gmwSetState(global.WWSG_AUDIO_TYPE, global.WWS_PLUGGED_EARS);
     }
 }
 </string>
