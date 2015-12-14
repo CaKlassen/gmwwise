@@ -1,2 +1,2 @@
-# gmwwise
-A WWise plugin for GameMaker: Studio
+# GMWwise
+A Wwise plugin for GameMaker: Studio.
