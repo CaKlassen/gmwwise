@@ -30,7 +30,6 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-//#include "stdafx.h"
 #include "AkDefaultIOHookBlocking.h"
 #include "AkFileHelpers.h"
 

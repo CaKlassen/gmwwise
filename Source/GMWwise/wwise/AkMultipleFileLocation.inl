@@ -42,13 +42,16 @@ CAkMultipleFileLocation<OPEN_POLICY>::CAkMultipleFileLocation()
 template<class OPEN_POLICY>
 void CAkMultipleFileLocation<OPEN_POLICY>::Term()
 {
-	FilePath *p = (*m_Locations.Begin());
-	while(p)
+	if (!m_Locations.IsEmpty())
 	{
-		FilePath *next = p->pNextLightItem;
-		AkDelete(AK::StreamMgr::GetPoolID(), p);
-		p = next;
-	}	
+		FilePath *p = (*m_Locations.Begin());
+		while (p)
+		{
+			FilePath *next = p->pNextLightItem;
+			AkDelete(AK::StreamMgr::GetPoolID(), p);
+			p = next;
+		}
+	}
 	m_Locations.Term();
 }
 
@@ -65,7 +68,7 @@ AKRESULT CAkMultipleFileLocation<OPEN_POLICY>::Open(
 	{
 		// Get the full file path, using path concatenation logic.
 		AkOSChar szFullFilePath[AK_MAX_PATH];
-		if ( GetFullFilePath( in_pszFileName, in_pFlags, in_eOpenMode, (*it), szFullFilePath ) == AK_Success )
+		if ( GetFullFilePath( in_pszFileName, in_pFlags, in_eOpenMode, szFullFilePath, (*it) ) == AK_Success )
 		{
 			AKRESULT res = OPEN_POLICY::Open(szFullFilePath, in_eOpenMode, in_bOverlapped, out_fileDesc);		
 			if (res == AK_Success)
@@ -113,8 +116,8 @@ AKRESULT CAkMultipleFileLocation<OPEN_POLICY>::GetFullFilePath(
 	const AkOSChar*		in_pszFileName,		// File name.
 	AkFileSystemFlags * in_pFlags,			// Special flags. Can be NULL.
 	AkOpenMode			in_eOpenMode,		// File open mode (read, write, ...).
-	FilePath*			in_pBasePath,		// Base path to use
-	AkOSChar*			out_pszFullFilePath // Full file path.
+	AkOSChar*			out_pszFullFilePath, // Full file path.
+	FilePath*			in_pBasePath		// Base path to use, might be null	
 	)
 {
     if ( !in_pszFileName )
@@ -133,6 +136,9 @@ AKRESULT CAkMultipleFileLocation<OPEN_POLICY>::GetFullFilePath(
 		AKASSERT( !"Input string too large" );
 		return AK_InvalidParameter;
 	}
+
+	if (in_pBasePath == NULL)
+		in_pBasePath = (*m_Locations.Begin());
 
 	AKPLATFORM::SafeStrCpy( out_pszFullFilePath, in_pBasePath->szPath, AK_MAX_PATH );
     if ( in_pFlags && in_eOpenMode == AK_OpenModeRead )

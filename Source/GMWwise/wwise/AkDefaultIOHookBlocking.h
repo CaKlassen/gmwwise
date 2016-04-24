@@ -103,7 +103,7 @@ public:
 	// it creates a streaming device with scheduler type AK_SCHEDULER_BLOCKING.
 	AKRESULT Init(
 		const AkDeviceSettings &	in_deviceSettings,	// Device settings.
-		bool						in_bAsyncOpen=false	// If true, files are opened asynchronously when possible.
+		bool						in_bAsyncOpen=AK_ASYNC_OPEN_DEFAULT	// If true, files are opened asynchronously when possible.
 		);
 	void Term();
 

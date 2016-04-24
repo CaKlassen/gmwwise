@@ -81,8 +81,8 @@ public:
 		const AkOSChar *	in_pszFileName,		// File name.
 		AkFileSystemFlags * in_pFlags,			// Special flags. Can be NULL.
 		AkOpenMode			in_eOpenMode,		// File open mode (read, write, ...).
-		FilePath*			in_pBasePath,		// Base path to use
-		AkOSChar *			out_pszFullFilePath // Full file path.
+		AkOSChar *			out_pszFullFilePath, // Full file path.
+		FilePath*			in_pBasePath = NULL	// Base path to use.  If null, the first suitable location will be given.		
 		);  
 
 protected:

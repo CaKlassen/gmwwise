@@ -14,6 +14,7 @@
     <ProjectGuid>{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}</ProjectGuid>
     <RootNamespace>GMWwise</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -47,6 +48,7 @@
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
+    <TargetName>$(ProjectName)_profile</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)bin\</OutDir>
@@ -70,7 +72,7 @@
     <Link>
       <AdditionalDependencies>AkSoundEngine.lib;AkMemoryMgr.lib;AkStreamMgr.lib;AkMusicEngine.lib;Iphlpapi.lib;ws2_32.lib;dsound.lib;dxguid.lib;CommunicationCentral.lib;AkAudioInputSource.lib;AkCompressorFX.lib;AkConvolutionReverbFX.lib;AkDelayFX.lib;AkExpanderFX.lib;AkFlangerFX.lib;AkGuitarDistortionFX.lib;AkMatrixReverbFX.lib;AkMeterFX.lib;AkMotionGenerator.lib;AkParametricEQFX.lib;AkPeakLimiterFX.lib;AkRoomVerbFX.lib;AkRumble.lib;AkSilenceSource.lib;AkSineSource.lib;AkSoundSeedImpactFX.lib;AkSoundSeedWind.lib;AkSoundSeedWoosh.lib;AkToneSource.lib;AkTremoloFX.lib;AkVorbisDecoder.lib;AkPitchShifterFX.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName)_profile.dll</OutputFile>
-      <AdditionalLibraryDirectories>$(WWISESDK)\Win32_vc110\$(Configuration)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(WWISESDK)\Win32_vc140\$(Configuration)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -96,7 +98,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>AkSoundEngine.lib;AkMusicEngine.lib;AkStreamMgr.lib;AkMemoryMgr.lib;Iphlpapi.lib;ws2_32.lib;dsound.lib;dxguid.lib;AkAudioInputSource.lib;AkCompressorFX.lib;AkConvolutionReverbFX.lib;AkDelayFX.lib;AkExpanderFX.lib;AkFlangerFX.lib;AkGuitarDistortionFX.lib;AkMatrixReverbFX.lib;AkMeterFX.lib;AkMotionGenerator.lib;AkParametricEQFX.lib;AkPeakLimiterFX.lib;AkRoomVerbFX.lib;AkRumble.lib;AkSilenceSource.lib;AkSineSource.lib;AkSoundSeedImpactFX.lib;AkSoundSeedWind.lib;AkSoundSeedWoosh.lib;AkToneSource.lib;AkTremoloFX.lib;AkVorbisDecoder.lib;AkPitchShifterFX.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(WWISESDK)\Win32_vc110\$(Configuration)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(WWISESDK)\Win32_vc140\$(Configuration)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>

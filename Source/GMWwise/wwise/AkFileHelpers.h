@@ -42,22 +42,22 @@ public:
 		switch ( in_eOpenMode )
 		{
 			case AK_OpenModeRead:
-					dwShareMode = FILE_SHARE_READ;
+					dwShareMode = FILE_SHARE_READ | FILE_SHARE_WRITE;
 					dwAccessMode = GENERIC_READ;
 					dwCreationDisposition = OPEN_EXISTING;
 				break;
 			case AK_OpenModeWrite:
-					dwShareMode = FILE_SHARE_WRITE;
+					dwShareMode = FILE_SHARE_READ;
 					dwAccessMode = GENERIC_WRITE;
 					dwCreationDisposition = OPEN_ALWAYS;
 				break;
 			case AK_OpenModeWriteOvrwr:
-					dwShareMode = FILE_SHARE_WRITE;
+					dwShareMode = FILE_SHARE_READ;
 					dwAccessMode = GENERIC_WRITE;
 					dwCreationDisposition = CREATE_ALWAYS;
 				break;
 			case AK_OpenModeReadWrite:
-					dwShareMode = FILE_SHARE_READ | FILE_SHARE_WRITE;
+					dwShareMode = FILE_SHARE_READ;
 					dwAccessMode = GENERIC_READ | GENERIC_WRITE;
 					dwCreationDisposition = OPEN_ALWAYS;
 				break;
@@ -109,6 +109,7 @@ public:
 	// Wrapper for system file handle closing.
 	static AKRESULT CloseFile( AkFileHandle in_hFile )
 	{
+		::FlushFileBuffers(in_hFile);
 		if ( ::CloseHandle( in_hFile ) )
 			return AK_Success;
 		
@@ -187,6 +188,35 @@ public:
 
 
 		return AK_Fail;    // this is not a directory!
+	}
+
+	static AKRESULT WriteBlocking(
+		AkFileHandle &	in_hFile,			// Returned file identifier/handle.
+		void *			in_pData,			// Buffer. Must be aligned on CAkFileHelpers::s_uRequiredBlockSize boundary.		
+		AkUInt64		in_uPosition,		// Position from which to start writing.
+		AkUInt32		in_uSizeToWrite)
+	{
+		AKASSERT( in_pData && in_hFile != INVALID_HANDLE_VALUE );
+
+		OVERLAPPED overlapped;
+		overlapped.Offset = (DWORD)( in_uPosition & 0xFFFFFFFF );
+		overlapped.OffsetHigh = (DWORD)( ( in_uPosition >> 32 ) & 0xFFFFFFFF );
+		overlapped.hEvent = NULL;
+
+		AkUInt32 uSizeTransferred;
+
+		if ( ::WriteFile( 
+			in_hFile,
+			in_pData,
+			in_uSizeToWrite,
+			&uSizeTransferred,
+			&overlapped ) )
+		{
+			AKASSERT( uSizeTransferred == in_uSizeToWrite );
+			return AK_Success;
+		}
+
+		return AK_Fail;
 	}
 };
 

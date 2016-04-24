@@ -22,7 +22,6 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-//#include "stdafx.h"
 #include "AkDefaultLowLevelIODispatcher.h"
 #include <AK/Tools/Common/AkAssert.h>
 
