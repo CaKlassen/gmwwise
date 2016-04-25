@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22F6930C1CCEBB18000F1A08 /* GMWBank.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F692FF1CCEBB18000F1A08 /* GMWBank.mm */; };
+		22F6930D1CCEBB18000F1A08 /* GMWBank.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F693001CCEBB18000F1A08 /* GMWBank.h */; };
+		22F6930E1CCEBB18000F1A08 /* GMWConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F693011CCEBB18000F1A08 /* GMWConfig.h */; };
+		22F6930F1CCEBB18000F1A08 /* GMWEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F693021CCEBB18000F1A08 /* GMWEngine.mm */; };
+		22F693101CCEBB18000F1A08 /* GMWEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F693031CCEBB18000F1A08 /* GMWEngine.h */; };
+		22F693111CCEBB18000F1A08 /* GMWGameObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F693041CCEBB18000F1A08 /* GMWGameObject.mm */; };
+		22F693121CCEBB18000F1A08 /* GMWGameObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F693051CCEBB18000F1A08 /* GMWGameObject.h */; };
+		22F693131CCEBB18000F1A08 /* GMWListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F693061CCEBB18000F1A08 /* GMWListener.mm */; };
+		22F693141CCEBB18000F1A08 /* GMWListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F693071CCEBB18000F1A08 /* GMWListener.h */; };
+		22F693171CCEBB18000F1A08 /* GMWStringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F6930A1CCEBB18000F1A08 /* GMWStringUtil.cpp */; };
+		22F693181CCEBB18000F1A08 /* GMWStringUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F6930B1CCEBB18000F1A08 /* GMWStringUtil.h */; };
+		22F6932D1CCEBD3B000F1A08 /* AkDefaultIOHookBlocking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F6931A1CCEBB30000F1A08 /* AkDefaultIOHookBlocking.cpp */; };
+		22F6932E1CCEBD3B000F1A08 /* AkDefaultIOHookDeferred.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F6931C1CCEBB30000F1A08 /* AkDefaultIOHookDeferred.cpp */; };
+		22F6932F1CCEBD3B000F1A08 /* AkDefaultLowLevelIODispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F6931E1CCEBB30000F1A08 /* AkDefaultLowLevelIODispatcher.cpp */; };
+		22F693301CCEBD3B000F1A08 /* AkFileLocationBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F693211CCEBB30000F1A08 /* AkFileLocationBase.cpp */; };
+		22F693311CCEBD3B000F1A08 /* AkFilePackage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F693231CCEBB30000F1A08 /* AkFilePackage.cpp */; };
+		22F693321CCEBD3B000F1A08 /* AkFilePackageLUT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F693291CCEBB30000F1A08 /* AkFilePackageLUT.cpp */; };
+		22F695161CCEC6DE000F1A08 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F695131CCEC6DE000F1A08 /* AudioToolbox.framework */; };
+		22F695171CCEC6DE000F1A08 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F695141CCEC6DE000F1A08 /* AudioUnit.framework */; };
+		22F695181CCEC6DE000F1A08 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F695151CCEC6DE000F1A08 /* CoreAudio.framework */; };
+		22F6951A1CCEC71F000F1A08 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F695191CCEC71F000F1A08 /* Cocoa.framework */; };
+		22F6951C1CCEC726000F1A08 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F6951B1CCEC726000F1A08 /* QuartzCore.framework */; };
+		22F695201CCEDB19000F1A08 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F6951F1CCEDB19000F1A08 /* AppKit.framework */; };
+		22F695251CCEE045000F1A08 /* GMWAlert.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F695231CCEE045000F1A08 /* GMWAlert.mm */; };
+		22F695261CCEE045000F1A08 /* GMWAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F695241CCEE045000F1A08 /* GMWAlert.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		22F692F41CCEBA8E000F1A08 /* libGMWwise.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libGMWwise.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		22F692FF1CCEBB18000F1A08 /* GMWBank.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMWBank.mm; sourceTree = "<group>"; };
+		22F693001CCEBB18000F1A08 /* GMWBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWBank.h; sourceTree = "<group>"; };
+		22F693011CCEBB18000F1A08 /* GMWConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWConfig.h; sourceTree = "<group>"; };
+		22F693021CCEBB18000F1A08 /* GMWEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMWEngine.mm; sourceTree = "<group>"; };
+		22F693031CCEBB18000F1A08 /* GMWEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWEngine.h; sourceTree = "<group>"; };
+		22F693041CCEBB18000F1A08 /* GMWGameObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMWGameObject.mm; sourceTree = "<group>"; };
+		22F693051CCEBB18000F1A08 /* GMWGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWGameObject.h; sourceTree = "<group>"; };
+		22F693061CCEBB18000F1A08 /* GMWListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMWListener.mm; sourceTree = "<group>"; };
+		22F693071CCEBB18000F1A08 /* GMWListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWListener.h; sourceTree = "<group>"; };
+		22F6930A1CCEBB18000F1A08 /* GMWStringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GMWStringUtil.cpp; sourceTree = "<group>"; };
+		22F6930B1CCEBB18000F1A08 /* GMWStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWStringUtil.h; sourceTree = "<group>"; };
+		22F6931A1CCEBB30000F1A08 /* AkDefaultIOHookBlocking.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AkDefaultIOHookBlocking.cpp; sourceTree = "<group>"; };
+		22F6931B1CCEBB30000F1A08 /* AkDefaultIOHookBlocking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkDefaultIOHookBlocking.h; sourceTree = "<group>"; };
+		22F6931C1CCEBB30000F1A08 /* AkDefaultIOHookDeferred.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AkDefaultIOHookDeferred.cpp; sourceTree = "<group>"; };
+		22F6931D1CCEBB30000F1A08 /* AkDefaultIOHookDeferred.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkDefaultIOHookDeferred.h; sourceTree = "<group>"; };
+		22F6931E1CCEBB30000F1A08 /* AkDefaultLowLevelIODispatcher.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AkDefaultLowLevelIODispatcher.cpp; sourceTree = "<group>"; };
+		22F6931F1CCEBB30000F1A08 /* AkDefaultLowLevelIODispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkDefaultLowLevelIODispatcher.h; sourceTree = "<group>"; };
+		22F693201CCEBB30000F1A08 /* AkFileHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkFileHelpers.h; sourceTree = "<group>"; };
+		22F693211CCEBB30000F1A08 /* AkFileLocationBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AkFileLocationBase.cpp; sourceTree = "<group>"; };
+		22F693221CCEBB30000F1A08 /* AkFileLocationBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkFileLocationBase.h; sourceTree = "<group>"; };
+		22F693231CCEBB30000F1A08 /* AkFilePackage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AkFilePackage.cpp; sourceTree = "<group>"; };
+		22F693241CCEBB30000F1A08 /* AkFilePackage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkFilePackage.h; sourceTree = "<group>"; };
+		22F693251CCEBB30000F1A08 /* AkFilePackageLowLevelIO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkFilePackageLowLevelIO.h; sourceTree = "<group>"; };
+		22F693261CCEBB30000F1A08 /* AkFilePackageLowLevelIO.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = AkFilePackageLowLevelIO.inl; sourceTree = "<group>"; };
+		22F693271CCEBB30000F1A08 /* AkFilePackageLowLevelIOBlocking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkFilePackageLowLevelIOBlocking.h; sourceTree = "<group>"; };
+		22F693281CCEBB30000F1A08 /* AkFilePackageLowLevelIODeferred.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkFilePackageLowLevelIODeferred.h; sourceTree = "<group>"; };
+		22F693291CCEBB30000F1A08 /* AkFilePackageLUT.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AkFilePackageLUT.cpp; sourceTree = "<group>"; };
+		22F6932A1CCEBB30000F1A08 /* AkFilePackageLUT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkFilePackageLUT.h; sourceTree = "<group>"; };
+		22F6932B1CCEBB30000F1A08 /* AkMultipleFileLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkMultipleFileLocation.h; sourceTree = "<group>"; };
+		22F6932C1CCEBB30000F1A08 /* AkMultipleFileLocation.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = AkMultipleFileLocation.inl; sourceTree = "<group>"; };
+		22F695131CCEC6DE000F1A08 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		22F695141CCEC6DE000F1A08 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		22F695151CCEC6DE000F1A08 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		22F695191CCEC71F000F1A08 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		22F6951B1CCEC726000F1A08 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		22F6951F1CCEDB19000F1A08 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		22F695231CCEE045000F1A08 /* GMWAlert.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMWAlert.mm; sourceTree = "<group>"; };
+		22F695241CCEE045000F1A08 /* GMWAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWAlert.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22F692F11CCEBA8E000F1A08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F695201CCEDB19000F1A08 /* AppKit.framework in Frameworks */,
+				22F6951C1CCEC726000F1A08 /* QuartzCore.framework in Frameworks */,
+				22F6951A1CCEC71F000F1A08 /* Cocoa.framework in Frameworks */,
+				22F695161CCEC6DE000F1A08 /* AudioToolbox.framework in Frameworks */,
+				22F695171CCEC6DE000F1A08 /* AudioUnit.framework in Frameworks */,
+				22F695181CCEC6DE000F1A08 /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22F692EB1CCEBA8E000F1A08 = {
+			isa = PBXGroup;
+			children = (
+				22F695231CCEE045000F1A08 /* GMWAlert.mm */,
+				22F695241CCEE045000F1A08 /* GMWAlert.h */,
+				22F6951F1CCEDB19000F1A08 /* AppKit.framework */,
+				22F6951B1CCEC726000F1A08 /* QuartzCore.framework */,
+				22F695191CCEC71F000F1A08 /* Cocoa.framework */,
+				22F695131CCEC6DE000F1A08 /* AudioToolbox.framework */,
+				22F695141CCEC6DE000F1A08 /* AudioUnit.framework */,
+				22F695151CCEC6DE000F1A08 /* CoreAudio.framework */,
+				22F692FF1CCEBB18000F1A08 /* GMWBank.mm */,
+				22F693001CCEBB18000F1A08 /* GMWBank.h */,
+				22F693011CCEBB18000F1A08 /* GMWConfig.h */,
+				22F693021CCEBB18000F1A08 /* GMWEngine.mm */,
+				22F693031CCEBB18000F1A08 /* GMWEngine.h */,
+				22F693041CCEBB18000F1A08 /* GMWGameObject.mm */,
+				22F693051CCEBB18000F1A08 /* GMWGameObject.h */,
+				22F693061CCEBB18000F1A08 /* GMWListener.mm */,
+				22F693071CCEBB18000F1A08 /* GMWListener.h */,
+				22F6930A1CCEBB18000F1A08 /* GMWStringUtil.cpp */,
+				22F6930B1CCEBB18000F1A08 /* GMWStringUtil.h */,
+				22F693191CCEBB30000F1A08 /* wwise */,
+				22F692F51CCEBA8E000F1A08 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22F692F51CCEBA8E000F1A08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22F692F41CCEBA8E000F1A08 /* libGMWwise.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22F693191CCEBB30000F1A08 /* wwise */ = {
+			isa = PBXGroup;
+			children = (
+				22F6931A1CCEBB30000F1A08 /* AkDefaultIOHookBlocking.cpp */,
+				22F6931B1CCEBB30000F1A08 /* AkDefaultIOHookBlocking.h */,
+				22F6931C1CCEBB30000F1A08 /* AkDefaultIOHookDeferred.cpp */,
+				22F6931D1CCEBB30000F1A08 /* AkDefaultIOHookDeferred.h */,
+				22F6931E1CCEBB30000F1A08 /* AkDefaultLowLevelIODispatcher.cpp */,
+				22F6931F1CCEBB30000F1A08 /* AkDefaultLowLevelIODispatcher.h */,
+				22F693201CCEBB30000F1A08 /* AkFileHelpers.h */,
+				22F693211CCEBB30000F1A08 /* AkFileLocationBase.cpp */,
+				22F693221CCEBB30000F1A08 /* AkFileLocationBase.h */,
+				22F693231CCEBB30000F1A08 /* AkFilePackage.cpp */,
+				22F693241CCEBB30000F1A08 /* AkFilePackage.h */,
+				22F693251CCEBB30000F1A08 /* AkFilePackageLowLevelIO.h */,
+				22F693261CCEBB30000F1A08 /* AkFilePackageLowLevelIO.inl */,
+				22F693271CCEBB30000F1A08 /* AkFilePackageLowLevelIOBlocking.h */,
+				22F693281CCEBB30000F1A08 /* AkFilePackageLowLevelIODeferred.h */,
+				22F693291CCEBB30000F1A08 /* AkFilePackageLUT.cpp */,
+				22F6932A1CCEBB30000F1A08 /* AkFilePackageLUT.h */,
+				22F6932B1CCEBB30000F1A08 /* AkMultipleFileLocation.h */,
+				22F6932C1CCEBB30000F1A08 /* AkMultipleFileLocation.inl */,
+			);
+			path = wwise;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		22F692F21CCEBA8E000F1A08 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F693141CCEBB18000F1A08 /* GMWListener.h in Headers */,
+				22F693101CCEBB18000F1A08 /* GMWEngine.h in Headers */,
+				22F695261CCEE045000F1A08 /* GMWAlert.h in Headers */,
+				22F693121CCEBB18000F1A08 /* GMWGameObject.h in Headers */,
+				22F693181CCEBB18000F1A08 /* GMWStringUtil.h in Headers */,
+				22F6930E1CCEBB18000F1A08 /* GMWConfig.h in Headers */,
+				22F6930D1CCEBB18000F1A08 /* GMWBank.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		22F692F31CCEBA8E000F1A08 /* GMWwise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22F692F81CCEBA8E000F1A08 /* Build configuration list for PBXNativeTarget "GMWwise" */;
+			buildPhases = (
+				22F692F01CCEBA8E000F1A08 /* Sources */,
+				22F692F11CCEBA8E000F1A08 /* Frameworks */,
+				22F692F21CCEBA8E000F1A08 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GMWwise;
+			productName = GMWwise;
+			productReference = 22F692F41CCEBA8E000F1A08 /* libGMWwise.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22F692EC1CCEBA8E000F1A08 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Chris Klassen";
+				TargetAttributes = {
+					22F692F31CCEBA8E000F1A08 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 22F692EF1CCEBA8E000F1A08 /* Build configuration list for PBXProject "GMWwise" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 22F692EB1CCEBA8E000F1A08;
+			productRefGroup = 22F692F51CCEBA8E000F1A08 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22F692F31CCEBA8E000F1A08 /* GMWwise */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22F692F01CCEBA8E000F1A08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F6932D1CCEBD3B000F1A08 /* AkDefaultIOHookBlocking.cpp in Sources */,
+				22F6932E1CCEBD3B000F1A08 /* AkDefaultIOHookDeferred.cpp in Sources */,
+				22F6932F1CCEBD3B000F1A08 /* AkDefaultLowLevelIODispatcher.cpp in Sources */,
+				22F693301CCEBD3B000F1A08 /* AkFileLocationBase.cpp in Sources */,
+				22F695251CCEE045000F1A08 /* GMWAlert.mm in Sources */,
+				22F693311CCEBD3B000F1A08 /* AkFilePackage.cpp in Sources */,
+				22F693321CCEBD3B000F1A08 /* AkFilePackageLUT.cpp in Sources */,
+				22F6930C1CCEBB18000F1A08 /* GMWBank.mm in Sources */,
+				22F693131CCEBB18000F1A08 /* GMWListener.mm in Sources */,
+				22F693111CCEBB18000F1A08 /* GMWGameObject.mm in Sources */,
+				22F693171CCEBB18000F1A08 /* GMWStringUtil.cpp in Sources */,
+				22F6930F1CCEBB18000F1A08 /* GMWEngine.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		22F692F61CCEBA8E000F1A08 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
+				LIBRARY_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/Profile;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Profile;
+		};
+		22F692F71CCEBA8E000F1A08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
+				LIBRARY_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/Mac/Release;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		22F692F91CCEBA8E000F1A08 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
+				LIBRARY_SEARCH_PATHS = "/Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/$(CONFIGURATION)/lib\"";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-lAkHarmonizerFX",
+					"-lAkMeterFX",
+					"-lAkStereoDelayFX",
+					"-lAkConvolutionReverbFX",
+					"-lAkPitchShifterFX",
+					"-lAkTremoloFX",
+					"-lAkGuitarDistortionFX",
+					"-lAkSineSource",
+					"-lAkCompressorFX",
+					"-lAkExpanderFX",
+					"-lAkMatrixReverbFX",
+					"-lAkDelayFX",
+					"-lAkGainFX",
+					"-lAkParametricEQFX",
+					"-lAkRoomVerbFX",
+					"-lAkPeakLimiterFX",
+					"-lAkSynthOne",
+					"-lAkSilenceSource",
+					"-lAkAudioInputSource",
+					"-lAkAACDecoder",
+					"-lCommunicationCentral",
+					"-lAkVorbisDecoder",
+					"-lAkStreamMgr",
+					"-lAkSoundEngine",
+					"-lAkMusicEngine",
+					"-lAkMemoryMgr",
+					"-lAkToneSource",
+					"-lAkFlangerFX",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Profile;
+		};
+		22F692FA1CCEBA8E000F1A08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
+				LIBRARY_SEARCH_PATHS = "/Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/$(CONFIGURATION)/lib\"";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22F692EF1CCEBA8E000F1A08 /* Build configuration list for PBXProject "GMWwise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22F692F61CCEBA8E000F1A08 /* Profile */,
+				22F692F71CCEBA8E000F1A08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22F692F81CCEBA8E000F1A08 /* Build configuration list for PBXNativeTarget "GMWwise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22F692F91CCEBA8E000F1A08 /* Profile */,
+				22F692FA1CCEBA8E000F1A08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22F692EC1CCEBA8E000F1A08 /* Project object */;
+}
