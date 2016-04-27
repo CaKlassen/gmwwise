@@ -22,8 +22,7 @@ See the GNU Lesser General Public License for more details.
 
 #define STDCALL
 
-#define GMW_VERSION_STRING "1.2.2"
-//#define GMW_EXCEPTION(msg) perror(msg)
+#define GMW_VERSION_STRING "1.3.0"
 
 #include <AK/SoundEngine/Common/AkSoundEngine.h>
 #include <AK/IBytes.h>

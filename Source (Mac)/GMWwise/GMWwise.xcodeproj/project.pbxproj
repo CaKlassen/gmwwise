@@ -35,7 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		22F692F41CCEBA8E000F1A08 /* libGMWwise.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libGMWwise.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		22F692F41CCEBA8E000F1A08 /* libGMWwise_profile.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libGMWwise_profile.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F692FF1CCEBB18000F1A08 /* GMWBank.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMWBank.mm; sourceTree = "<group>"; };
 		22F693001CCEBB18000F1A08 /* GMWBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWBank.h; sourceTree = "<group>"; };
 		22F693011CCEBB18000F1A08 /* GMWConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWConfig.h; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		22F692F51CCEBA8E000F1A08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				22F692F41CCEBA8E000F1A08 /* libGMWwise.dylib */,
+				22F692F41CCEBA8E000F1A08 /* libGMWwise_profile.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 			);
 			name = GMWwise;
 			productName = GMWwise;
-			productReference = 22F692F41CCEBA8E000F1A08 /* libGMWwise.dylib */;
+			productReference = 22F692F41CCEBA8E000F1A08 /* libGMWwise_profile.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -323,7 +323,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
-				LIBRARY_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/Mac/Release;
+				LIBRARY_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/Release;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -338,6 +338,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
 				LIBRARY_SEARCH_PATHS = "/Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/$(CONFIGURATION)/lib\"";
 				ONLY_ACTIVE_ARCH = NO;
@@ -370,8 +371,14 @@
 					"-lAkMemoryMgr",
 					"-lAkToneSource",
 					"-lAkFlangerFX",
+					"-lMcDSPFutzBoxFX",
+					"-lMcDSPLimiterFX",
+					"-lAKSoundSeedWind",
+					"-lAKSoundSeedWoosh",
+					"-lAKSoundSeedImpactFX",
+					"-lAKTimeStretchFX",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)_profile";
 			};
 			name = Profile;
 		};
@@ -383,8 +390,44 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = AK_OPTIMIZED;
 				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
 				LIBRARY_SEARCH_PATHS = "/Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/$(CONFIGURATION)/lib\"";
+				OTHER_LDFLAGS = (
+					"-lAKVorbisDecoder",
+					"-lAKStreamMgr",
+					"-lAKSoundEngine",
+					"-lAKSoundSeedWind",
+					"-lAKSoundSeedWoosh",
+					"-lAKMusicEngine",
+					"-lAKMemoryMgr",
+					"-lAKSoundSeedImpactFX",
+					"-lAKToneSource",
+					"-lAKFlangerFX",
+					"-lAKTremoloFX",
+					"-lAKGuitarDistortionFX",
+					"-lAKSineSource",
+					"-lAKCompressorFX",
+					"-lAKExpanderFX",
+					"-lAKMatrixReverbFX",
+					"-lAKDelayFX",
+					"-lAKGainFX",
+					"-lAKParametricEQFX",
+					"-lAKRoomVerbFX",
+					"-lAKPeakLimiterFX",
+					"-lAKSynthOne",
+					"-lAKSilenceSource",
+					"-lAKAudioInputSource",
+					"-lAKAACDecoder",
+					"-lAKConvolutionReverbFX",
+					"-lAKMeterFX",
+					"-lAKStereoDelayFX",
+					"-lAKHarmonizerFX",
+					"-lAKTimeStretchFX",
+					"-lAKPitchShifterFX",
+					"-lMcDSPFutzBoxFX",
+					"-lMcDSPLimiterFX",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

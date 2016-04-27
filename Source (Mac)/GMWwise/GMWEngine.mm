@@ -22,36 +22,16 @@ See the GNU Lesser General Public License for more details.
 namespace AK
 {
 	
-    void * __cdecl AllocHook( size_t in_size )
-    {
-        return malloc( in_size );
-    }
-    void __cdecl FreeHook( void * in_ptr )
-    {
-        free( in_ptr );
-    }
-    void * __cdecl VirtualAllocHook(
-        void * in_pMemAddress,
-        size_t in_size,
-        DWORD in_dwAllocationType,
-        DWORD in_dwProtect
-        )
-    {
-		void *ptr = mmap(in_pMemAddress, in_size, PROT_NONE, (MAP_PRIVATE | MAP_ANON), -1, 0);
-		msync(ptr, in_size, (MS_SYNC | MS_INVALIDATE));
-		
-		return ptr;
-    }
-    void __cdecl VirtualFreeHook( 
-        void * in_pMemAddress,
-        size_t in_size,
-        DWORD in_dwFreeType
-        )
-    {
-		mmap(in_pMemAddress, in_size, PROT_NONE, MAP_FIXED|MAP_PRIVATE|MAP_ANON, -1, 0);
-		msync(in_pMemAddress, in_size, MS_SYNC|MS_INVALIDATE);
+#ifdef AK_APPLE
+	void * AllocHook( size_t in_size )
+	{
+		return malloc( in_size );
 	}
-	
+	void FreeHook( void * in_ptr )
+	{
+		free( in_ptr );
+	}
+#endif
 }
 
 CAkFilePackageLowLevelIOBlocking g_lowLevelIO;
@@ -68,6 +48,8 @@ extern "C"
     // Initialization of Wwise. --------------------------------------
 	GMW_API double GMWInit(void)
     {
+		setlocale( LC_ALL, "" );
+		
 		AkMemSettings memSettings;
 		memSettings.uMaxNumPools = 20;
 
@@ -100,7 +82,9 @@ extern "C"
         AkInitSettings initSettings;
         AkPlatformInitSettings platformInitSettings;
         AK::SoundEngine::GetDefaultInitSettings( initSettings );
+		initSettings.uDefaultPoolSize = 2 * 1024 * 1024;
         AK::SoundEngine::GetDefaultPlatformInitSettings( platformInitSettings );
+		platformInitSettings.uLEngineDefaultPoolSize = 1 * 1024 * 1024;
         if(AK::SoundEngine::Init(&initSettings, &platformInitSettings) != AK_Success)
         {
             GMW_EXCEPTION("Could not initialize the Sound Engine.");
@@ -128,7 +112,7 @@ extern "C"
         }
 #endif
 		//SoundInputMgr::Instance().Initialize();
-
+		
 		return EC_NONE;
     }
 

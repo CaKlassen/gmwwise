@@ -69,7 +69,7 @@ extern "C"
 			return EC_IO;
 		}
         else
-            g_lowLevelIO.SetBasePath((const AkOSChar*)wbanks_path);
+            g_lowLevelIO.SetBasePath((const AkOSChar*)banks_path);
 		
 		return EC_NONE;
 	}
@@ -80,12 +80,12 @@ extern "C"
 	{
         AkBankID bankID;
         wchar_t* wbank_name = gmw::StringUtil::str2wstr(bank_name);
-
-        AKRESULT result = AK::SoundEngine::LoadBank(wbank_name, AK_DEFAULT_POOL_ID, bankID);
+		
+        AKRESULT result = AK::SoundEngine::LoadBank(bank_name, AK_DEFAULT_POOL_ID, bankID);
         if(result != AK_Success)
 		{
             std::stringstream sstr;
-            sstr << "Unable to load the bank : " << bank_name << "\nwwise : ";
+            sstr << "Unable to load the bank : " << bank_name << "\nwwise : " << result << " : ";
 
             switch(result)
             {
