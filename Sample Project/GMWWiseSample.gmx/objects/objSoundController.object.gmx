@@ -32,11 +32,15 @@ global.GMW_PROFILE = true;
 
 gmwInit();
 
-if (os_type == os_macosx)
-    gmwSetBasePath("sound/banks/Mac/");
-else
-    gmwSetBasePath("sound/banks/Windows/");
+var path = "";
 
+if (os_type == os_macosx)
+    path = working_directory + "sound/banks/Mac/";
+else
+    path = working_directory + "sound/banks/Windows/";
+    
+gmwSetBasePath(path);
+    
 gmwRegisterCodec(0);
 gmwRegisterPlugin(6);
 
