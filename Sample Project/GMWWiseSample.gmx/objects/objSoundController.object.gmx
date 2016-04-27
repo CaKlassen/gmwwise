@@ -30,15 +30,13 @@
 // GMWWise Initialization
 global.GMW_PROFILE = true;
 
-if (!gmwLoad())
-{
-    // Failed to load the DLLs
-    game_end();
-}
-
 gmwInit();
 
-gmwSetBasePath("banks/");
+if (os_type == os_macosx)
+    gmwSetBasePath("sound/banks/Mac/");
+else
+    gmwSetBasePath("sound/banks/Windows/");
+
 gmwRegisterCodec(0);
 gmwRegisterPlugin(6);
 
@@ -106,7 +104,6 @@ gmwUnloadBank(global.GAME_BANK);
 
 // Stop GMWWise
 gmwStop();
-gmwUnload();
 </string>
           </argument>
         </arguments>

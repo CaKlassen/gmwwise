@@ -86,6 +86,8 @@ extern "C"
             std::stringstream sstr;
             sstr << "Unable to load the bank : " << bank_name << "\nwwise : ";
 
+			sstr << ((AKRESULT)result) << " : ";
+
             switch(result)
             {
             case AK_InsufficientMemory:
@@ -104,7 +106,7 @@ extern "C"
                 sstr << "invalid parameter, invalid memory alignment.";
                 break;
             case AK_Fail:
-                sstr << "load failed for unknow reason.";
+                sstr << "load failed for unknown reason.";
                 break;
             }
 

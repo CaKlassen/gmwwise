@@ -3,96 +3,274 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="5" name="datafiles">
-    <datafile>
-      <name>GMWwise.dll</name>
-      <exists>-1</exists>
-      <size>995840</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>GMWwise.dll</filename>
-    </datafile>
-    <datafile>
-      <name>GMWwise_profile.dll</name>
-      <exists>-1</exists>
-      <size>1164800</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>GMWwise_profile.dll</filename>
-    </datafile>
-    <datafiles number="5" name="banks">
-      <datafile>
-        <name>579660105.wem</name>
-        <exists>-1</exists>
-        <size>1896364</size>
-        <exportAction>2</exportAction>
-        <exportDir></exportDir>
-        <overwrite>0</overwrite>
-        <freeData>-1</freeData>
-        <removeEnd>0</removeEnd>
-        <store>0</store>
-        <ConfigOptions>
-          <Config name="Default">
-            <CopyToMask>9223372036854775807</CopyToMask>
-          </Config>
-        </ConfigOptions>
-        <filename>579660105.wem</filename>
-      </datafile>
-      <datafile>
-        <name>Init.bnk</name>
-        <exists>-1</exists>
-        <size>468</size>
-        <exportAction>2</exportAction>
-        <exportDir></exportDir>
-        <overwrite>0</overwrite>
-        <freeData>-1</freeData>
-        <removeEnd>0</removeEnd>
-        <store>0</store>
-        <ConfigOptions>
-          <Config name="Default">
-            <CopyToMask>9223372036854775807</CopyToMask>
-          </Config>
-        </ConfigOptions>
-        <filename>Init.bnk</filename>
-      </datafile>
-      <datafile>
-        <name>SoundBank.bnk</name>
-        <exists>-1</exists>
-        <size>32027</size>
-        <exportAction>2</exportAction>
-        <exportDir></exportDir>
-        <overwrite>0</overwrite>
-        <freeData>-1</freeData>
-        <removeEnd>0</removeEnd>
-        <store>0</store>
-        <ConfigOptions>
-          <Config name="Default">
-            <CopyToMask>9223372036854775807</CopyToMask>
-          </Config>
-        </ConfigOptions>
-        <filename>SoundBank.bnk</filename>
-      </datafile>
+  <datafiles number="20" name="datafiles">
+    <datafiles number="20" name="sound">
+      <datafiles number="20" name="banks">
+        <datafiles number="20" name="Mac">
+          <datafile>
+            <name>579660105.wem</name>
+            <exists>-1</exists>
+            <size>1896364</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>579660105.wem</filename>
+          </datafile>
+          <datafile>
+            <name>Init.bnk</name>
+            <exists>-1</exists>
+            <size>483</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>Init.bnk</filename>
+          </datafile>
+          <datafile>
+            <name>Init.txt</name>
+            <exists>-1</exists>
+            <size>566</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>Init.txt</filename>
+          </datafile>
+          <datafile>
+            <name>PluginInfo.xml</name>
+            <exists>-1</exists>
+            <size>133</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>PluginInfo.xml</filename>
+          </datafile>
+          <datafile>
+            <name>SoundBank.bnk</name>
+            <exists>-1</exists>
+            <size>31977</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>SoundBank.bnk</filename>
+          </datafile>
+          <datafile>
+            <name>SoundBank.txt</name>
+            <exists>-1</exists>
+            <size>1062</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>SoundBank.txt</filename>
+          </datafile>
+          <datafile>
+            <name>SoundbanksInfo.xml</name>
+            <exists>-1</exists>
+            <size>1664</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>SoundbanksInfo.xml</filename>
+          </datafile>
+        </datafiles>
+        <datafiles number="20" name="Windows">
+          <datafile>
+            <name>579660105.wem</name>
+            <exists>-1</exists>
+            <size>1896364</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>579660105.wem</filename>
+          </datafile>
+          <datafile>
+            <name>Init.bnk</name>
+            <exists>-1</exists>
+            <size>487</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>Init.bnk</filename>
+          </datafile>
+          <datafile>
+            <name>Init.txt</name>
+            <exists>-1</exists>
+            <size>566</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>Init.txt</filename>
+          </datafile>
+          <datafile>
+            <name>PluginInfo.xml</name>
+            <exists>-1</exists>
+            <size>137</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>PluginInfo.xml</filename>
+          </datafile>
+          <datafile>
+            <name>SoundBank.bnk</name>
+            <exists>-1</exists>
+            <size>31977</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>SoundBank.bnk</filename>
+          </datafile>
+          <datafile>
+            <name>SoundBank.txt</name>
+            <exists>-1</exists>
+            <size>1070</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>SoundBank.txt</filename>
+          </datafile>
+          <datafile>
+            <name>SoundbanksInfo.xml</name>
+            <exists>-1</exists>
+            <size>1684</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>SoundbanksInfo.xml</filename>
+          </datafile>
+        </datafiles>
+        <datafile>
+          <name>Wwise_IDs.h</name>
+          <exists>-1</exists>
+          <size>1916</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>Wwise_IDs.h</filename>
+        </datafile>
+      </datafiles>
     </datafiles>
   </datafiles>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\GMWwise</extension>
+  </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sprWall</sprite>
@@ -100,38 +278,6 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
-  <scripts name="scripts">
-    <scripts name="GMWwise">
-      <script>scripts\gmwLoad.gml</script>
-      <script>scripts\gmwInit.gml</script>
-      <script>scripts\gmwSetBasePath.gml</script>
-      <script>scripts\gmwSetLanguageDirName.gml</script>
-      <script>scripts\gmwRegisterPlugin.gml</script>
-      <script>scripts\gmwRegisterCodec.gml</script>
-      <script>scripts\gmwStop.gml</script>
-      <script>scripts\gmwUnload.gml</script>
-      <script>scripts\gmwProcess.gml</script>
-      <script>scripts\gmwStopAll.gml</script>
-      <script>scripts\gmwLoadBank.gml</script>
-      <script>scripts\gmwUnloadBank.gml</script>
-      <script>scripts\gmwSetActiveListeners.gml</script>
-      <script>scripts\gmwSet2DListenerPosition.gml</script>
-      <script>scripts\gmwSet3DListenerPosition.gml</script>
-      <script>scripts\gmwSet2DPosition.gml</script>
-      <script>scripts\gmwSet3DPosition.gml</script>
-      <script>scripts\gmwRegisterGroup.gml</script>
-      <script>scripts\gmwUnregisterGroup.gml</script>
-      <script>scripts\gmwRegisterObject.gml</script>
-      <script>scripts\gmwUnregisterObject.gml</script>
-      <script>scripts\gmwSetState.gml</script>
-      <script>scripts\gmwPostEvent.gml</script>
-      <script>scripts\gmwPostTrigger.gml</script>
-      <script>scripts\gmwSetSwitch.gml</script>
-      <script>scripts\gmwSetParameter.gml</script>
-      <script>scripts\gmwSetGlobalParameter.gml</script>
-      <script>scripts\gmwGetParameter.gml</script>
-    </scripts>
-  </scripts>
   <objects name="objects">
     <object>objects\objSoundController</object>
     <object>objects\objHUD</object>
