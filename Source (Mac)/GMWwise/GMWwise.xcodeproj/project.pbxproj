@@ -341,6 +341,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
 				LIBRARY_SEARCH_PATHS = "/Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/$(CONFIGURATION)/lib\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-lAkHarmonizerFX",
@@ -393,6 +394,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = AK_OPTIMIZED;
 				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
 				LIBRARY_SEARCH_PATHS = "/Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/$(CONFIGURATION)/lib\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = (
 					"-lAKVorbisDecoder",
 					"-lAKStreamMgr",
