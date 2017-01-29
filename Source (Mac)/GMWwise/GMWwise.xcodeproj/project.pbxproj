@@ -282,8 +282,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
-				LIBRARY_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/Profile;
+				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include;
+				LIBRARY_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/Mac/Profile;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -322,8 +322,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
-				LIBRARY_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/Release;
+				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include;
+				LIBRARY_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/Mac/Release;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -339,8 +339,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
-				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
-				LIBRARY_SEARCH_PATHS = "/Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/$(CONFIGURATION)/lib\"";
+				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include;
+				LIBRARY_SEARCH_PATHS = "/Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/Mac/$(CONFIGURATION)/lib\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -377,6 +377,8 @@
 					"-lAKSoundSeedWind",
 					"-lAKSoundSeedWoosh",
 					"-lAKSoundSeedImpactFX",
+					"-lAkRecorderFX",
+					"-lCrankcaseAudioREVModelPlayerFX",
 					"-lAKTimeStretchFX",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)_profile";
@@ -392,8 +394,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREPROCESSOR_DEFINITIONS = AK_OPTIMIZED;
-				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/include;
-				LIBRARY_SEARCH_PATHS = "/Users/caklassen/Wwise/Wwise_v2015.1.6_build_5553/SDK/Mac/$(CONFIGURATION)/lib\"";
+				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include;
+				LIBRARY_SEARCH_PATHS = "/Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/Mac/$(CONFIGURATION)/lib\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = (
 					"-lAKVorbisDecoder",
@@ -429,6 +431,8 @@
 					"-lAKPitchShifterFX",
 					"-lMcDSPFutzBoxFX",
 					"-lMcDSPLimiterFX",
+					"-lCrankcaseAudioREVModelPlayerFX",
+					"-lAkRecorderFX",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

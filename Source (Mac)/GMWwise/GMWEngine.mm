@@ -13,6 +13,7 @@ See the GNU Lesser General Public License for more details.
 */
 #include "GMWEngine.h"
 #include "GMWBank.h"
+#include <AK/Plugin/AllPluginsFactories.h>
 #import <Cocoa/Cocoa.h>
 #include <sys/mman.h>
 //#include "wwise/SoundInputMgr.h"
@@ -190,10 +191,12 @@ extern "C"
         }
 
         AKRESULT nResult = AK_Success;
+		/*
         switch(nType)
         {
             // Sine
         case 0:
+				AK::SoundEngine::RegisterPluginDLL(<#const AkOSChar *in_DllName#>)
             nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeSource, AKCOMPANYID_AUDIOKINETIC, AKSOURCEID_SINE, CreateSineSource, CreateSineSourceParams);
             break;
 
@@ -265,7 +268,7 @@ extern "C"
         default:
             GMW_EXCEPTION("Unimplemented");
         }
-
+*/
         if(nResult != AK_Success)
         {
             GMW_EXCEPTION("Unable to register plugin.");
@@ -286,6 +289,7 @@ extern "C"
         }
 
         AKRESULT nResult;
+		/*
         switch((int)_dType)
         {
         // Vorbis codec.
@@ -295,7 +299,7 @@ extern "C"
 
         default:
             GMW_EXCEPTION("Unimplemented");
-        }
+        }*/
 
         if(nResult != AK_Success)
         {
