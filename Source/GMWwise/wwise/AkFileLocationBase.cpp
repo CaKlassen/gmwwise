@@ -1,3 +1,17 @@
+/*******************************************************************************
+The content of this file includes portions of the AUDIOKINETIC Wwise Technology
+released in source code form as part of the SDK installer package.
+
+Commercial License Usage
+
+Licensees holding valid commercial licenses to the AUDIOKINETIC Wwise Technology
+may use this file in accordance with the end user license agreement provided 
+with the software or, alternatively, in accordance with the terms contained in a
+written agreement between you and Audiokinetic Inc.
+
+  Version: v2016.2.1  Build: 5995
+  Copyright (c) 2006-2016 Audiokinetic Inc.
+*******************************************************************************/
 //////////////////////////////////////////////////////////////////////
 //
 // AkFileLocationBase.cpp
@@ -8,16 +22,11 @@
 // "Going Further > Overriding Managers > Streaming / Stream Manager > Low-Level I/O"
 // of the SDK documentation. 
 //
-// Copyright (c) 2006 Audiokinetic Inc. / All Rights Reserved
-//
 //////////////////////////////////////////////////////////////////////
 
 #include "AkFileLocationBase.h"
 
 #include <AK/SoundEngine/Common/AkStreamMgrModule.h>
-#ifdef AK_WIN
-#include <AK/Plugin/AkMP3SourceFactory.h> // For MP3 Codec ID.
-#endif
 #include <AK/Tools/Common/AkPlatformFuncs.h>
 #ifdef AK_SUPPORT_WCHAR
 #include <wchar.h>
@@ -79,21 +88,7 @@ AKRESULT CAkFileLocationBase::GetFullFilePath(
 		return AK_InvalidParameter;
 	}
 
-#ifdef AK_WIN
-	// MP3 files using the MP3 sample code, usually being provided by the gamer will 
-	// not be located in the game path, for these sounds, we are using the Full path
-	// to access them.
-	if ( in_pFlags != NULL && 
-		 in_pFlags->uCodecID == AKSOURCEID_MP3 &&
-		 in_pFlags->uCompanyID == AKCOMPANYID_AUDIOKINETIC )
-	{
-		out_pszFullFilePath[0] = 0;
-	}
-	else
-#endif
-	{
-		AKPLATFORM::SafeStrCpy( out_pszFullFilePath, m_szBasePath, AK_MAX_PATH );
-	}
+	AKPLATFORM::SafeStrCpy( out_pszFullFilePath, m_szBasePath, AK_MAX_PATH );
 
     if ( in_pFlags 
 		&& in_eOpenMode == AK_OpenModeRead )
@@ -252,18 +247,27 @@ AKRESULT CAkFileLocationBase::SetBasePath(
     const AkOSChar*   in_pszBasePath
     )
 {
-	if ( AKPLATFORM::OsStrLen( in_pszBasePath ) + AkTemplMax( AKPLATFORM::OsStrLen( m_szBankPath ), AKPLATFORM::OsStrLen( m_szAudioSrcPath ) ) + AKPLATFORM::OsStrLen( AK::StreamMgr::GetCurrentLanguage() ) + 1 >= AK_MAX_PATH )
+	size_t len = AKPLATFORM::OsStrLen(in_pszBasePath) + 2;	//+2 for possible missing slash
+	if (len + AkTemplMax(AKPLATFORM::OsStrLen(m_szBankPath), AKPLATFORM::OsStrLen(m_szAudioSrcPath)) + AKPLATFORM::OsStrLen(AK::StreamMgr::GetCurrentLanguage()) + 1 >= AK_MAX_PATH)
 	{
 		return AK_InvalidParameter;
 	}
 
 	//Copy the base path EVEN if the directory does not exist.
 	AKPLATFORM::SafeStrCpy( m_szBasePath, in_pszBasePath, AK_MAX_PATH );
-
-	AKRESULT eDirectoryResult = CAkFileHelpers::CheckDirectoryExists( in_pszBasePath );
-	if( eDirectoryResult == AK_Fail ) // AK_NotImplemented could be returned and should be ignored.
+	if (len > 2) // Ensure path has terminating separator, and validate existence of directory, except for an empty directory (==current directory)
 	{
-		return AK_PathNotFound;
+		if (m_szBasePath[len - 3] != (AkOSChar)AK_PATH_SEPARATOR[0])
+		{
+			m_szBasePath[len - 2] = (AkOSChar)AK_PATH_SEPARATOR[0];
+			m_szBasePath[len - 1] = 0;
+		}
+
+		AKRESULT eDirectoryResult = CAkFileHelpers::CheckDirectoryExists(in_pszBasePath);
+		if (eDirectoryResult == AK_Fail) // AK_NotImplemented could be returned and should be ignored.
+		{
+			return AK_PathNotFound;
+		}
 	}
 	
 	return AK_Success;
