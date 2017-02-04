@@ -14,8 +14,6 @@ See the GNU Lesser General Public License for more details.
 #ifndef _GMW_BANK_
 #define _GMW_BANK_
 
-#include "GMWConfig.h"
-
 extern "C"
 {
 	/// @brief Close every banks.

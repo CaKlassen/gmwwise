@@ -284,7 +284,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include;
 				LIBRARY_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/Mac/Profile;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -324,7 +324,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include;
 				LIBRARY_SEARCH_PATHS = /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/Mac/Release;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};

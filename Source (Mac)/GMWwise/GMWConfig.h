@@ -34,8 +34,6 @@ See the GNU Lesser General Public License for more details.
 #include <AK/SoundEngine/Common/AkStreamMgrModule.h>
 #include <AK/SoundEngine/Common/AkQueryParameters.h>
 
-#include <AK/Plugin/AllPluginsFactories.h>
-
 #ifndef AK_OPTIMIZED
 #   include <AK/Comm/AkCommunication.h>
 #endif

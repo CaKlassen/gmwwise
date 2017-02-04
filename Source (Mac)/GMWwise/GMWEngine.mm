@@ -13,12 +13,13 @@ See the GNU Lesser General Public License for more details.
 */
 #include "GMWEngine.h"
 #include "GMWBank.h"
-#include <AK/Plugin/AllPluginsFactories.h>
 #import <Cocoa/Cocoa.h>
 #include <sys/mman.h>
 //#include "wwise/SoundInputMgr.h"
 #include "GMWAlert.h"
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
+
+#include <AK/Plugin/AllPluginsFactories.h>
 
 namespace AK
 {
@@ -126,8 +127,8 @@ extern "C"
 #ifndef AK_OPTIMIZED
         AK::Comm::Term();	   
 #endif // AK_OPTIMIZED		
-		GMWClearBanks();		
-
+		GMWClearBanks();
+	
 		AK::SoundEngine::UnregisterAllGameObj();
 
 		AK::MusicEngine::Term();
@@ -196,7 +197,6 @@ extern "C"
         {
             // Sine
         case 0:
-				AK::SoundEngine::RegisterPluginDLL(<#const AkOSChar *in_DllName#>)
             nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeSource, AKCOMPANYID_AUDIOKINETIC, AKSOURCEID_SINE, CreateSineSource, CreateSineSourceParams);
             break;
 

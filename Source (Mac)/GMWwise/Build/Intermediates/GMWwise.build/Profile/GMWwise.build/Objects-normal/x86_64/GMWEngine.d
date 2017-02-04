@@ -37,6 +37,20 @@ dependencies: \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/SoundEngine/Common/AkQueryParameters.h \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Tools/Common/AkArray.h \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Tools/Common/AkObject.h \
+  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Comm/AkCommunication.h \
+  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/GMWBank.h \
+  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/GMWAlert.h \
+  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFilePackageLowLevelIOBlocking.h \
+  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFilePackageLowLevelIO.h \
+  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFilePackage.h \
+  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFilePackageLUT.h \
+  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Tools/Common/AkListBare.h \
+  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFilePackageLowLevelIO.inl \
+  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFileHelpers.h \
+  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkMultipleFileLocation.h \
+  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Tools/Common/AkListBareLight.h \
+  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkMultipleFileLocation.inl \
+  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkDefaultIOHookBlocking.h \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AllPluginsFactories.h \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkCompressorFXFactory.h \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkDelayFXFactory.h \
@@ -79,18 +93,4 @@ dependencies: \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkSynthOneFactory.h \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkVorbisDecoderFactory.h \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkAACFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/IOSONOProximityMixerFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Comm/AkCommunication.h \
-  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/GMWBank.h \
-  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/GMWAlert.h \
-  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFilePackageLowLevelIOBlocking.h \
-  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFilePackageLowLevelIO.h \
-  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFilePackage.h \
-  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFilePackageLUT.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Tools/Common/AkListBare.h \
-  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFilePackageLowLevelIO.inl \
-  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkFileHelpers.h \
-  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkMultipleFileLocation.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Tools/Common/AkListBareLight.h \
-  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkMultipleFileLocation.inl \
-  /Users/caklassen/Desktop/GMWwise/Source\ (Mac)/GMWwise/wwise/AkDefaultIOHookBlocking.h
+  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/IOSONOProximityMixerFactory.h

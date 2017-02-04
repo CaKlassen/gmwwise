@@ -1,3 +1,17 @@
+/*******************************************************************************
+The content of this file includes portions of the AUDIOKINETIC Wwise Technology
+released in source code form as part of the SDK installer package.
+
+Commercial License Usage
+
+Licensees holding valid commercial licenses to the AUDIOKINETIC Wwise Technology
+may use this file in accordance with the end user license agreement provided 
+with the software or, alternatively, in accordance with the terms contained in a
+written agreement between you and Audiokinetic Inc.
+
+  Version: v2016.2.1  Build: 5995
+  Copyright (c) 2006-2016 Audiokinetic Inc.
+*******************************************************************************/
 //////////////////////////////////////////////////////////////////////
 //
 // AkFileLocationBase.cpp
@@ -8,14 +22,10 @@
 // "Going Further > Overriding Managers > Streaming / Stream Manager > Low-Level I/O"
 // of the SDK documentation. 
 //
-// Copyright (c) 2006 Audiokinetic Inc. / All Rights Reserved
-//
 //////////////////////////////////////////////////////////////////////
 
+
 #include <AK/SoundEngine/Common/AkStreamMgrModule.h>
-#ifdef AK_WIN
-#include <AK/Plugin/AkMP3SourceFactory.h> // For MP3 Codec ID.
-#endif
 #include <AK/Tools/Common/AkPlatformFuncs.h>
 #ifdef AK_SUPPORT_WCHAR
 #include <wchar.h>
@@ -173,16 +183,31 @@ AKRESULT CAkMultipleFileLocation<OPEN_POLICY>::GetFullFilePath(
 template<class OPEN_POLICY>
 AKRESULT CAkMultipleFileLocation<OPEN_POLICY>::AddBasePath(const AkOSChar* in_pszBasePath)
 {
-	AkUInt32 len = (AkUInt32)AKPLATFORM::OsStrLen( in_pszBasePath ) + 1;
-	if ( len + AKPLATFORM::OsStrLen( AK::StreamMgr::GetCurrentLanguage() ) >= AK_MAX_PATH )
+	AkUInt32 origLen = (AkUInt32)AKPLATFORM::OsStrLen(in_pszBasePath);
+    AkUInt32 newByteSize = origLen + 1;	// One for the trailing \0
+    if(in_pszBasePath[origLen - 1] != AK_PATH_SEPARATOR[0])
+    {
+        newByteSize++; // Add space for a trailing slash
+    }
+
+    // Make sure the new base path is not too long in case language gets appended
+    // Format of the test is: basePath/Language/.
+	if ( origLen + 1 + AKPLATFORM::OsStrLen( AK::StreamMgr::GetCurrentLanguage() + 1 ) >= AK_MAX_PATH )
 		return AK_InvalidParameter;
 
-	FilePath * pPath = (FilePath*)AkAlloc(AK::StreamMgr::GetPoolID(), sizeof(FilePath) + sizeof(AkOSChar)*(len - 1));
+	FilePath * pPath = (FilePath*)AkAlloc(AK::StreamMgr::GetPoolID(), sizeof(FilePath) + sizeof(AkOSChar)*(newByteSize - 1));
 	if (pPath == NULL)
 		return AK_InsufficientMemory;
 
 	// Copy the base path EVEN if the directory does not exist.
-	AKPLATFORM::SafeStrCpy( pPath->szPath, in_pszBasePath, len );
+	AKPLATFORM::SafeStrCpy( pPath->szPath, in_pszBasePath, origLen + 1);
+    
+    // Add the trailing slash, if necessary
+	if (in_pszBasePath[origLen - 1] != AK_PATH_SEPARATOR[0])
+	{
+		pPath->szPath[origLen] = AK_PATH_SEPARATOR[0];
+		pPath->szPath[origLen + 1] = 0;
+	}
 	pPath->pNextLightItem = NULL;
 	m_Locations.AddFirst(pPath);
 

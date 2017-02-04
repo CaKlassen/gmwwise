@@ -37,47 +37,4 @@ dependencies: \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/SoundEngine/Common/AkQueryParameters.h \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Tools/Common/AkArray.h \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Tools/Common/AkObject.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AllPluginsFactories.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkCompressorFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkDelayFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkMatrixReverbFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkMeterFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkExpanderFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkParametricEQFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkGainFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkPeakLimiterFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkSoundSeedImpactFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkRoomVerbFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkGuitarDistortionFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkStereoDelayFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkPitchShifterFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkTimeStretchFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkFlangerFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkConvolutionReverbFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkTremoloFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkHarmonizerFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkRecorderFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/McDSPFutzBoxFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/McDSPLimiterFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/iZHybridReverbFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/iZTrashMultibandDistortionFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/iZTrashBoxModelerFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/iZTrashDelayFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/iZTrashDistortionFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/iZTrashDynamicsFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/iZTrashFiltersFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/CrankcaseAudioREVModelPlayerFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AuroHeadphoneFXFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AuroPannerMixerFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkSilenceSourceFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkSineSourceFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkToneSourceFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkAudioInputSourceFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkAudioInputPlugin.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkSoundSeedWooshFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkSoundSeedWindFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkSynthOneFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkVorbisDecoderFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/AkAACFactory.h \
-  /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Plugin/IOSONOProximityMixerFactory.h \
   /Users/caklassen/Wwise/Wwise_v2016.2.1.5995/SDK/include/AK/Comm/AkCommunication.h

@@ -61,6 +61,7 @@ extern "C"
 	// Set the path to load bank. ------------------------------------
 	GMW_API double GMWSetBasePath(const char* banks_path)
 	{
+	
 		wbanks_path = gmw::StringUtil::str2wstr(banks_path);
         if(!wbanks_path)
 		{
@@ -69,7 +70,10 @@ extern "C"
 			return EC_IO;
 		}
         else
+		{
+			GMW_EXCEPTION(banks_path);
             g_lowLevelIO.SetBasePath((const AkOSChar*)banks_path);
+		}
 		
 		return EC_NONE;
 	}
