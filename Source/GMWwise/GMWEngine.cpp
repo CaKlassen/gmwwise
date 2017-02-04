@@ -15,6 +15,21 @@ See the GNU Lesser General Public License for more details.
 #include "GMWBank.h"
 //#include "wwise/SoundInputMgr.h"
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
+//#include <AK/Plugin/AllPluginsFactories.h>
+#include <AK/Plugin/AkSineSourceFactory.h>
+#include <AK/Plugin/AkToneSourceFactory.h>
+#include <AK/Plugin/AkSilenceSourceFactory.h>
+#include <AK/Plugin/AkAudioInputPlugin.h>
+#include <AK/Plugin/AkDelayFXFactory.h>
+#include <AK/Plugin/AkParametricEQFXFactory.h>
+#include <AK/Plugin/AkMatrixReverbFXFactory.h>
+#include <AK/Plugin/AkCompressorFXFactory.h>
+#include <AK/Plugin/AkExpanderFXFactory.h>
+#include <AK/Plugin/AkPeakLimiterFXFactory.h>
+#include <AK/Plugin/AkRoomVerbFXFactory.h>
+#include <AK/Plugin/AkPitchShifterFXFactory.h>
+#include <AK/Plugin/AkMeterFXFactory.h>
+#include <AK/Plugin/AkVorbisDecoderFactory.h>
 
 namespace AK
 {
@@ -182,6 +197,7 @@ extern "C"
 		return EC_NONE;
 	}
 
+	/*
     //----------------------------------------------------------------
     // Register a wwise plugin. --------------------------------------
     GMW_API double STDCALL GMWRegisterPlugin(double _dType)
@@ -197,6 +213,7 @@ extern "C"
         }
 
         AKRESULT nResult = AK_Success;
+
         switch(nType)
         {
             // Sine
@@ -272,6 +289,7 @@ extern "C"
         default:
             GMW_EXCEPTION("Unimplemented");
         }
+		
 
         if(nResult != AK_Success)
         {
@@ -293,6 +311,7 @@ extern "C"
         }
 
         AKRESULT nResult;
+		
         switch((int)_dType)
         {
         // Vorbis codec.
@@ -311,4 +330,5 @@ extern "C"
 
         return EC_NONE;
     }
+	*/
 }

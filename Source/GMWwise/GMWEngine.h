@@ -50,6 +50,7 @@ extern "C"
 	/// @return 0 or an error code.
 	GMW_API double STDCALL GMWSetState(double _dStateGroup, double _dState);	
 
+	/*
     /// @brief Register a wwise plugin.
 	///
 	/// @param _dType Type of plugin.
@@ -83,6 +84,7 @@ extern "C"
 	///		Codecs list:
     ///			0 Vorbis
     GMW_API double STDCALL GMWRegisterCodec(double _dType);
+	*/
 }
 
 #endif // _GMW_ENGINE_

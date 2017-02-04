@@ -1,1 +1,38 @@
-﻿
+﻿  GMWBank.cpp
+  GMWEngine.cpp
+  GMWGameObject.cpp
+GMWGameObject.cpp(134): warning C4244: 'argument': conversion from 'double' to 'AkReal32', possible loss of data
+GMWGameObject.cpp(135): warning C4244: 'argument': conversion from 'double' to 'AkReal32', possible loss of data
+  GMWListener.cpp
+GMWListener.cpp(30): warning C4244: 'argument': conversion from 'double' to 'AkReal32', possible loss of data
+GMWListener.cpp(31): warning C4244: 'argument': conversion from 'double' to 'AkReal32', possible loss of data
+  GMWStringUtil.cpp
+  AkDefaultIOHookBlocking.cpp
+  AkDefaultIOHookDeferred.cpp
+  AkDefaultLowLevelIODispatcher.cpp
+  AkFileLocationBase.cpp
+  AkFilePackage.cpp
+  AkFilePackageLUT.cpp
+     Creating library C:\Users\Chris\Desktop\GMWwise\Source\bin\GMWwise.lib and object C:\Users\Chris\Desktop\GMWwise\Source\bin\GMWwise.exp
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration iZTrashDynamicsFXRegistration" (?iZTrashDynamicsFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration iZTrashMultibandDistortionFXRegistration" (?iZTrashMultibandDistortionFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration AkGainFXRegistration" (?AkGainFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration IOSONOProximityMixerRegistration" (?IOSONOProximityMixerRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration CrankcaseAudioREVModelPlayerFXRegistration" (?CrankcaseAudioREVModelPlayerFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration iZTrashDistortionFXRegistration" (?iZTrashDistortionFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration AuroPannerMixerRegistration" (?AuroPannerMixerRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration AkSynthOneRegistration" (?AkSynthOneRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration AkRecorderFXRegistration" (?AkRecorderFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration AuroPannerMixerAttachmentRegistration" (?AuroPannerMixerAttachmentRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration iZTrashDelayFXRegistration" (?iZTrashDelayFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration McDSPFutzBoxFXRegistration" (?McDSPFutzBoxFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration AkHarmonizerFXRegistration" (?AkHarmonizerFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration McDSPLimiterFXRegistration" (?McDSPLimiterFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration IOSONOProximityFXAttachmentRegistration" (?IOSONOProximityFXAttachmentRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration iZTrashBoxModelerFXRegistration" (?iZTrashBoxModelerFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration AkTimeStretchFXRegistration" (?AkTimeStretchFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration iZHybridReverbFXRegistration" (?iZHybridReverbFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration AuroHeadphoneFXRegistration" (?AuroHeadphoneFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration iZTrashFiltersFXRegistration" (?iZTrashFiltersFXRegistration@@3VPluginRegistration@AK@@A)
+GMWEngine.obj : error LNK2001: unresolved external symbol "class AK::PluginRegistration AkStereoDelayFXRegistration" (?AkStereoDelayFXRegistration@@3VPluginRegistration@AK@@A)
+C:\Users\Chris\Desktop\GMWwise\Source\bin\GMWwise.dll : fatal error LNK1120: 21 unresolved externals

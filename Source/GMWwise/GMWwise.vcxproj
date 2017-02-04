@@ -115,6 +115,7 @@
     <ClCompile Include="GMWListener.cpp" />
     <ClCompile Include="GMWStringUtil.cpp" />
     <ClCompile Include="wwise\AkDefaultIOHookBlocking.cpp" />
+    <ClCompile Include="wwise\AkDefaultIOHookDeferred.cpp" />
     <ClCompile Include="wwise\AkDefaultLowLevelIODispatcher.cpp" />
     <ClCompile Include="wwise\AkFileLocationBase.cpp" />
     <ClCompile Include="wwise\AkFilePackage.cpp" />
@@ -128,6 +129,7 @@
     <ClInclude Include="GMWListener.h" />
     <ClInclude Include="GMWStringUtil.h" />
     <ClInclude Include="wwise\AkDefaultIOHookBlocking.h" />
+    <ClInclude Include="wwise\AkDefaultIOHookDeferred.h" />
     <ClInclude Include="wwise\AkDefaultLowLevelIODispatcher.h" />
     <ClInclude Include="wwise\AkFileHelpers.h" />
     <ClInclude Include="wwise\AkFileLocationBase.h" />

@@ -131,12 +131,8 @@ extern "C"
 	double GMWSet3DPosition(double _dGameObjectID, double _dPos_x, double _dPos_y, double _dPos_z, double _dDir_x, double _dDir_y, double _dDir_z)
 	{
 		AkSoundPosition soundPos;
-		soundPos.Position.X = static_cast<float>(_dPos_x);
-		soundPos.Position.Y = static_cast<float>(_dPos_y);
-		soundPos.Position.Z = static_cast<float>(_dPos_z);
-        soundPos.Orientation.X = static_cast<float>(_dDir_x);
-        soundPos.Orientation.Y = static_cast<float>(_dDir_y);
-		soundPos.Orientation.Z = static_cast<float>(_dDir_z);
+		soundPos.SetPosition(_dPos_x, _dPos_y, _dPos_z);
+		soundPos.SetOrientation(_dDir_x, _dDir_y, _dDir_z, 0, 0, 0);
 
 		AK::SoundEngine::SetPosition(static_cast<AkGameObjectID>(_dGameObjectID), soundPos);
 
@@ -236,7 +232,8 @@ extern "C"
 	{
 		AkRtpcValue value;
 		AK::SoundEngine::Query::RTPCValue_type type = AK::SoundEngine::Query::RTPCValue_GameObject;
-		AKRESULT result = AK::SoundEngine::Query::GetRTPCValue(static_cast<AkRtpcID>(_dRtpcID), static_cast<AkGameObjectID>(_dGameObjectID), value, type);
+
+		AKRESULT result = AK::SoundEngine::Query::GetRTPCValue(static_cast<AkRtpcID>(_dRtpcID), static_cast<AkGameObjectID>(_dGameObjectID), static_cast<AkPlayingID>(0), value, type);
 		if(result ==  AK_IDNotFound)
 		{
 			GMW_EXCEPTION("The game object was not registered or the rtpc name could not be found");
