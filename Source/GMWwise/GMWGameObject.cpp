@@ -87,7 +87,7 @@ extern "C"
 		if(AK::SoundEngine::UnregisterGameObj(static_cast<AkGameObjectID>(_dGameObjectID)) != AK_Success)
 		{
 			std::stringstream sstr;
-			sstr << "Unable to unregister this game object : " << _dGameObjectID;
+			sstr << "Unable to unregister this game object: " << _dGameObjectID;
 			GMW_EXCEPTION(sstr.str().c_str());
 
 			return EC_BAD_ARGS;
@@ -97,8 +97,8 @@ extern "C"
 		if(it == groups.end())
 		{
 			std::stringstream sstr;
-			sstr << "Bad group ID : unable to remove this game object " << _dGameObjectID
-				 << " in this group " << _dGroupID;
+			sstr << "Bad group ID: unable to remove game object " << _dGameObjectID
+				 << " from group " << _dGroupID;
 			GMW_EXCEPTION(sstr.str().c_str());
 
 			return EC_BAD_ARGS;
@@ -145,13 +145,13 @@ extern "C"
     {
 		if(_dEventID < 0)
 		{
-			GMW_EXCEPTION("Bad event ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad event ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
 		else if(_dGameObjectID < 0)
 		{
-			GMW_EXCEPTION("Bad game object ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad game object ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
@@ -176,13 +176,13 @@ extern "C"
 	{
 		if(_dTriggerID < 0)
 		{
-			GMW_EXCEPTION("Bad trigger ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad trigger ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
 		else if(_dGameObjectID < 0)
 		{
-			GMW_EXCEPTION("Bad game object ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad game object ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
@@ -254,14 +254,14 @@ extern "C"
 	{
 		if(_dSwitchGroup < 0)
 		{
-			GMW_EXCEPTION("Bad switch group ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad switch group ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
 
 		if(_dSwitchID < 0)
 		{
-			GMW_EXCEPTION("Bad switch ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad switch ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
