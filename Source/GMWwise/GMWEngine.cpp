@@ -80,7 +80,7 @@ extern "C"
 		AKRESULT result = AK::MemoryMgr::Init(&memSettings);
         if(result != AK_Success)
 		{
-			GMW_EXCEPTION("unable to initialize the memory manager of wwise.");
+			GMW_EXCEPTION("Unable to initialize the memory manager of wwise.");
 
             return EC_MEMORY;
 		}
@@ -89,7 +89,7 @@ extern "C"
         AK::StreamMgr::GetDefaultSettings(stmSettings);
         if(!AK::StreamMgr::Create( stmSettings ) )
         {
-            GMW_EXCEPTION("Could not create the Streaming Manager");
+            GMW_EXCEPTION("Cannot create the Streaming Manager");
 
             return EC_STREAM_MGR;
         }
@@ -98,7 +98,7 @@ extern "C"
         AK::StreamMgr::GetDefaultDeviceSettings( deviceSettings );
         if(g_lowLevelIO.Init(deviceSettings) != AK_Success)
 		{
-			GMW_EXCEPTION("Could not create the streaming device and Low-Level I/O system.");
+			GMW_EXCEPTION("Cannot create the streaming device and Low-Level I/O system.");
 
             return EC_IO;
 		}
@@ -109,7 +109,7 @@ extern "C"
         AK::SoundEngine::GetDefaultPlatformInitSettings( platformInitSettings );
         if(AK::SoundEngine::Init(&initSettings, &platformInitSettings) != AK_Success)
         {
-            GMW_EXCEPTION("Could not initialize the Sound Engine.");
+            GMW_EXCEPTION("Cannot initialize the Sound Engine.");
 
             return EC_SOUND_ENGINE;
         }
@@ -118,7 +118,7 @@ extern "C"
         AK::MusicEngine::GetDefaultInitSettings( musicInit );
         if(AK::MusicEngine::Init(&musicInit) != AK_Success)
         {
-            GMW_EXCEPTION("Could not initialize the Music Engine.");
+            GMW_EXCEPTION("Cannot initialize the Music Engine.");
 
             return EC_MUSIC_ENGINE;
         }
@@ -180,14 +180,14 @@ extern "C"
 	{
 		if(_dStateGroup < 0)
 		{
-			GMW_EXCEPTION("Bad state group ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad state group ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
 
 		if(_dState < 0)
 		{
-			GMW_EXCEPTION("Bad state ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad state ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}

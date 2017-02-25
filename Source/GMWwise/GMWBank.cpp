@@ -37,7 +37,7 @@ extern "C"
 		if(!banksLoaded.empty())
 		{
 			std::stringstream sstr;
-			sstr << "All banks must be unloaded : " << banksLoaded.size() << " are loaded.";
+			sstr << "All banks must be unloaded: " << banksLoaded.size() << " are loaded.";
 			GMW_EXCEPTION(sstr.str().c_str());
 
 			std::vector<AkBankID>::iterator it = banksLoaded.begin(), it_end = banksLoaded.end();
@@ -84,29 +84,29 @@ extern "C"
         if(result != AK_Success)
 		{
             std::stringstream sstr;
-            sstr << "Unable to load the bank : " << bank_name << "\nwwise : ";
+            sstr << "Unable to load bank \"" << bank_name << "\":\n\n";
 
 			sstr << ((AKRESULT)result) << " : ";
 
             switch(result)
             {
             case AK_InsufficientMemory:
-                sstr << "insufficient memory to store bank data.";
+                sstr << "Insufficient memory to store bank data.";
                 break;
             case AK_BankReadError:
-                sstr << "bank read error.";
+                sstr << "Bank read error.";
                 break;
             case AK_WrongBankVersion:
-                sstr << "invalid bank version : make sure the version version of Wwise\n that you used to generate the SoundBanks matches that of the SDK you are currently using.";
+                sstr << "Invalid bank version: make sure the version version of Wwise\n that you used to generate the SoundBanks matches that of the SDK you are currently using.";
                 break;
             case AK_InvalidFile:
-                sstr << "file specified could not be opened.";
+                sstr << "File specified could not be opened.";
                 break;
             case AK_InvalidParameter:
-                sstr << "invalid parameter, invalid memory alignment.";
+                sstr << "Invalid parameter, invalid memory alignment.";
                 break;
             case AK_Fail:
-                sstr << "load failed for unknown reason.";
+                sstr << "Load failed for unknown reason.";
                 break;
             }
 
@@ -128,7 +128,7 @@ extern "C"
 	{
 		if(bank_id < 0)
 		{
-			GMW_EXCEPTION("Bad bank ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad bank ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}

@@ -31,7 +31,7 @@ See the GNU Lesser General Public License for more details.
 
 #define GMW_VERSION_STRING "1.2.2"
 
-#define GMW_EXCEPTION(msg) MessageBox(NULL, msg, "GMWwise Exception (version 1.2.2)", MB_OK | MB_ICONSTOP)
+#define GMW_EXCEPTION(msg) MessageBox(NULL, msg, "GMWwise Exception", MB_OK | MB_ICONSTOP)
 
 #include <AK/SoundEngine/Common/AkSoundEngine.h>
 #include <AK/IBytes.h>
