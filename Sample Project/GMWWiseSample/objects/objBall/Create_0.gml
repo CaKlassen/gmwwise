@@ -5,7 +5,7 @@ MOVE_SPEED = 5;
 
 // Register the object with GMWwise
 // This must be done before making engine calls with this object
-gmwRegisterObject(id, "Ball", global.DEFAULT_GROUP);
+gmwRegisterObject(id, global.DEFAULT_GROUP, "Ball");
 
 
 // Starting actions

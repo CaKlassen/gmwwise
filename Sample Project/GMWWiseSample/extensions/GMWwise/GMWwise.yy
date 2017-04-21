@@ -33,18 +33,18 @@
             ],
             "ProxyFiles": [
                 {
-                    "id": "14286ac1-4c7a-44b9-b502-6a0bee875286",
-                    "modelName": "GMProxyFile",
-                    "mvc": "1.0",
-                    "TargetMask": 1,
-                    "proxyName": "libGMWwise.dylib"
-                },
-                {
                     "id": "0c6ad6a4-f0b4-4e50-9387-ff40e9959599",
                     "modelName": "GMProxyFile",
                     "mvc": "1.0",
                     "TargetMask": 6,
                     "proxyName": "GMWwise_profile.dll"
+                },
+                {
+                    "id": "eaafb7fa-485f-4643-9355-9fad7e4e0a96",
+                    "modelName": "GMProxyFile",
+                    "mvc": "1.0",
+                    "TargetMask": 1,
+                    "proxyName": "libGMWwise_profile.dylib"
                 }
             ],
             "constants": [
@@ -157,36 +157,6 @@
                     "hidden": false,
                     "kind": 12,
                     "name": "gmwSetState",
-                    "returnType": 2
-                },
-                {
-                    "id": "ae421624-bb06-4741-bcff-38e2ccead313",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "GMWRegisterPlugin",
-                    "help": "gmwRegisterPlugin(pluginType)",
-                    "hidden": false,
-                    "kind": 12,
-                    "name": "gmwRegisterPlugin",
-                    "returnType": 2
-                },
-                {
-                    "id": "6189cd4a-bd2d-4459-988b-845cb91781ef",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "GMWRegisterCodec",
-                    "help": "gmwRegisterCodec(codecType)",
-                    "hidden": false,
-                    "kind": 12,
-                    "name": "gmwRegisterCodec",
                     "returnType": 2
                 },
                 {
@@ -471,8 +441,6 @@
                 "b80c1652-360a-4d2d-8d7e-a2ee1b3cd447",
                 "500960a9-8568-4093-8934-e267dae042b0",
                 "5b052123-cfbb-4d49-83d6-90b170a15a1f",
-                "ae421624-bb06-4741-bcff-38e2ccead313",
-                "6189cd4a-bd2d-4459-988b-845cb91781ef",
                 "d35b4426-8493-4c63-849d-fb49920bf08f",
                 "1be66de4-aab5-490c-889b-bf4b265bce32",
                 "4d0654b2-84e7-495e-a12e-1508a0bb84bb",

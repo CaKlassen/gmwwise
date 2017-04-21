@@ -1,13 +1,6 @@
-//
-//  GMWAlert.cpp
-//  GMWwise
-//
-//  Created by ChristoferKlassen on 2016-04-25.
-//  Copyright © 2016 Chris Klassen. All rights reserved.
-//
-
 #include "GMWAlert.h"
 
+// Displays an error message
 void GMW_EXCEPTION(string msg)
 {	
 	NSAlert *alert = [[NSAlert alloc] init];

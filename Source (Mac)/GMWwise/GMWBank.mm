@@ -1,16 +1,3 @@
-/*
-Author : cédric liaudet
-URL    : http://code.google.com/p/gmwwise/
-
-=================================================================================
-This library is free software; you can redistribute it and/or modify 
-it under the terms of the GNU Lesser General Public License as published
-by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
-This library is distributed in the hope that it will be useful, but without any warranty; 
-without even the implied warranty of merchantability or fitness for a particular purpose. 
-See the GNU Lesser General Public License for more details.
-=================================================================================
-*/
 #include "GMWBank.h"
 #include "GMWStringUtil.h"
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
@@ -25,8 +12,7 @@ extern "C"
     static wchar_t* wbanks_path = 0;
 	static wchar_t* wlng_path = 0;
 	
-	//----------------------------------------------------------------
-	// Close every banks. --------------------------------------------
+	// Unloads all banks
 	GMW_API void GMWClearBanks(void)
 	{
 		gmw::StringUtil::free(wbanks_path);
@@ -50,8 +36,7 @@ extern "C"
 		}
 	}
 
-	//----------------------------------------------------------------
-	// Set the path to load bank. ------------------------------------
+	// Sets the base path for bank loading
 	GMW_API double GMWSetBasePath(const char* banks_path)
 	{
 		wbanks_path = gmw::StringUtil::str2wstr(banks_path);
@@ -69,8 +54,7 @@ extern "C"
 		return EC_NONE;
 	}
 
-	//----------------------------------------------------------------
-	// Load bank by name. --------------------------------------------
+	// Loads a bank
 	GMW_API double GMWLoadBank(const char* bank_name)
 	{
         AkBankID bankID;
@@ -80,31 +64,33 @@ extern "C"
         if(result != AK_Success)
 		{
             std::stringstream sstr;
-            sstr << "Unable to load the bank : " << bank_name << "\nwwise : " << result << " : ";
+            sstr << "Unable to load bank \"" << bank_name << "\":\n\n";
+
+			sstr << "Error (" << ((AKRESULT)result) << "): ";
 
             switch(result)
             {
             case AK_InsufficientMemory:
-                sstr << "insufficient memory to store bank data.";
+                sstr << "Insufficient memory to store bank data.";
                 break;
             case AK_BankReadError:
-                sstr << "bank read error.";
+                sstr << "Bank read error.";
                 break;
             case AK_WrongBankVersion:
-                sstr << "invalid bank version : make sure the version version of Wwise\n that you used to generate the SoundBanks matches that of the SDK you are currently using.";
+                sstr << "Invalid bank version. Make sure the version version of Wwise\n that you used to generate the SoundBanks matches that of the SDK you are currently using.";
                 break;
             case AK_InvalidFile:
-                sstr << "file specified could not be opened.";
+                sstr << "File specified could not be opened.";
                 break;
             case AK_InvalidParameter:
-                sstr << "invalid parameter, invalid memory alignment.";
+                sstr << "Invalid parameter, invalid memory alignment.";
                 break;
             case AK_Fail:
-                sstr << "load failed for an unknown reason.";
+                sstr << "Load failed for unknown reason.";
                 break;
             }
 
-			GMW_EXCEPTION(sstr.str());
+            GMW_EXCEPTION(sstr.str().c_str());
 
 			return EC_BANK;
 		}
@@ -117,13 +103,12 @@ extern "C"
 		return 0;
 	}
 
-	//----------------------------------------------------------------
-	// Unload bank by id. --------------------------------------------
+	// Unloads a bank
 	GMW_API double GMWUnloadBank(double bank_id)
 	{
 		if(bank_id < 0)
 		{
-			GMW_EXCEPTION("Bad bank ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad bank ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}

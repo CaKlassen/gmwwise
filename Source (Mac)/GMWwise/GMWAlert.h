@@ -1,11 +1,3 @@
-//
-//  GMWAlert.hpp
-//  GMWwise
-//
-//  Created by ChristoferKlassen on 2016-04-25.
-//  Copyright © 2016 Chris Klassen. All rights reserved.
-//
-
 #ifndef GMWAlert_hpp
 #define GMWAlert_hpp
 
@@ -15,6 +7,8 @@
 
 using std::string;
 
+///<summary>Creates an error message</summary>
+///<param name="msg">the error message</param>
 void GMW_EXCEPTION(string msg);
 
 #endif /* GMWAlert_hpp */

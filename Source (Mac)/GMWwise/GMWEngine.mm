@@ -1,16 +1,3 @@
-/*
-Author : cédric liaudet
-URL    : http://code.google.com/p/gmwwise/
-
-=================================================================================
-This library is free software; you can redistribute it and/or modify 
-it under the terms of the GNU Lesser General Public License as published
-by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
-This library is distributed in the hope that it will be useful, but without any warranty; 
-without even the implied warranty of merchantability or fitness for a particular purpose. 
-See the GNU Lesser General Public License for more details.
-=================================================================================
-*/
 #include "GMWEngine.h"
 #include "GMWBank.h"
 #import <Cocoa/Cocoa.h>
@@ -58,8 +45,7 @@ CAkFilePackageLowLevelIOBlocking g_lowLevelIO;
 
 extern "C"
 { 
-	//----------------------------------------------------------------
-    // Initialization of Wwise. --------------------------------------
+	// Initializes the Wwise engine
 	GMW_API double GMWInit(void)
     {
 		setlocale( LC_ALL, "" );
@@ -70,7 +56,7 @@ extern "C"
 		AKRESULT result = AK::MemoryMgr::Init(&memSettings);
         if(result != AK_Success)
 		{
-			GMW_EXCEPTION("unable to initialize the memory manager of wwise.");
+			GMW_EXCEPTION("Unable to initialize the Memory Manager");
 
             return EC_MEMORY;
 		}
@@ -88,7 +74,7 @@ extern "C"
         AK::StreamMgr::GetDefaultDeviceSettings( deviceSettings );
         if(g_lowLevelIO.Init(deviceSettings) != AK_Success)
 		{
-			GMW_EXCEPTION("Could not create the streaming device and Low-Level I/O system.");
+			GMW_EXCEPTION("Could not create the Streaming Device and Low-Level I/O system.");
 
             return EC_IO;
 		}
@@ -121,7 +107,7 @@ extern "C"
         AK::Comm::GetDefaultInitSettings( settingsComm );
         if ( AK::Comm::Init( settingsComm ) != AK_Success )
         {
-            AKASSERT( !"Cannot initialize music communication" );
+            AKASSERT( !"Cannot initialize Profiling" );
             return EC_COM;
         }
 #endif
@@ -130,8 +116,7 @@ extern "C"
 		return EC_NONE;
     }
 
-	//----------------------------------------------------------------
-	// FShutdown Wwise and free all resources. -----------------------
+	// Shuts down the Wwise engine
     GMW_API double GMWShutdown(void)
     {
 		//SoundInputMgr::Instance().Term();
@@ -157,8 +142,7 @@ extern "C"
 		return EC_NONE;
     }
 
-	//----------------------------------------------------------------
-	// Update the sound engine. --------------------------------------
+	// Processes a frame of audio
     GMW_API double GMWProcessAudio(void)
     {
         AK::SoundEngine::RenderAudio();
@@ -166,20 +150,19 @@ extern "C"
 		return EC_NONE;
     }
 
-	//----------------------------------------------------------------
-	//  Set state of the specified group. ----------------------------
+	// Sets the state of a state group
 	GMW_API double GMWSetState(double _dStateGroup, double _dState)
 	{
 		if(_dStateGroup < 0)
 		{
-			GMW_EXCEPTION("Bad state group ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad state group ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
 
 		if(_dState < 0)
 		{
-			GMW_EXCEPTION("Bad state ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad state ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}

@@ -1,16 +1,3 @@
-/*
-Author : cédric liaudet
-URL    : http://code.google.com/p/gmwwise/
-
-=================================================================================
-This library is free software; you can redistribute it and/or modify 
-it under the terms of the GNU Lesser General Public License as published
-by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
-This library is distributed in the hope that it will be useful, but without any warranty; 
-without even the implied warranty of merchantability or fitness for a particular purpose. 
-See the GNU Lesser General Public License for more details.
-=================================================================================
-*/
 #include "GMWGameObject.h"
 #include <map>
 #include <list>
@@ -22,8 +9,7 @@ extern "C"
 {
 	static groupsOfGameObjs groups;
 
-	//----------------------------------------------------------------
-	// Register a group of game object. ------------------------------
+	// Registers a group of game objects
 	GMW_API double GMWRegisterGroupGameObj(double _dGroupID)
 	{
 		groupsOfGameObjs::iterator it = groups.find(_dGroupID);
@@ -35,8 +21,7 @@ extern "C"
 		return EC_NONE;
 	}
 
-	//----------------------------------------------------------------
-	// Remove a group of game object. --------------------------------
+	// Unregisters a group of game objects
 	GMW_API double GMWUnregisterGroupGameObj(double _dGroupID)
 	{
 		groupsOfGameObjs::iterator it = groups.find(_dGroupID);
@@ -52,14 +37,13 @@ extern "C"
 		return EC_NONE;
 	}
 
-	//----------------------------------------------------------------
-	// Register a game object. ---------------------------------------
+	// Registers a game object
 	GMW_API double GMWRegisterGameObj(double _dGameObjectID, double _dGroupID, char * _dGameObjectName)
 	{
 		if(AK::SoundEngine::RegisterGameObj(static_cast<AkGameObjectID>(_dGameObjectID), (const char*) _dGameObjectName) != AK_Success)
 		{
 			std::stringstream sstr;
-			sstr << "Unable to register this game object: " << _dGameObjectID;
+			sstr << "Unable to register game object: " << _dGameObjectID;
 			GMW_EXCEPTION(sstr.str());
 
 			return EC_BAD_ARGS;
@@ -81,14 +65,13 @@ extern "C"
 		return EC_NONE;
 	}
 
-	//----------------------------------------------------------------
-	// Remove a game object. -----------------------------------------
+	// Unregisters a game object
 	GMW_API double GMWUnregisterGameObj(double _dGameObjectID, double _dGroupID)
 	{
 		if(AK::SoundEngine::UnregisterGameObj(static_cast<AkGameObjectID>(_dGameObjectID)) != AK_Success)
 		{
 			std::stringstream sstr;
-			sstr << "Unable to unregister this game object : " << _dGameObjectID;
+			sstr << "Unable to unregister game object: " << _dGameObjectID;
 			GMW_EXCEPTION(sstr.str());
 
 			return EC_BAD_ARGS;
@@ -98,8 +81,8 @@ extern "C"
 		if(it == groups.end())
 		{
 			std::stringstream sstr;
-			sstr << "Bad group ID : unable to remove this game object " << _dGameObjectID
-				 << " in this group " << _dGroupID;
+			sstr << "Bad group ID: unable to remove game object " << _dGameObjectID
+				 << " from group " << _dGroupID;
 			GMW_EXCEPTION(sstr.str());
 
 			return EC_BAD_ARGS;
@@ -120,15 +103,13 @@ extern "C"
 		return EC_NONE;
 	}
 
-	//----------------------------------------------------------------
-	// Set the position of the specified game object. ----------------
+	// Sets the position of a game object in 2D space
 	GMW_API double GMWSet2DPosition(double _dGameObjectID, double _dPos_x, double _dPos_y, double _dDir_x, double _dDir_y)
 	{
 		return GMWSet3DPosition(_dGameObjectID, _dPos_x, _dPos_y, 0.0, _dDir_x, _dDir_y, 0.0);
 	}
 
-	//----------------------------------------------------------------
-	// Set the position of the specified game object. ----------------
+	// Sets the position of a game object in 3D space
 	GMW_API double GMWSet3DPosition(double _dGameObjectID, double _dPos_x, double _dPos_y, double _dPos_z, double _dDir_x, double _dDir_y, double _dDir_z)
 	{
 		AkSoundPosition soundPos;
@@ -140,19 +121,18 @@ extern "C"
 		return EC_NONE;
 	}
 
-	//----------------------------------------------------------------
-	// Post an event to the sound engine by ID. ----------------------
+	// Posts an event from a game object
     GMW_API double GMWPostEvent(double  _dEventID,  double  _dGameObjectID)
     {
 		if(_dEventID < 0)
 		{
-			GMW_EXCEPTION("Bad event ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad event ID: ID must be higher or equal to 0");
 
 			return -100;
 		}
 		else if(_dGameObjectID < 0)
 		{
-			GMW_EXCEPTION("Bad game object ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad game object ID: ID must be higher or equal to 0");
 
 			return -50;
 		}
@@ -161,8 +141,8 @@ extern "C"
 		if(id == AK_INVALID_PLAYING_ID)
 		{
 			std::stringstream sstr;
-			sstr << "unable to post the specified event " << _dEventID 
-				 << " for the specified game object "     << _dGameObjectID;
+			sstr << "Unable to post event " << _dEventID 
+				 << " for game object "     << _dGameObjectID;
             GMW_EXCEPTION(sstr.str());
 
 			return -20;
@@ -171,19 +151,18 @@ extern "C"
 		return id;
     }
 
-	//----------------------------------------------------------------
-	// Post the specified trigger by ID. -----------------------------
+	// Posts a trigger from a game object
 	GMW_API double GMWPostTrigger(double _dTriggerID, double _dGameObjectID)
 	{
 		if(_dTriggerID < 0)
 		{
-			GMW_EXCEPTION("Bad trigger ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad trigger ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
 		else if(_dGameObjectID < 0)
 		{
-			GMW_EXCEPTION("Bad game object ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad game object ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
@@ -193,10 +172,7 @@ extern "C"
 		return EC_NONE;
 	}
 
-	//----------------------------------------------------------------
-	// Stop the current content playing associated to the specified 
-	// game object ID. If no game object is specified, all sounds will 
-	// be stopped ----------------------------------------------------
+	// Stops all sounds for a game object, or stops all sounds if no game object is specified
 	GMW_API double GMWStopAll(double _dGameObjectID)
 	{
 		AK::SoundEngine::StopAll(static_cast<AkGameObjectID>(_dGameObjectID));
@@ -204,8 +180,7 @@ extern "C"
 		return EC_NONE;
 	}
 
-	//----------------------------------------------------------------
-	// Set the value of the real-time parameter control by ID. -------
+	// Sets an RTPC value for a game object
     GMW_API double GMWSetRTPCValue(double _dRtpcID, double _dRtpcValue, double _dGameObjectID)
     {
         AK::SoundEngine::SetRTPCValue(static_cast<AkRtpcID>(_dRtpcID), static_cast<AkRtpcValue>(_dRtpcValue), static_cast<AkGameObjectID>(_dGameObjectID));
@@ -213,13 +188,7 @@ extern "C"
         return EC_NONE;
     }
 
-	/**
-	 * This function sets a global RTPC to a specific value.
-	 *
-	 * @param rtpcID - the ID of the RTPC
-	 * @param rtpcValue - the new value of the RTPC
-	 * @return double - the error code
-	 */
+	// Sets a global RTPC value
 	GMW_API double GMWSetGlobalRTPCValue(double rtpcID, double rtpcValue)
 	{
 		AK::SoundEngine::SetRTPCValue(static_cast<AkRtpcID>(rtpcID), static_cast<AkRtpcValue>(rtpcValue));
@@ -227,8 +196,7 @@ extern "C"
         return EC_NONE;
 	}
 
-	//----------------------------------------------------------------
-	// Retrieves RTPC value. -----------------------------------------
+	// Retrieves an RTPC value for a game object
 	GMW_API double GMWGetRTPCValue(double _dRtpcID, double _dGameObjectID)
 	{
 		AkRtpcValue value;
@@ -237,7 +205,7 @@ extern "C"
 		AKRESULT result = AK::SoundEngine::Query::GetRTPCValue(static_cast<AkRtpcID>(_dRtpcID), static_cast<AkGameObjectID>(_dGameObjectID), static_cast<AkPlayingID>(0), value, type);
 		if(result ==  AK_IDNotFound)
 		{
-			GMW_EXCEPTION("The game object was not registered or the rtpc name could not be found");
+			GMW_EXCEPTION("The game object was not registered or the RTPC name could not be found");
 			return EC_BAD_ARGS;
 		}
 		else if(result == AK_Fail)
@@ -249,20 +217,19 @@ extern "C"
 		return value;
 	}
 
-	//----------------------------------------------------------------
-	// Set the state of a switch group by ID. ------------------------
+	// Sets the value of a switch group
 	GMW_API double GMWSetSwitch(double _dSwitchGroup, double _dSwitchID, double _dGameObjectID)
 	{
 		if(_dSwitchGroup < 0)
 		{
-			GMW_EXCEPTION("Bad switch group ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad switch group ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
 
 		if(_dSwitchID < 0)
 		{
-			GMW_EXCEPTION("Bad switch ID : ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad switch ID: ID must be higher or equal to 0");
 
 			return EC_BAD_ARGS;
 		}

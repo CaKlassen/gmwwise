@@ -14,9 +14,6 @@ else
     
 gmwSetBasePath(path);
     
-gmwRegisterCodec(0);
-gmwRegisterPlugin(6);
-
 // Initialize the banks
 global.INIT_BANK = gmwLoadBank("Init.bnk");
 global.GAME_BANK = gmwLoadBank("SoundBank.bnk");
@@ -24,7 +21,7 @@ global.GAME_BANK = gmwLoadBank("SoundBank.bnk");
 global.DEFAULT_GROUP = 1;
 
 // Register the sound controller with the engine
-gmwRegisterObject(id, "Sound Controller", global.DEFAULT_GROUP);
+gmwRegisterObject(id, global.DEFAULT_GROUP, "Sound Controller");
 
 
 // Initialize links to IDs
