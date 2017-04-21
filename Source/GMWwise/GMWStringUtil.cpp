@@ -1,36 +1,20 @@
-/*
-Author : cédric liaudet
-URL    : http://code.google.com/p/gmwwise/
-
-=================================================================================
-This library is free software; you can redistribute it and/or modify 
-it under the terms of the GNU Lesser General Public License as published
-by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
-This library is distributed in the hope that it will be useful, but without any warranty; 
-without even the implied warranty of merchantability or fitness for a particular purpose. 
-See the GNU Lesser General Public License for more details.
-=================================================================================
-*/
 #include "GMWStringUtil.h"
 
 namespace gmw
 {
-	//----------------------------------------------------------------
-    // Allocation memoire pour une chaine de caracteres. -------------
+	// Allocates a string
     char* StringUtil::stralloc(size_t size)
     {
         return new char[size];
     }
 
-	//----------------------------------------------------------------
-    // Allocation memoire pour une chaine de caracteres longs. -------
+	// Allocates a wchar_t string
     wchar_t* StringUtil::wstralloc(size_t size)
     {
         return new wchar_t[size];
     }
     
-	//----------------------------------------------------------------
-    // Liberation de la memoire pour une chaine de caracteres. -------
+	// Frees a string
     void StringUtil::free(char* str)
     {
         if(str)
@@ -39,8 +23,7 @@ namespace gmw
         }
     }
 
-	//----------------------------------------------------------------
-    // Liberation de la memoire pour une chaine de caracteres longs. -
+	// Frees a wchar_t string
     void StringUtil::free(wchar_t* str)
     {
         if(str)
@@ -49,8 +32,7 @@ namespace gmw
         }
     }
 
-	//----------------------------------------------------------------
-    // Convertion d'un chaine char en wchar_t. -----------------------
+	// Converts a string to a wchar_t string
     wchar_t* StringUtil::str2wstr(const char* str)
     {
         if(str)
@@ -65,8 +47,7 @@ namespace gmw
         return 0;
     }
 
-	//----------------------------------------------------------------
-    // Convertion d'un chaine wchar_t en char. -----------------------
+	// Converts a wchar_t string to a string
     char* StringUtil::wstr2str(const wchar_t* wstr)
     {
         if(wstr)
