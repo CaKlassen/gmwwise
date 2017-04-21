@@ -61,8 +61,6 @@ extern "C"
 	// Set the path to load bank. ------------------------------------
 	GMW_API double GMWSetBasePath(const char* banks_path)
 	{
-		GMW_EXCEPTION(banks_path);
-		
 		wbanks_path = gmw::StringUtil::str2wstr(banks_path);
         if(!wbanks_path)
 		{
@@ -72,8 +70,7 @@ extern "C"
 		}
         else
 		{
-			GMW_EXCEPTION(banks_path);
-            //g_lowLevelIO.SetBasePath((const AkOSChar*)banks_path);
+			g_lowLevelIO.SetBasePath((const AkOSChar*)banks_path);
 		}
 		
 		return EC_NONE;
@@ -83,13 +80,10 @@ extern "C"
 	// Load bank by name. --------------------------------------------
 	GMW_API double GMWLoadBank(const char* bank_name)
 	{
-		/*
-		GMW_EXCEPTION(bank_name);
-		
         AkBankID bankID;
         wchar_t* wbank_name = gmw::StringUtil::str2wstr(bank_name);
 		
-		AKRESULT result = AK_Success;//AK::SoundEngine::LoadBank(bank_name, AK_DEFAULT_POOL_ID, bankID);
+		AKRESULT result = AK::SoundEngine::LoadBank(bank_name, AK_DEFAULT_POOL_ID, bankID);
         if(result != AK_Success)
 		{
             std::stringstream sstr;
@@ -126,7 +120,7 @@ extern "C"
 
 		banksLoaded.push_back(bankID);
 
-		return static_cast<double>(bankID);*/
+		return static_cast<double>(bankID);
 		return 0;
 	}
 
