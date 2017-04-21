@@ -1,0 +1,20 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2932040671	Play_Music			\Default Work Unit\Play_Music	
+	3465618802	Play_Bounce			\Default Work Unit\Play_Bounce	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	376337484	wall_type			\Default Work Unit\wall_type	
+
+Switch	ID	Name	Switch Group			Notes
+	1216965916	stone	wall_type			
+	2058049674	wood	wall_type			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1006694123	music_volume			\Default Work Unit\music_volume	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	807528298	bounce_high	C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\.cache\Mac\SFX\13959__adcbicycle__7_59F60473.wem		\Actor-Mixer Hierarchy\Default Work Unit\bounce\bounce_high		31496
+
+Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
+	579660105	music_loop	C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\.cache\Mac\SFX\Orcastral Serenity LOOP_4B8CC0C5.wem	579660105.wem	\Actor-Mixer Hierarchy\Default Work Unit\music_loop	
+

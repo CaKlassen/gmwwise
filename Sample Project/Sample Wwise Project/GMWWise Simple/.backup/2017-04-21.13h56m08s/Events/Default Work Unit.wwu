@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8162C473-785C-4BB0-8C16-0C3D51BE073C}" SchemaVersion="69">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{8162C473-785C-4BB0-8C16-0C3D51BE073C}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Music" ID="{E208FDD2-7E95-4E86-B20F-4EDB4FA7CF33}">
+					<ChildrenList>
+						<Action Name="Play" ID="{08D1413A-CCAB-46C3-AD9E-C5E2CDE202C0}" ShortID="1050184225" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{4B656A5C-07AB-4B49-92D8-D8A03E9A1164}" Global="false">
+									<ObjectRef Name="music_loop" ID="{512E1687-78DC-4F16-8CE8-EAEA7573D5B7}" WorkUnitID="{38827C30-B61F-4138-B72A-20EFB9585602}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Bounce" ID="{C34FA5B2-B64E-4256-8DF1-34547D25A91A}">
+					<ChildrenList>
+						<Action Name="Play" ID="{62B99BE7-A354-4B89-9291-B0C694FA6713}" ShortID="469356617" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{3EBFE1A5-9BA1-4361-A369-2E3313A291D2}" Global="false">
+									<ObjectRef Name="bounce" ID="{106C159D-0AAC-4ED6-8BA9-8FF3A894320B}" WorkUnitID="{38827C30-B61F-4138-B72A-20EFB9585602}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

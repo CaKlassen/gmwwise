@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{5870FBD7-E278-4234-BD6B-987485F1DCAA}" SchemaVersion="69">
+	<States>
+		<WorkUnit Name="Default Work Unit" ID="{5870FBD7-E278-4234-BD6B-987485F1DCAA}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="state" ID="{C6509AFF-EB38-4FF2-B8CA-FE8A2C7DDEA8}">
+					<ChildrenList>
+						<State Name="None" ID="{CE49866F-0A82-49C1-8BA5-78A7209E6AFB}"/>
+						<State Name="plugged_ears" ID="{8E5EBC44-3970-4F57-9A02-78A34487F1F8}"/>
+						<State Name="non_plugged_ears" ID="{8E01B1B0-0305-4C66-8796-104177FDB6EE}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>
