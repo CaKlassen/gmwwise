@@ -42,13 +42,6 @@ extern "C"
 			GMW_EXCEPTION(sstr.str());
 			
 			std::vector<AkBankID>::iterator it = banksLoaded.begin(), it_end = banksLoaded.end();
-			
-			/*
-			for(; it <= it_end; it++)
-			{
-				AK::SoundEngine::UnloadBank(*it, );
-			}
-			*/
 
 			// Clear all banks
 			AK::SoundEngine::ClearBanks();
