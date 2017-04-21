@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{38827C30-B61F-4138-B72A-20EFB9585602}" SchemaVersion="69">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{38827C30-B61F-4138-B72A-20EFB9585602}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchContainer Name="bounce" ID="{106C159D-0AAC-4ED6-8BA9-8FF3A894320B}" ShortID="580939505">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{4A9B6619-FCC7-41DB-9AB6-8B17B7E1EE9C}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7CD56AA3-5A3F-4294-8C49-E104BEEF0215}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B536ED5B-1A0A-492F-9014-881D8084BBBA}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="bounce_high" ID="{5E14D8E4-0A39-4A23-ADE9-3FB6FD3D0732}" ShortID="809045266" Type="SoundFX">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>600</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7CD56AA3-5A3F-4294-8C49-E104BEEF0215}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B536ED5B-1A0A-492F-9014-881D8084BBBA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="13959__adcbicycle__7" ID="{B931E809-0F0E-415D-AE8F-E0A1DAFBBF9B}" ShortID="807528298">
+									<PropertyList>
+										<Property Name="TrimBegin" Type="Real64" Value="4.27348819712217E-03"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>13959__adcbicycle__7.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="13959__adcbicycle__7" ID="{B931E809-0F0E-415D-AE8F-E0A1DAFBBF9B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="bounce_low" ID="{BF5B8C16-6C1A-4B04-8798-5828C79E649F}" ShortID="49684961" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7CD56AA3-5A3F-4294-8C49-E104BEEF0215}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B536ED5B-1A0A-492F-9014-881D8084BBBA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="13959__adcbicycle__7" ID="{5AD2DA1D-4C32-4BA8-A75B-05BC6B1A7627}" ShortID="708425647">
+									<PropertyList>
+										<Property Name="TrimBegin" Type="Real64" Value="4.27348819712217E-03"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>13959__adcbicycle__7.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="807528298"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="13959__adcbicycle__7" ID="{5AD2DA1D-4C32-4BA8-A75B-05BC6B1A7627}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupRef Name="wall_type" ID="{A05B0E64-B0D6-4AF4-A5FC-DC30431D2E4A}"/>
+						<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="bounce_low" ID="{BF5B8C16-6C1A-4B04-8798-5828C79E649F}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="bounce_high" ID="{5E14D8E4-0A39-4A23-ADE9-3FB6FD3D0732}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="wood" ID="{62C22913-3DC9-4E00-818A-8E3E0B77AFE1}"/>
+								<ItemList>
+									<ItemRef Name="bounce_low" ID="{BF5B8C16-6C1A-4B04-8798-5828C79E649F}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="stone" ID="{AE01D7E1-12F6-4433-8D64-99D4AF805B35}"/>
+								<ItemList>
+									<ItemRef Name="bounce_high" ID="{5E14D8E4-0A39-4A23-ADE9-3FB6FD3D0732}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<Sound Name="music_loop" ID="{512E1687-78DC-4F16-8CE8-EAEA7573D5B7}" ShortID="286373996" Type="SoundFX">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="IsStreamingEnabled" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+							<RTPCList>
+								<RTPC Name="" ID="{444AC1A8-C8A5-4199-B265-7B98C1966B88}" ShortID="226302439">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="music_volume" ID="{DC6AE30E-3B2C-4B30-B0C5-D6C62C26BDBF}" WorkUnitID="{C0A2E769-7BFB-41D2-B79F-2CD3B74C1015}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{FD1BBED6-E49A-46AD-94C7-738742927957}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-200</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>0</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7CD56AA3-5A3F-4294-8C49-E104BEEF0215}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B536ED5B-1A0A-492F-9014-881D8084BBBA}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Orcastral Serenity LOOP" ID="{AF0F0588-C128-4139-A727-40D3B323D965}" ShortID="579660105">
+							<Language>SFX</Language>
+							<AudioFile>Orcastral Serenity LOOP.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Orcastral Serenity LOOP" ID="{AF0F0588-C128-4139-A727-40D3B323D965}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

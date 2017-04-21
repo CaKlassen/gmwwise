@@ -1,21 +1,6 @@
-/*
-Author : cédric liaudet
-URL    : http://code.google.com/p/gmwwise/
-
-=================================================================================
-This library is free software; you can redistribute it and/or modify 
-it under the terms of the GNU Lesser General Public License as published
-by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
-This library is distributed in the hope that it will be useful, but without any warranty; 
-without even the implied warranty of merchantability or fitness for a particular purpose. 
-See the GNU Lesser General Public License for more details.
-=================================================================================
-*/
 #include "GMWEngine.h"
 #include "GMWBank.h"
-//#include "wwise/SoundInputMgr.h"
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
-//#include <AK/Plugin/AllPluginsFactories.h>
 #include <AK/Plugin/AkSineSourceFactory.h>
 #include <AK/Plugin/AkToneSourceFactory.h>
 #include <AK/Plugin/AkSilenceSourceFactory.h>
@@ -70,8 +55,7 @@ CAkFilePackageLowLevelIOBlocking g_lowLevelIO;
 
 extern "C"
 { 
-	//----------------------------------------------------------------
-    // Initialization of Wwise. --------------------------------------
+	// Initializes the Wwise engine
 	double GMWInit(void)
     {
 		AkMemSettings memSettings;
@@ -80,7 +64,7 @@ extern "C"
 		AKRESULT result = AK::MemoryMgr::Init(&memSettings);
         if(result != AK_Success)
 		{
-			GMW_EXCEPTION("Unable to initialize the memory manager of wwise.");
+			GMW_EXCEPTION("Unable to initialize the Memory Manager.");
 
             return EC_MEMORY;
 		}
@@ -98,7 +82,7 @@ extern "C"
         AK::StreamMgr::GetDefaultDeviceSettings( deviceSettings );
         if(g_lowLevelIO.Init(deviceSettings) != AK_Success)
 		{
-			GMW_EXCEPTION("Cannot create the streaming device and Low-Level I/O system.");
+			GMW_EXCEPTION("Cannot create the Streaming Device and Low-Level I/O system.");
 
             return EC_IO;
 		}
@@ -109,7 +93,7 @@ extern "C"
         AK::SoundEngine::GetDefaultPlatformInitSettings( platformInitSettings );
         if(AK::SoundEngine::Init(&initSettings, &platformInitSettings) != AK_Success)
         {
-            GMW_EXCEPTION("Cannot initialize the Sound Engine.");
+            GMW_EXCEPTION("Unable to initialize the Sound Engine.");
 
             return EC_SOUND_ENGINE;
         }
@@ -118,7 +102,7 @@ extern "C"
         AK::MusicEngine::GetDefaultInitSettings( musicInit );
         if(AK::MusicEngine::Init(&musicInit) != AK_Success)
         {
-            GMW_EXCEPTION("Cannot initialize the Music Engine.");
+            GMW_EXCEPTION("Unable to initialize the Music Engine.");
 
             return EC_MUSIC_ENGINE;
         }
@@ -129,21 +113,17 @@ extern "C"
         AK::Comm::GetDefaultInitSettings( settingsComm );
         if ( AK::Comm::Init( settingsComm ) != AK_Success )
         {
-            AKASSERT( !"Cannot initialize music communication" );
+            AKASSERT( !"Unable to initialize Profiling" );
             return EC_COM;
         }
 #endif
-		//SoundInputMgr::Instance().Initialize();
 
         return EC_NONE;
     }
 
-	//----------------------------------------------------------------
-	// FShutdown Wwise and free all resources. -----------------------
+	// Shut down the Wwise engine
     double GMWShutdown(void)
     {
-		//SoundInputMgr::Instance().Term();
-
 #ifndef AK_OPTIMIZED
         AK::Comm::Term();	   
 #endif // AK_OPTIMIZED		
@@ -165,8 +145,7 @@ extern "C"
 		return EC_NONE;
     }
 
-	//----------------------------------------------------------------
-	// Update the sound engine. --------------------------------------
+	// Processes a frame of audio
     double GMWProcessAudio(void)
     {
         AK::SoundEngine::RenderAudio();
@@ -174,8 +153,7 @@ extern "C"
 		return EC_NONE;
     }
 
-	//----------------------------------------------------------------
-	//  Set state of the specified group. ----------------------------
+	// Sets the state of a specific state group
 	double GMWSetState(double _dStateGroup, double _dState)
 	{
 		if(_dStateGroup < 0)
@@ -196,139 +174,4 @@ extern "C"
 
 		return EC_NONE;
 	}
-
-	/*
-    //----------------------------------------------------------------
-    // Register a wwise plugin. --------------------------------------
-    GMW_API double STDCALL GMWRegisterPlugin(double _dType)
-    {
-        int nType = (int)_dType;
-        if(nType < 0)
-        {
-            char pcMessage[256];
-            sprintf(pcMessage, "Bad type ID (%d): ID must be higher or equal to 0", nType);
-            GMW_EXCEPTION(pcMessage);
-
-            return EC_BAD_ARGS;
-        }
-
-        AKRESULT nResult = AK_Success;
-
-        switch(nType)
-        {
-            // Sine
-        case 0:
-            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeSource, AKCOMPANYID_AUDIOKINETIC, AKSOURCEID_SINE, CreateSineSource, CreateSineSourceParams);
-            break;
-
-            // Tone Generator
-        case 1:
-            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeSource, AKCOMPANYID_AUDIOKINETIC, AKSOURCEID_TONE, CreateToneSource, CreateToneSourceParams);
-            break;
-
-            // Silence
-        case 2:
-            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeSource, AKCOMPANYID_AUDIOKINETIC, AKSOURCEID_SILENCE, CreateSilenceSource, CreateSilenceSourceParams);
-            break;
-            
-            // Audio Input
-        case 3:
-            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeSource, AKCOMPANYID_AUDIOKINETIC, AKSOURCEID_AUDIOINPUT, CreateAudioInputSource, CreateAudioInputSourceParams);			
-            break;
-
-//             // MP3 Input
-//         case 4:
-//             AK::SoundEngine::RegisterPlugin(AkPluginTypeSource, AKCOMPANYID_AUDIOKINETIC, AKSOURCEID_MP3, CreateMP3Source, CreateMP3SourceParams);
-//             break;        
-
-            // Delay
-        case 4:
-            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_DELAY, CreateDelayFX, CreateDelayFXParams);
-            break;
-
-            // Parametric EQ
-        case 5:
-            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_PARAMETRICEQ, CreateParametricEQFX, CreateParametricEQFXParams);
-            break;
-
-            // Matrix Reverb
-        case 6:
-            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_MATRIXREVERB, CreateMatrixReverbFX, CreateMatrixReverbFXParams);
-            break;
-
-            // Compressor
-        case 7:
-            AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_COMPRESSOR, CreateCompressorFX, CreateCompressorFXParams);
-            break;
-
-            // Expander
-        case 8:
-            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_EXPANDER, CreateExpanderFX, CreateExpanderFXParams);
-            break;
-
-            // Peak Limiter
-        case 9:
-            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_PEAKLIMITER, CreatePeakLimiterFX, CreatePeakLimiterFXParams);
-            break;
-
-            // Roomverb.
-        case 10:
-            nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_ROOMVERB, CreateRoomVerbFX, CreateRoomVerbFXParams);
-            break;
-
-			// Pitch Shifter.
-		case 11:
-			nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_PITCHSHIFTER, CreatePitchShifterFX, CreatePitchShifterFXParams);
-			break;
-
-			// Meter
-		case 12:
-			nResult = AK::SoundEngine::RegisterPlugin(AkPluginTypeEffect, AKCOMPANYID_AUDIOKINETIC, AKEFFECTID_METER, CreateMeterFX, CreateMeterFXParams);
-			break;
-
-        default:
-            GMW_EXCEPTION("Unimplemented");
-        }
-		
-
-        if(nResult != AK_Success)
-        {
-            GMW_EXCEPTION("Unable to register plugin.");
-        }
-
-        return EC_NONE;
-    }
-
-    //----------------------------------------------------------------
-    // Register a wwise codec. ---------------------------------------
-    GMW_API double STDCALL GMWRegisterCodec(double _dType)
-    {
-        if(_dType != 0)
-        {
-            GMW_EXCEPTION("Bad type ID : ID must be higher or equal to 0 and lower or equal to 0 (currently, only vorbis codec is supported)");
-
-            return EC_BAD_ARGS;
-        }
-
-        AKRESULT nResult;
-		
-        switch((int)_dType)
-        {
-        // Vorbis codec.
-        case 0:
-            nResult = AK::SoundEngine::RegisterCodec(AKCOMPANYID_AUDIOKINETIC, AKCODECID_VORBIS, CreateVorbisFilePlugin, CreateVorbisBankPlugin);
-            break;
-
-        default:
-            GMW_EXCEPTION("Unimplemented");
-        }
-
-        if(nResult != AK_Success)
-        {
-            GMW_EXCEPTION("Unable to register codec.");
-        }
-
-        return EC_NONE;
-    }
-	*/
 }

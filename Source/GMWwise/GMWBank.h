@@ -1,16 +1,3 @@
-/*
-Author : cédric liaudet
-URL    : http://code.google.com/p/gmwwise/
-
-=================================================================================
-This library is free software; you can redistribute it and/or modify 
-it under the terms of the GNU Lesser General Public License as published
-by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
-This library is distributed in the hope that it will be useful, but without any warranty; 
-without even the implied warranty of merchantability or fitness for a particular purpose. 
-See the GNU Lesser General Public License for more details.
-=================================================================================
-*/
 #ifndef _GMW_BANK_
 #define _GMW_BANK_
 
@@ -18,35 +5,27 @@ See the GNU Lesser General Public License for more details.
 
 extern "C"
 {
-	/// @brief Close every banks.
+	/// <summary>Closes every bank</summary>
 	void GMWClearBanks(void);
 
-	/// @brief Set the path to load bank.
-	///
-	/// @param banks_path The path.
-	///
-	/// @return 0 or an error code.
+	/// <summary>Sets the bank load path</summary>
+	/// <param name="banks_path">the bank load path</param>
+	/// <returns>0 or an error code</returns>
 	GMW_API double STDCALL GMWSetBasePath(const char* banks_path);
 
-	/// @brief Define the subdirectory for language.
-	///
-	/// @param lng_path Subdirectory.
-	/// 
-	/// @return 0 or an error code.
+	///<summary>Specifies a sub-directory for a language</summary>
+	///<param name="lng_path">the language directory</param>
+	///<returns>0 or an error code</returns>
 	GMW_API double STDCALL GMWSetLangSpecificDirName(const char* lng_path);
 
-	/// @brief Load bank by name.
-	/// 
-	/// @param bank_name Name of the bank.
-	/// 
-	/// @return Id of the loaded bank or an error code.
+	///<summary>Loads a bank by string name</summary>
+	///<param name="bank_name">the bank name</param>
+	///<returns>the ID of the loaded bank, or an error code</returns>
 	GMW_API double STDCALL GMWLoadBank(const char* bank_name);
 
-	/// @brief Unload bank by id.
-	///
-	/// @param bank_id Bank to unload.
-	/// 
-	/// @return 0 or an error code.
+	///<summary>Unloads a bank by its ID</summary>
+	///<param name="bank_id">the bank ID</param>
+	///<returns>0 or an error code</returns>
 	GMW_API double STDCALL GMWUnloadBank(double bank_id);
 }
 

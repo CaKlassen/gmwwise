@@ -1,16 +1,3 @@
-/*
-Author : cédric liaudet
-URL    : http://code.google.com/p/gmwwise/
-
-=================================================================================
-This library is free software; you can redistribute it and/or modify 
-it under the terms of the GNU Lesser General Public License as published
-by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. 
-This library is distributed in the hope that it will be useful, but without any warranty; 
-without even the implied warranty of merchantability or fitness for a particular purpose. 
-See the GNU Lesser General Public License for more details.
-=================================================================================
-*/
 #include "GMWBank.h"
 #include "GMWStringUtil.h"
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
@@ -24,8 +11,7 @@ extern "C"
     static wchar_t* wbanks_path = 0;
 	static wchar_t* wlng_path = 0;
 	
-	//----------------------------------------------------------------
-	// Close every banks. --------------------------------------------
+	// Unloads all banks
 	void GMWClearBanks(void)
 	{
 		gmw::StringUtil::free(wbanks_path);
@@ -36,18 +22,7 @@ extern "C"
 
 		if(!banksLoaded.empty())
 		{
-			std::stringstream sstr;
-			sstr << "All banks must be unloaded: " << banksLoaded.size() << " are loaded.";
-			GMW_EXCEPTION(sstr.str().c_str());
-
 			std::vector<AkBankID>::iterator it = banksLoaded.begin(), it_end = banksLoaded.end();
-			
-			/*
-			for(; it <= it_end; it++)
-			{
-				AK::SoundEngine::UnloadBank(*it, );
-			}
-			*/
 
 			// Clear all banks
 			AK::SoundEngine::ClearBanks();
@@ -56,14 +31,13 @@ extern "C"
 		}
 	}
 
-	//----------------------------------------------------------------
-	// Set the path to load bank. ------------------------------------
+	// Sets the base path for bank loading
 	double GMWSetBasePath(const char* banks_path)
 	{
 		wbanks_path = gmw::StringUtil::str2wstr(banks_path);
         if(!wbanks_path)
 		{
-            GMW_EXCEPTION("Unable to set base path.");
+            GMW_EXCEPTION("Unable to set the base path.");
 
 			return EC_IO;
 		}
@@ -73,20 +47,21 @@ extern "C"
 		return EC_NONE;
 	}
 
-	//----------------------------------------------------------------
-	// Load bank by name. --------------------------------------------
+	// Loads a bank
 	double GMWLoadBank(const char* bank_name)
 	{
         AkBankID bankID;
         wchar_t* wbank_name = gmw::StringUtil::str2wstr(bank_name);
 
+		// Attempt to load the bank
         AKRESULT result = AK::SoundEngine::LoadBank(wbank_name, AK_DEFAULT_POOL_ID, bankID);
+
         if(result != AK_Success)
 		{
             std::stringstream sstr;
             sstr << "Unable to load bank \"" << bank_name << "\":\n\n";
 
-			sstr << ((AKRESULT)result) << " : ";
+			sstr << "Error (" << ((AKRESULT)result) << "): ";
 
             switch(result)
             {
@@ -97,7 +72,7 @@ extern "C"
                 sstr << "Bank read error.";
                 break;
             case AK_WrongBankVersion:
-                sstr << "Invalid bank version: make sure the version version of Wwise\n that you used to generate the SoundBanks matches that of the SDK you are currently using.";
+                sstr << "Invalid bank version. Make sure the version version of Wwise\n that you used to generate the SoundBanks matches that of the SDK you are currently using.";
                 break;
             case AK_InvalidFile:
                 sstr << "File specified could not be opened.";
@@ -122,13 +97,12 @@ extern "C"
 		return static_cast<double>(bankID);
 	}
 
-	//----------------------------------------------------------------
-	// Unload bank by id. --------------------------------------------
+	// Unloads a bank
 	double GMWUnloadBank(double bank_id)
 	{
 		if(bank_id < 0)
 		{
-			GMW_EXCEPTION("Bad bank ID: ID must be higher or equal to 0");
+			GMW_EXCEPTION("Bad bank ID: ID must be greater than or equal to 0");
 
 			return EC_BAD_ARGS;
 		}
