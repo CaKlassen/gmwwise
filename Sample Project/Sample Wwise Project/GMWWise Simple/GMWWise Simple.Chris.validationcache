@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="75">
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="3003643636" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Attenuations\Default Work Unit.wwu" DateLow="3003673666" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Control Surface Sessions\Default Work Unit.wwu" DateLow="3003693794" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Conversion Settings\Default Work Unit.wwu" DateLow="3003723693" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Conversion Settings\Factory Conversion Settings.wwu" DateLow="3003773726" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Dynamic Dialogue\Default Work Unit.wwu" DateLow="3003793748" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Effects\Default Work Unit.wwu" DateLow="3003823869" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Effects\Factory Effects.wwu" DateLow="3003873796" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Events\Default Work Unit.wwu" DateLow="3003903838" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Game Parameters\Default Work Unit.wwu" DateLow="3003933970" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\GMWWise Simple.wproj" DateLow="3003613612" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="3003953981" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="3003973870" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Mixing Sessions\Default Work Unit.wwu" DateLow="3004003891" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Modulators\Default Work Unit.wwu" DateLow="3004024031" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Presets\Default Work Unit.wwu" DateLow="3004043920" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Queries\Default Work Unit.wwu" DateLow="3004074066" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Queries\Factory Queries.wwu" DateLow="3004103962" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\SoundBanks\Default Work Unit.wwu" DateLow="3004134160" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Soundcaster Sessions\Default Work Unit.wwu" DateLow="3004164005" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\States\Default Work Unit.wwu" DateLow="3004184019" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Switches\Default Work Unit.wwu" DateLow="3004214040" DateHigh="30587617"/>
-	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Triggers\Default Work Unit.wwu" DateLow="3004503601" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="3007855001" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Attenuations\Default Work Unit.wwu" DateLow="3008520495" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Audio Devices\Default Work Unit.wwu" DateLow="3008637906" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Control Surface Sessions\Default Work Unit.wwu" DateLow="3008565598" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Conversion Settings\Default Work Unit.wwu" DateLow="3008475572" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Conversion Settings\Factory Conversion Settings.wwu" DateLow="3008355361" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Dynamic Dialogue\Default Work Unit.wwu" DateLow="3008580509" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Effects\Default Work Unit.wwu" DateLow="3007975249" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Effects\Factory Effects.wwu" DateLow="3008180394" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Events\Default Work Unit.wwu" DateLow="3008500464" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Game Parameters\Default Work Unit.wwu" DateLow="3007935058" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\GMWWise Simple.Chris.wsettings" DateLow="419668661" DateHigh="30587618"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\GMWWise Simple.wproj" DateLow="3007293712" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="3007774948" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="3007814987" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Mixing Sessions\Default Work Unit.wwu" DateLow="3008595520" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Modulators\Default Work Unit.wwu" DateLow="3008540495" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Presets\Default Work Unit.wwu" DateLow="3008290469" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Queries\Default Work Unit.wwu" DateLow="3007489797" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Queries\Factory Queries.wwu" DateLow="3007675093" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\SoundBanks\Default Work Unit.wwu" DateLow="3007900033" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Soundcaster Sessions\Default Work Unit.wwu" DateLow="3008010111" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\States\Default Work Unit.wwu" DateLow="3008420407" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Switches\Default Work Unit.wwu" DateLow="3008395378" DateHigh="30587617"/>
+	<ValidationCacheItem File="C:\Users\Chris\Desktop\GMWwise\Sample Project\Sample Wwise Project\GMWWise Simple\Triggers\Default Work Unit.wwu" DateLow="3007735082" DateHigh="30587617"/>
 </ValidationCache>

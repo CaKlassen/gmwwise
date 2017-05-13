@@ -17,6 +17,7 @@
     "androidsourcedir": "",
     "author": "",
     "classname": "",
+    "copyToTargets": -1,
     "date": "2017-52-21 01:04:23",
     "description": "",
     "extensionName": "",
@@ -25,12 +26,6 @@
             "id": "8806515b-e502-42ba-9e41-996815c53aef",
             "modelName": "GMExtensionFile",
             "mvc": "1.0",
-            "ConfigOptions": [
-                {
-                    "Key": "default",
-                    "Value": 609259586
-                }
-            ],
             "ProxyFiles": [
                 {
                     "id": "0c6ad6a4-f0b4-4e50-9387-ff40e9959599",
@@ -50,6 +45,7 @@
             "constants": [
                 
             ],
+            "copyToTargets": 609259586,
             "filename": "GMWwise_profile.dll",
             "final": "",
             "functions": [
@@ -432,7 +428,6 @@
             ],
             "init": "",
             "kind": 1,
-            "maskTarget": 0,
             "order": [
                 "f29f631b-f615-4787-bd47-554b584def08",
                 "a4d138ea-18c9-4094-8ce3-d50f17f3a6d9",

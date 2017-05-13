@@ -8759,7 +8759,7 @@
 						</Property>
 					</PropertyList>
 				</SharedPropertyList>
-				<SharedPropertyList ClassName="" PluginType="3" CompanyID="0" PluginID="127">
+				<SharedPropertyList ClassName="Wwise Convolution Reverb" PluginType="3" CompanyID="0" PluginID="127">
 					<PropertyList>
 						<Property Name="AlgoTypeSelect" Type="int32">
 							<ValueList>
@@ -8851,6 +8851,11 @@
 								<Value>100</Value>
 							</ValueList>
 						</Property>
+						<Property Name="Inclusion" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 						<Property Name="InputCenterLevel" Type="Real32">
 							<ValueList>
 								<Value>0</Value>
@@ -8859,6 +8864,11 @@
 						<Property Name="InputLFELevel" Type="Real32">
 							<ValueList>
 								<Value>-96.3</Value>
+							</ValueList>
+						</Property>
+						<Property Name="InputStereoWidth" Type="Real32">
+							<ValueList>
+								<Value>0</Value>
 							</ValueList>
 						</Property>
 						<Property Name="LFELevel" Type="Real32">

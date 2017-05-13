@@ -4,13 +4,9 @@
     "mvc": "1.1",
     "name": "5641b4ee-07be-4164-ba63-ba831dfee2f7",
     "children": [
-        "0b2ee8a9-00ad-4a03-9be3-860e9c697227",
-        "bafd1248-c8a4-46d8-8f03-b28e9b014ed5",
-        "2db239ce-f6f0-4ee4-ada0-2b6b80d22c11",
-        "ef3a30b1-42f1-4d16-befc-c6f0d00c77b1",
-        "e429a492-73d9-40ed-9f69-cc432fef4508",
-        "8c1df452-fb54-423c-a039-857548f90d7f",
-        "70c9cafb-25a5-43e5-8d84-4476d7ac8330"
+        "7aec5c28-fc5a-4f04-bb6b-384c4a5d1218",
+        "a3f339db-f54c-4934-a641-cfe798b0fa96",
+        "d6e1cd37-b2b5-41a4-b55e-bc6707db6f9a"
     ],
     "filterType": "GMIncludedFile",
     "folderName": "Windows",
