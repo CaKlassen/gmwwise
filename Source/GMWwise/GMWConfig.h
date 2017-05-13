@@ -16,7 +16,7 @@
 #   define STDCALL
 #endif
 
-#define GMW_VERSION_STRING "1.5.0"
+#define GMW_VERSION_STRING "1.5.1"
 
 #define GMW_EXCEPTION(msg) MessageBox(NULL, msg, "GMWwise Exception", MB_OK | MB_ICONSTOP)
 

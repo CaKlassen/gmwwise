@@ -9,7 +9,7 @@
 
 #define STDCALL
 
-#define GMW_VERSION_STRING "1.5.0"
+#define GMW_VERSION_STRING "1.5.1"
 
 #include <AK/SoundEngine/Common/AkSoundEngine.h>
 #include <AK/IBytes.h>
