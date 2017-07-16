@@ -98,27 +98,24 @@ extern "C"
 		AKRESULT result = AK::MemoryMgr::Init(&memSettings);
         if(result != AK_Success)
 		{
-			GMW_EXCEPTION("Unable to initialize the Memory Manager.");
-
-            return EC_MEMORY;
+			errorCode = result;
+            return -1;
 		}
 
         AkStreamMgrSettings stmSettings;
         AK::StreamMgr::GetDefaultSettings(stmSettings);
         if(!AK::StreamMgr::Create( stmSettings ) )
         {
-            GMW_EXCEPTION("Cannot create the Streaming Manager");
-
-            return EC_STREAM_MGR;
+			errorCode = AK_Fail;
+            return -1;
         }
 
         AkDeviceSettings deviceSettings;
         AK::StreamMgr::GetDefaultDeviceSettings( deviceSettings );
-        if(g_lowLevelIO.Init(deviceSettings) != AK_Success)
+        if((result = g_lowLevelIO.Init(deviceSettings)) != AK_Success)
 		{
-			GMW_EXCEPTION("Cannot create the Streaming Device and Low-Level I/O system.");
-
-            return EC_IO;
+			errorCode = result;
+            return -1;
 		}
 
         AkInitSettings initSettings;
@@ -127,34 +124,32 @@ extern "C"
 		initSettings.uDefaultPoolSize = 2 * 1024 * 1024;
         AK::SoundEngine::GetDefaultPlatformInitSettings( platformInitSettings );
 		platformInitSettings.uLEngineDefaultPoolSize = 1 * 1024 * 1024;
-        if(AK::SoundEngine::Init(&initSettings, &platformInitSettings) != AK_Success)
+        if((result = AK::SoundEngine::Init(&initSettings, &platformInitSettings)) != AK_Success)
         {
-            GMW_EXCEPTION("Unable to initialize the Sound Engine.");
-
-            return EC_SOUND_ENGINE;
+			errorCode = result;
+            return -1;
         }
 
         AkMusicSettings musicInit;
         AK::MusicEngine::GetDefaultInitSettings( musicInit );
-        if(AK::MusicEngine::Init(&musicInit) != AK_Success)
+        if((result = AK::MusicEngine::Init(&musicInit)) != AK_Success)
         {
-            GMW_EXCEPTION("Unable to initialize the Music Engine.");
-
-            return EC_MUSIC_ENGINE;
+			errorCode = result;
+            return -1;
         }
 
 #ifndef AK_OPTIMIZED
         // Initialize communication.
         AkCommSettings settingsComm;
         AK::Comm::GetDefaultInitSettings( settingsComm );
-        if ( AK::Comm::Init( settingsComm ) != AK_Success )
+        if ((result = AK::Comm::Init( settingsComm )) != AK_Success )
         {
-            AKASSERT( !"Unable to initialize Profiling" );
-            return EC_COM;
+			errorCode = result;
+            return -1;
         }
 #endif
 
-        return EC_NONE;
+        return 0;
     }
 
 	// Shut down the Wwise engine
@@ -163,7 +158,12 @@ extern "C"
 #ifndef AK_OPTIMIZED
         AK::Comm::Term();	   
 #endif // AK_OPTIMIZED	
-		AK::SoundEngine::UnregisterAllGameObj();
+		auto result = AK::SoundEngine::UnregisterAllGameObj();
+		if (result != AK_Success)
+		{
+			errorCode = result;
+			return -1;
+		}
 
 		GMWClearBanks();	
 
@@ -180,36 +180,32 @@ extern "C"
 
 		AK::MemoryMgr::Term();
 
-		return EC_NONE;
+		return 0;
     }
 
 	// Processes a frame of audio
     double GMWProcessAudio(void)
     {
-        AK::SoundEngine::RenderAudio();
+        auto result = AK::SoundEngine::RenderAudio();
+		if (!result)
+		{
+			errorCode = result;
+			return -1;
+		}
 
-		return EC_NONE;
+		return 0;
     }
 
 	// Sets the state of a specific state group
 	double GMWSetState(double _dStateGroup, double _dState)
 	{
-		if(_dStateGroup < 0)
+		auto result = AK::SoundEngine::SetState(static_cast<AkStateGroupID>(_dStateGroup), static_cast<AkStateID>(_dState));
+		if (result != AK_Success)
 		{
-			GMW_EXCEPTION("Bad state group ID: ID must be higher or equal to 0");
-
-			return EC_BAD_ARGS;
+			errorCode = result;
+			return -1;
 		}
 
-		if(_dState < 0)
-		{
-			GMW_EXCEPTION("Bad state ID: ID must be higher or equal to 0");
-
-			return EC_BAD_ARGS;
-		}
-
-		AK::SoundEngine::SetState(static_cast<AkStateGroupID>(_dStateGroup), static_cast<AkStateID>(_dState));
-
-		return EC_NONE;
+		return 0;
 	}
 }

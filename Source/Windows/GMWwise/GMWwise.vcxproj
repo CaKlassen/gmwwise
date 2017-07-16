@@ -109,11 +109,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GMWBank.cpp" />
-    <ClCompile Include="GMWEngine.cpp" />
-    <ClCompile Include="GMWGameObject.cpp" />
-    <ClCompile Include="GMWListener.cpp" />
-    <ClCompile Include="GMWStringUtil.cpp" />
+    <ClCompile Include="..\..\Shared\GMWBank.cpp" />
+    <ClCompile Include="..\..\Shared\GMWConfig.cpp" />
+    <ClCompile Include="..\..\Shared\GMWEngine.cpp" />
+    <ClCompile Include="..\..\Shared\GMWGameObject.cpp" />
+    <ClCompile Include="..\..\Shared\GMWListener.cpp" />
+    <ClCompile Include="..\..\Shared\GMWStringUtil.cpp" />
     <ClCompile Include="wwise\AkDefaultIOHookBlocking.cpp" />
     <ClCompile Include="wwise\AkDefaultIOHookDeferred.cpp" />
     <ClCompile Include="wwise\AkDefaultLowLevelIODispatcher.cpp" />
@@ -122,12 +123,12 @@
     <ClCompile Include="wwise\AkFilePackageLUT.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GMWBank.h" />
-    <ClInclude Include="GMWConfig.h" />
-    <ClInclude Include="GMWEngine.h" />
-    <ClInclude Include="GMWGameObject.h" />
-    <ClInclude Include="GMWListener.h" />
-    <ClInclude Include="GMWStringUtil.h" />
+    <ClInclude Include="..\..\Shared\GMWBank.h" />
+    <ClInclude Include="..\..\Shared\GMWConfig.h" />
+    <ClInclude Include="..\..\Shared\GMWEngine.h" />
+    <ClInclude Include="..\..\Shared\GMWGameObject.h" />
+    <ClInclude Include="..\..\Shared\GMWListener.h" />
+    <ClInclude Include="..\..\Shared\GMWStringUtil.h" />
     <ClInclude Include="wwise\AkDefaultIOHookBlocking.h" />
     <ClInclude Include="wwise\AkDefaultIOHookDeferred.h" />
     <ClInclude Include="wwise\AkDefaultLowLevelIODispatcher.h" />

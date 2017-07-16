@@ -38,21 +38,10 @@
 #   include <AK/Comm/AkCommunication.h>
 #endif
 
-/// @enum List of error code.
-enum ExceptionCode
-{
-	EC_BAD_ARGS = -1,		///< Bad arguments
-	EC_NONE = 0,			///< No error
-	EC_MEMORY,				///<
-	EC_IO,					///< I/O error
-	EC_STREAM_MGR,			///<
-	EC_SOUND_ENGINE,		///<
-	EC_MUSIC_ENGINE,		///<
-	EC_BANK,				///<
-	EC_RTPC,
-#ifndef AK_OPTIMIZED
-    EC_COM,					///<
-#endif
-};
+static double errorCode;
+
+///<summary>Returns the most recent error code</summary>
+///<returns>The most recent error code</returns>
+GMW_API double STDCALL GMWGetError();
 
 #endif // _GMW_CONFIG_

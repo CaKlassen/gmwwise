@@ -37,14 +37,13 @@ extern "C"
 		wbanks_path = gmw::StringUtil::str2wstr(banks_path);
         if(!wbanks_path)
 		{
-            GMW_EXCEPTION("Unable to set the base path.");
-
-			return EC_IO;
+			errorCode = AK_Fail;
+			return -1;
 		}
         else
             g_lowLevelIO.SetBasePath(wbanks_path);
-		
-		return EC_NONE;
+
+		return 0;
 	}
 
 	// Loads a bank
@@ -58,36 +57,8 @@ extern "C"
 
         if(result != AK_Success)
 		{
-            std::stringstream sstr;
-            sstr << "Unable to load bank \"" << bank_name << "\":\n\n";
-
-			sstr << "Error (" << ((AKRESULT)result) << "): ";
-
-            switch(result)
-            {
-            case AK_InsufficientMemory:
-                sstr << "Insufficient memory to store bank data.";
-                break;
-            case AK_BankReadError:
-                sstr << "Bank read error.";
-                break;
-            case AK_WrongBankVersion:
-                sstr << "Invalid bank version. Make sure the version version of Wwise\n that you used to generate the SoundBanks matches that of the SDK you are currently using.";
-                break;
-            case AK_InvalidFile:
-                sstr << "File specified could not be opened.";
-                break;
-            case AK_InvalidParameter:
-                sstr << "Invalid parameter, invalid memory alignment.";
-                break;
-            case AK_Fail:
-                sstr << "Load failed for unknown reason.";
-                break;
-            }
-
-            GMW_EXCEPTION(sstr.str().c_str());
-
-			return EC_BANK;
+			errorCode = result;
+			return -1;
 		}
         
         gmw::StringUtil::free(wbank_name);
@@ -102,16 +73,15 @@ extern "C"
 	{
 		if(bank_id < 0)
 		{
-			GMW_EXCEPTION("Bad bank ID: ID must be greater than or equal to 0");
-
-			return EC_BAD_ARGS;
+			errorCode = AK_InvalidID;
+			return -1;
 		}
 
-		if(AK::SoundEngine::UnloadBank(static_cast<AkBankID>(bank_id), NULL, NULL) != AK_Success)
+		AKRESULT result = AK::SoundEngine::UnloadBank(static_cast<AkBankID>(bank_id), NULL, NULL);
+		if(result != AK_Success)
 		{
-			GMW_EXCEPTION("Unable to unload the bank.");
-
-			return EC_BANK;
+			errorCode = result;
+			return -1;
 		}
 
 		std::vector<AkBankID>::iterator it = banksLoaded.begin(), it_end = banksLoaded.end();
@@ -124,6 +94,6 @@ extern "C"
 			}
 		}
 
-		return EC_NONE;
+		return 0;
 	}
 }
