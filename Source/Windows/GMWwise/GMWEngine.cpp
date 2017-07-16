@@ -141,15 +141,17 @@ extern "C"
     {
 #ifndef AK_OPTIMIZED
         AK::Comm::Term();	   
-#endif // AK_OPTIMIZED		
-		GMWClearBanks();		
-
+#endif // AK_OPTIMIZED	
 		AK::SoundEngine::UnregisterAllGameObj();
+
+		GMWClearBanks();	
 
 		AK::MusicEngine::Term();
 
 		AK::SoundEngine::Term();
 		
+		g_lowLevelIO.Term();
+
 		if(AK::IAkStreamMgr::Get())
 		{   
 			AK::IAkStreamMgr::Get()->Destroy();

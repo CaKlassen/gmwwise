@@ -147,6 +147,8 @@ extern "C"
 
 		AK::SoundEngine::Term();
 		
+		g_lowLevelIO.Term();
+		
 		if(AK::IAkStreamMgr::Get())
 		{   
 			AK::IAkStreamMgr::Get()->Destroy();
