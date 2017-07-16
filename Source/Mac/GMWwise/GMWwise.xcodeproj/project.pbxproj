@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22F6930C1CCEBB18000F1A08 /* GMWBank.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F692FF1CCEBB18000F1A08 /* GMWBank.mm */; };
-		22F6930D1CCEBB18000F1A08 /* GMWBank.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F693001CCEBB18000F1A08 /* GMWBank.h */; };
-		22F6930E1CCEBB18000F1A08 /* GMWConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F693011CCEBB18000F1A08 /* GMWConfig.h */; };
-		22F6930F1CCEBB18000F1A08 /* GMWEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F693021CCEBB18000F1A08 /* GMWEngine.mm */; };
-		22F693101CCEBB18000F1A08 /* GMWEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F693031CCEBB18000F1A08 /* GMWEngine.h */; };
-		22F693111CCEBB18000F1A08 /* GMWGameObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F693041CCEBB18000F1A08 /* GMWGameObject.mm */; };
-		22F693121CCEBB18000F1A08 /* GMWGameObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F693051CCEBB18000F1A08 /* GMWGameObject.h */; };
-		22F693131CCEBB18000F1A08 /* GMWListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F693061CCEBB18000F1A08 /* GMWListener.mm */; };
-		22F693141CCEBB18000F1A08 /* GMWListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F693071CCEBB18000F1A08 /* GMWListener.h */; };
-		22F693171CCEBB18000F1A08 /* GMWStringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F6930A1CCEBB18000F1A08 /* GMWStringUtil.cpp */; };
-		22F693181CCEBB18000F1A08 /* GMWStringUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F6930B1CCEBB18000F1A08 /* GMWStringUtil.h */; };
+		225732FE1F1BF01C00593FAC /* GMWBank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 225732F81F1BF01C00593FAC /* GMWBank.cpp */; };
+		225732FF1F1BF01C00593FAC /* GMWConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 225732F91F1BF01C00593FAC /* GMWConfig.cpp */; };
+		225733001F1BF01C00593FAC /* GMWEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 225732FA1F1BF01C00593FAC /* GMWEngine.cpp */; };
+		225733011F1BF01C00593FAC /* GMWGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 225732FB1F1BF01C00593FAC /* GMWGameObject.cpp */; };
+		225733021F1BF01C00593FAC /* GMWListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 225732FC1F1BF01C00593FAC /* GMWListener.cpp */; };
+		225733031F1BF01C00593FAC /* GMWStringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 225732FD1F1BF01C00593FAC /* GMWStringUtil.cpp */; };
+		2257330A1F1BF02500593FAC /* GMWBank.h in Headers */ = {isa = PBXBuildFile; fileRef = 225733041F1BF02500593FAC /* GMWBank.h */; };
+		2257330B1F1BF02500593FAC /* GMWConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 225733051F1BF02500593FAC /* GMWConfig.h */; };
+		2257330C1F1BF02500593FAC /* GMWEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 225733061F1BF02500593FAC /* GMWEngine.h */; };
+		2257330D1F1BF02500593FAC /* GMWGameObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 225733071F1BF02500593FAC /* GMWGameObject.h */; };
+		2257330E1F1BF02500593FAC /* GMWListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 225733081F1BF02500593FAC /* GMWListener.h */; };
+		2257330F1F1BF02500593FAC /* GMWStringUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 225733091F1BF02500593FAC /* GMWStringUtil.h */; };
+		225733101F1BF32D00593FAC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F6951F1CCEDB19000F1A08 /* AppKit.framework */; };
 		22F6932D1CCEBD3B000F1A08 /* AkDefaultIOHookBlocking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F6931A1CCEBB30000F1A08 /* AkDefaultIOHookBlocking.cpp */; };
 		22F6932E1CCEBD3B000F1A08 /* AkDefaultIOHookDeferred.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F6931C1CCEBB30000F1A08 /* AkDefaultIOHookDeferred.cpp */; };
 		22F6932F1CCEBD3B000F1A08 /* AkDefaultLowLevelIODispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F6931E1CCEBB30000F1A08 /* AkDefaultLowLevelIODispatcher.cpp */; };
@@ -27,26 +29,22 @@
 		22F695161CCEC6DE000F1A08 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F695131CCEC6DE000F1A08 /* AudioToolbox.framework */; };
 		22F695171CCEC6DE000F1A08 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F695141CCEC6DE000F1A08 /* AudioUnit.framework */; };
 		22F695181CCEC6DE000F1A08 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F695151CCEC6DE000F1A08 /* CoreAudio.framework */; };
-		22F6951A1CCEC71F000F1A08 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F695191CCEC71F000F1A08 /* Cocoa.framework */; };
-		22F6951C1CCEC726000F1A08 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F6951B1CCEC726000F1A08 /* QuartzCore.framework */; };
-		22F695201CCEDB19000F1A08 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F6951F1CCEDB19000F1A08 /* AppKit.framework */; };
-		22F695251CCEE045000F1A08 /* GMWAlert.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F695231CCEE045000F1A08 /* GMWAlert.mm */; };
-		22F695261CCEE045000F1A08 /* GMWAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F695241CCEE045000F1A08 /* GMWAlert.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		225732F81F1BF01C00593FAC /* GMWBank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GMWBank.cpp; path = ../../Shared/GMWBank.cpp; sourceTree = "<group>"; };
+		225732F91F1BF01C00593FAC /* GMWConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GMWConfig.cpp; path = ../../Shared/GMWConfig.cpp; sourceTree = "<group>"; };
+		225732FA1F1BF01C00593FAC /* GMWEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GMWEngine.cpp; path = ../../Shared/GMWEngine.cpp; sourceTree = "<group>"; };
+		225732FB1F1BF01C00593FAC /* GMWGameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GMWGameObject.cpp; path = ../../Shared/GMWGameObject.cpp; sourceTree = "<group>"; };
+		225732FC1F1BF01C00593FAC /* GMWListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GMWListener.cpp; path = ../../Shared/GMWListener.cpp; sourceTree = "<group>"; };
+		225732FD1F1BF01C00593FAC /* GMWStringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GMWStringUtil.cpp; path = ../../Shared/GMWStringUtil.cpp; sourceTree = "<group>"; };
+		225733041F1BF02500593FAC /* GMWBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMWBank.h; path = ../../Shared/GMWBank.h; sourceTree = "<group>"; };
+		225733051F1BF02500593FAC /* GMWConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMWConfig.h; path = ../../Shared/GMWConfig.h; sourceTree = "<group>"; };
+		225733061F1BF02500593FAC /* GMWEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMWEngine.h; path = ../../Shared/GMWEngine.h; sourceTree = "<group>"; };
+		225733071F1BF02500593FAC /* GMWGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMWGameObject.h; path = ../../Shared/GMWGameObject.h; sourceTree = "<group>"; };
+		225733081F1BF02500593FAC /* GMWListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMWListener.h; path = ../../Shared/GMWListener.h; sourceTree = "<group>"; };
+		225733091F1BF02500593FAC /* GMWStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMWStringUtil.h; path = ../../Shared/GMWStringUtil.h; sourceTree = "<group>"; };
 		22F692F41CCEBA8E000F1A08 /* libGMWwise_profile.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libGMWwise_profile.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		22F692FF1CCEBB18000F1A08 /* GMWBank.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMWBank.mm; sourceTree = "<group>"; };
-		22F693001CCEBB18000F1A08 /* GMWBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWBank.h; sourceTree = "<group>"; };
-		22F693011CCEBB18000F1A08 /* GMWConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWConfig.h; sourceTree = "<group>"; };
-		22F693021CCEBB18000F1A08 /* GMWEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMWEngine.mm; sourceTree = "<group>"; };
-		22F693031CCEBB18000F1A08 /* GMWEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWEngine.h; sourceTree = "<group>"; };
-		22F693041CCEBB18000F1A08 /* GMWGameObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMWGameObject.mm; sourceTree = "<group>"; };
-		22F693051CCEBB18000F1A08 /* GMWGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWGameObject.h; sourceTree = "<group>"; };
-		22F693061CCEBB18000F1A08 /* GMWListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMWListener.mm; sourceTree = "<group>"; };
-		22F693071CCEBB18000F1A08 /* GMWListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWListener.h; sourceTree = "<group>"; };
-		22F6930A1CCEBB18000F1A08 /* GMWStringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GMWStringUtil.cpp; sourceTree = "<group>"; };
-		22F6930B1CCEBB18000F1A08 /* GMWStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWStringUtil.h; sourceTree = "<group>"; };
 		22F6931A1CCEBB30000F1A08 /* AkDefaultIOHookBlocking.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AkDefaultIOHookBlocking.cpp; sourceTree = "<group>"; };
 		22F6931B1CCEBB30000F1A08 /* AkDefaultIOHookBlocking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AkDefaultIOHookBlocking.h; sourceTree = "<group>"; };
 		22F6931C1CCEBB30000F1A08 /* AkDefaultIOHookDeferred.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AkDefaultIOHookDeferred.cpp; sourceTree = "<group>"; };
@@ -72,8 +70,6 @@
 		22F695191CCEC71F000F1A08 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		22F6951B1CCEC726000F1A08 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		22F6951F1CCEDB19000F1A08 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		22F695231CCEE045000F1A08 /* GMWAlert.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMWAlert.mm; sourceTree = "<group>"; };
-		22F695241CCEE045000F1A08 /* GMWAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWAlert.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22F695201CCEDB19000F1A08 /* AppKit.framework in Frameworks */,
-				22F6951C1CCEC726000F1A08 /* QuartzCore.framework in Frameworks */,
-				22F6951A1CCEC71F000F1A08 /* Cocoa.framework in Frameworks */,
+				225733101F1BF32D00593FAC /* AppKit.framework in Frameworks */,
 				22F695161CCEC6DE000F1A08 /* AudioToolbox.framework in Frameworks */,
 				22F695171CCEC6DE000F1A08 /* AudioUnit.framework in Frameworks */,
 				22F695181CCEC6DE000F1A08 /* CoreAudio.framework in Frameworks */,
@@ -93,28 +87,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		225732F61F1BF00000593FAC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				225732F81F1BF01C00593FAC /* GMWBank.cpp */,
+				225732F91F1BF01C00593FAC /* GMWConfig.cpp */,
+				225732FA1F1BF01C00593FAC /* GMWEngine.cpp */,
+				225732FB1F1BF01C00593FAC /* GMWGameObject.cpp */,
+				225732FC1F1BF01C00593FAC /* GMWListener.cpp */,
+				225732FD1F1BF01C00593FAC /* GMWStringUtil.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		225732F71F1BF00800593FAC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				225733041F1BF02500593FAC /* GMWBank.h */,
+				225733051F1BF02500593FAC /* GMWConfig.h */,
+				225733061F1BF02500593FAC /* GMWEngine.h */,
+				225733071F1BF02500593FAC /* GMWGameObject.h */,
+				225733081F1BF02500593FAC /* GMWListener.h */,
+				225733091F1BF02500593FAC /* GMWStringUtil.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
 		22F692EB1CCEBA8E000F1A08 = {
 			isa = PBXGroup;
 			children = (
-				22F695231CCEE045000F1A08 /* GMWAlert.mm */,
-				22F695241CCEE045000F1A08 /* GMWAlert.h */,
-				22F6951F1CCEDB19000F1A08 /* AppKit.framework */,
 				22F6951B1CCEC726000F1A08 /* QuartzCore.framework */,
 				22F695191CCEC71F000F1A08 /* Cocoa.framework */,
 				22F695131CCEC6DE000F1A08 /* AudioToolbox.framework */,
 				22F695141CCEC6DE000F1A08 /* AudioUnit.framework */,
-				22F692FF1CCEBB18000F1A08 /* GMWBank.mm */,
-				22F693001CCEBB18000F1A08 /* GMWBank.h */,
-				22F693011CCEBB18000F1A08 /* GMWConfig.h */,
-				22F693021CCEBB18000F1A08 /* GMWEngine.mm */,
-				22F693031CCEBB18000F1A08 /* GMWEngine.h */,
-				22F693041CCEBB18000F1A08 /* GMWGameObject.mm */,
 				22F695151CCEC6DE000F1A08 /* CoreAudio.framework */,
-				22F693051CCEBB18000F1A08 /* GMWGameObject.h */,
-				22F693061CCEBB18000F1A08 /* GMWListener.mm */,
-				22F693071CCEBB18000F1A08 /* GMWListener.h */,
-				22F6930A1CCEBB18000F1A08 /* GMWStringUtil.cpp */,
-				22F6930B1CCEBB18000F1A08 /* GMWStringUtil.h */,
+				22F6951F1CCEDB19000F1A08 /* AppKit.framework */,
+				225732F71F1BF00800593FAC /* Headers */,
+				225732F61F1BF00000593FAC /* Source */,
 				22F693191CCEBB30000F1A08 /* wwise */,
 				22F692F51CCEBA8E000F1A08 /* Products */,
 			);
@@ -161,13 +170,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22F693141CCEBB18000F1A08 /* GMWListener.h in Headers */,
-				22F693101CCEBB18000F1A08 /* GMWEngine.h in Headers */,
-				22F695261CCEE045000F1A08 /* GMWAlert.h in Headers */,
-				22F693121CCEBB18000F1A08 /* GMWGameObject.h in Headers */,
-				22F693181CCEBB18000F1A08 /* GMWStringUtil.h in Headers */,
-				22F6930E1CCEBB18000F1A08 /* GMWConfig.h in Headers */,
-				22F6930D1CCEBB18000F1A08 /* GMWBank.h in Headers */,
+				2257330E1F1BF02500593FAC /* GMWListener.h in Headers */,
+				2257330F1F1BF02500593FAC /* GMWStringUtil.h in Headers */,
+				2257330C1F1BF02500593FAC /* GMWEngine.h in Headers */,
+				2257330D1F1BF02500593FAC /* GMWGameObject.h in Headers */,
+				2257330B1F1BF02500593FAC /* GMWConfig.h in Headers */,
+				2257330A1F1BF02500593FAC /* GMWBank.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,18 +235,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225733001F1BF01C00593FAC /* GMWEngine.cpp in Sources */,
 				22F6932D1CCEBD3B000F1A08 /* AkDefaultIOHookBlocking.cpp in Sources */,
 				22F6932E1CCEBD3B000F1A08 /* AkDefaultIOHookDeferred.cpp in Sources */,
+				225733021F1BF01C00593FAC /* GMWListener.cpp in Sources */,
 				22F6932F1CCEBD3B000F1A08 /* AkDefaultLowLevelIODispatcher.cpp in Sources */,
+				225733011F1BF01C00593FAC /* GMWGameObject.cpp in Sources */,
+				225732FE1F1BF01C00593FAC /* GMWBank.cpp in Sources */,
 				22F693301CCEBD3B000F1A08 /* AkFileLocationBase.cpp in Sources */,
-				22F695251CCEE045000F1A08 /* GMWAlert.mm in Sources */,
 				22F693311CCEBD3B000F1A08 /* AkFilePackage.cpp in Sources */,
 				22F693321CCEBD3B000F1A08 /* AkFilePackageLUT.cpp in Sources */,
-				22F6930C1CCEBB18000F1A08 /* GMWBank.mm in Sources */,
-				22F693131CCEBB18000F1A08 /* GMWListener.mm in Sources */,
-				22F693111CCEBB18000F1A08 /* GMWGameObject.mm in Sources */,
-				22F693171CCEBB18000F1A08 /* GMWStringUtil.cpp in Sources */,
-				22F6930F1CCEBB18000F1A08 /* GMWEngine.mm in Sources */,
+				225733031F1BF01C00593FAC /* GMWStringUtil.cpp in Sources */,
+				225732FF1F1BF01C00593FAC /* GMWConfig.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

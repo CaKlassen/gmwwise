@@ -1,6 +1,6 @@
 #include "GMWBank.h"
 #include "GMWStringUtil.h"
-#include "wwise/AkFilePackageLowLevelIOBlocking.h"
+#include "AkFilePackageLowLevelIOBlocking.h"
 #include <vector>
 
 extern CAkFilePackageLowLevelIOBlocking g_lowLevelIO;
@@ -41,8 +41,14 @@ extern "C"
 			return -1;
 		}
         else
+		{
+#if defined(_WIN32)
             g_lowLevelIO.SetBasePath(wbanks_path);
-
+#elif defined(__APPLE__)
+			g_lowLevelIO.SetBasePath((const AkOSChar*)banks_path);
+#endif
+		}
+		
 		return 0;
 	}
 

@@ -1,12 +1,11 @@
 #include "GMWEngine.h"
 #include "GMWBank.h"
 
-#if defined(AK_APPLE)
-#import <Cocoa/Cocoa.h>
+#if defined(__APPLE__)
 #include <sys/mman.h>
 #endif
 
-#include "wwise/AkFilePackageLowLevelIOBlocking.h"
+#include "AkFilePackageLowLevelIOBlocking.h"
 #include <AK/Plugin/AkSineSourceFactory.h>
 #include <AK/Plugin/AkToneSourceFactory.h>
 #include <AK/Plugin/AkSilenceSourceFactory.h>
@@ -65,7 +64,7 @@ namespace AK
     {
         VirtualFree( in_pMemAddress, in_size, in_dwFreeType );
     }
-#elif defined(AK_APPLE)
+#elif defined(__APPLE__)
 	void * AllocHook(size_t in_size)
 	{
 		return malloc(in_size);

@@ -19,7 +19,7 @@
 #   define STDCALL
 #endif
 
-#elif defined(AK_APPLE)
+#elif defined(__APPLE__)
 
 #define GMW_API __attribute__((visibility("default")))
 #define STDCALL
@@ -31,7 +31,7 @@
 #include <AK/SoundEngine/Common/AkSoundEngine.h>
 #include <AK/IBytes.h>
 #include <AK/SoundEngine/Common/AkMemoryMgr.h>
-#include <AK/SoundENgine/Common/AkModule.h>
+#include <AK/SoundEngine/Common/AkModule.h>
 #include <AK/SoundEngine/Common/IAkStreamMgr.h>
 #include <AK/Tools/Common/AkPlatformFuncs.h>
 #include <AK/MusicEngine/Common/AkMusicEngine.h>
