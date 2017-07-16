@@ -12,8 +12,8 @@ extern "C"
 	double GMWSet3DListenerPosition(double pos_x, double pos_y, double pos_z, double o_x, double o_y, double o_z)
 	{
 		AkListenerPosition listenerPosition;
-		listenerPosition.SetPosition(pos_x, pos_y, pos_z);
-		listenerPosition.SetOrientation(o_x, o_y, o_z, 0, 0, 0);
+		listenerPosition.SetPosition(static_cast<float>(pos_x), static_cast<float>(pos_y), static_cast<float>(pos_z));
+		listenerPosition.SetOrientation(static_cast<float>(o_x), static_cast<float>(o_y), static_cast<float>(o_z), 0, 0, 0);
 
 		AK::SoundEngine::SetListenerPosition(listenerPosition);
 

@@ -112,8 +112,8 @@ extern "C"
 	double GMWSet3DPosition(double _dGameObjectID, double _dPos_x, double _dPos_y, double _dPos_z, double _dDir_x, double _dDir_y, double _dDir_z)
 	{
 		AkSoundPosition soundPos;
-		soundPos.SetPosition(_dPos_x, _dPos_y, _dPos_z);
-		soundPos.SetOrientation(_dDir_x, _dDir_y, _dDir_z, 0, 0, 0);
+		soundPos.SetPosition(static_cast<float>(_dPos_x), static_cast<float>(_dPos_y), static_cast<float>(_dPos_z));
+		soundPos.SetOrientation(static_cast<float>(_dDir_x), static_cast<float>(_dDir_y), static_cast<float>(_dDir_z), 0, 0, 0);
 
 		AK::SoundEngine::SetPosition(static_cast<AkGameObjectID>(_dGameObjectID), soundPos);
 

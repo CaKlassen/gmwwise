@@ -1,5 +1,11 @@
 #include "GMWEngine.h"
 #include "GMWBank.h"
+
+#if defined(AK_APPLE)
+#import <Cocoa/Cocoa.h>
+#include <sys/mman.h>
+#endif
+
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
 #include <AK/Plugin/AkSineSourceFactory.h>
 #include <AK/Plugin/AkToneSourceFactory.h>
@@ -33,6 +39,7 @@
 
 namespace AK
 {
+#if defined(_WIN32)
     void * __cdecl AllocHook( size_t in_size )
     {
         return malloc( in_size );
@@ -58,6 +65,16 @@ namespace AK
     {
         VirtualFree( in_pMemAddress, in_size, in_dwFreeType );
     }
+#elif defined(AK_APPLE)
+	void * AllocHook(size_t in_size)
+	{
+		return malloc(in_size);
+	}
+	void FreeHook(void * in_ptr)
+	{
+		free(in_ptr);
+	}
+#endif
 }
 
 CAkFilePackageLowLevelIOBlocking g_lowLevelIO;
@@ -73,6 +90,8 @@ extern "C"
 	// Initializes the Wwise engine
 	double GMWInit(void)
     {
+		setlocale(LC_ALL, "");
+
 		AkMemSettings memSettings;
 		memSettings.uMaxNumPools = 20;
 
@@ -105,7 +124,9 @@ extern "C"
         AkInitSettings initSettings;
         AkPlatformInitSettings platformInitSettings;
         AK::SoundEngine::GetDefaultInitSettings( initSettings );
+		initSettings.uDefaultPoolSize = 2 * 1024 * 1024;
         AK::SoundEngine::GetDefaultPlatformInitSettings( platformInitSettings );
+		platformInitSettings.uLEngineDefaultPoolSize = 1 * 1024 * 1024;
         if(AK::SoundEngine::Init(&initSettings, &platformInitSettings) != AK_Success)
         {
             GMW_EXCEPTION("Unable to initialize the Sound Engine.");
