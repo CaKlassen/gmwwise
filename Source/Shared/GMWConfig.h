@@ -6,23 +6,27 @@
 #include <sstream>
 
 #if defined(_WIN32)
-	#define NOGDI
-	#define WIN32_LEAN_AND_MEAN
-	#include <windows.h>
 
-	#define GMW_API __declspec(dllexport)
+#define NOGDI
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
 
-	#if _MSC_VER <= 1400
-	#   define STDCALL __stdcall
-	#else
-	#   define STDCALL
-	#endif
-#elif defined(AK_APPLE)
-	#define GMW_API __attribute__((visibility("default")))
-	#define STDCALL
+#define GMW_API __declspec(dllexport)
+
+#if _MSC_VER <= 1400
+#   define STDCALL __stdcall
+#else
+#   define STDCALL
 #endif
 
-#define GMW_VERSION_STRING "1.5.1"
+#elif defined(AK_APPLE)
+
+#define GMW_API __attribute__((visibility("default")))
+#define STDCALL
+
+#endif
+
+#define GMW_VERSION_STRING "1.6.0"
 
 #include <AK/SoundEngine/Common/AkSoundEngine.h>
 #include <AK/IBytes.h>
