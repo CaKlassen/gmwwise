@@ -1,6 +1,12 @@
 #include "GMWBank.h"
 #include "GMWStringUtil.h"
+
+#if defined(_WIN32)
+#include "wwise/AkFilePackageLowLevelIOBlocking.h"
+#elif defined(__APPLE__)
 #include "AkFilePackageLowLevelIOBlocking.h"
+#endif
+
 #include <vector>
 
 extern CAkFilePackageLowLevelIOBlocking g_lowLevelIO;

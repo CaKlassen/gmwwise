@@ -5,7 +5,12 @@
 #include <sys/mman.h>
 #endif
 
+#if defined(_WIN32)
+#include "wwise/AkFilePackageLowLevelIOBlocking.h"
+#elif defined(__APPLE__)
 #include "AkFilePackageLowLevelIOBlocking.h"
+#endif
+
 #include <AK/Plugin/AkSineSourceFactory.h>
 #include <AK/Plugin/AkToneSourceFactory.h>
 #include <AK/Plugin/AkSilenceSourceFactory.h>
@@ -120,9 +125,7 @@ extern "C"
         AkInitSettings initSettings;
         AkPlatformInitSettings platformInitSettings;
         AK::SoundEngine::GetDefaultInitSettings( initSettings );
-		initSettings.uDefaultPoolSize = 2 * 1024 * 1024;
         AK::SoundEngine::GetDefaultPlatformInitSettings( platformInitSettings );
-		platformInitSettings.uLEngineDefaultPoolSize = 1 * 1024 * 1024;
         if((result = AK::SoundEngine::Init(&initSettings, &platformInitSettings)) != AK_Success)
         {
 			errorCode = result;
