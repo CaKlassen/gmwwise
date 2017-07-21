@@ -1,0 +1,2 @@
+Options: 
+CMake: 3.7.2@/home/caklassen/Documents/clion/bin/cmake/bin/cmake

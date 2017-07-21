@@ -24,6 +24,11 @@
 #define GMW_API __attribute__((visibility("default")))
 #define STDCALL
 
+#elif defined(__unix__)
+
+#define GMW_API
+#define STDCALL
+
 #endif
 
 #define GMW_VERSION_STRING "1.6.0"

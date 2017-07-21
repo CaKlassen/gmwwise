@@ -3,7 +3,7 @@
 
 #if defined(_WIN32)
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
-#elif defined(__APPLE__)
+#elif defined(__APPLE__) || defined(__unix__)
 #include "AkFilePackageLowLevelIOBlocking.h"
 #endif
 

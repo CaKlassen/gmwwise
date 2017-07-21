@@ -1,0 +1,8 @@
+/home/caklassen/Documents/clion/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" /home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Linux
+CMake Warning at CMakeLists.txt:26 (message):
+  Building library for Release configuration...
+
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Linux/cmake-build-release

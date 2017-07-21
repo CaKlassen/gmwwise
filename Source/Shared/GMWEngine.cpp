@@ -7,7 +7,7 @@
 
 #if defined(_WIN32)
 #include "wwise/AkFilePackageLowLevelIOBlocking.h"
-#elif defined(__APPLE__)
+#elif defined(__APPLE__) || defined(__unix__)
 #include "AkFilePackageLowLevelIOBlocking.h"
 #endif
 
@@ -69,7 +69,7 @@ namespace AK
     {
         VirtualFree( in_pMemAddress, in_size, in_dwFreeType );
     }
-#elif defined(__APPLE__)
+#elif defined(__APPLE__) || defined(__unix__)
 	void * AllocHook(size_t in_size)
 	{
 		return malloc(in_size);
