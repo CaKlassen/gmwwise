@@ -13,6 +13,158 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ead4d9c-ea52-478a-ad94-ebee8e182c01" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/3.7.2/CMakeDetermineCompilerABI_C.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/3.7.2/CMakeDetermineCompilerABI_CXX.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/3.7.2/CompilerIdC/a.out" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/3.7.2/CompilerIdCXX/a.out" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWBank.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWConfig.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWEngine.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWGameObject.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWListener.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWStringUtil.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWBank.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWConfig.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWEngine.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWGameObject.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWListener.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWStringUtil.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/feature_tests.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/3.7.2/CMakeDetermineCompilerABI_C.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/3.7.2/CMakeDetermineCompilerABI_CXX.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/3.7.2/CompilerIdC/a.out" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/3.7.2/CompilerIdCXX/a.out" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWBank.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWConfig.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWEngine.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWGameObject.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWListener.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/home/caklassen/Documents/Dev/GMWwise/gmwwise/Source/Shared/GMWStringUtil.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/feature_tests.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeCache.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/3.7.2/CMakeCCompiler.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/3.7.2/CMakeCXXCompiler.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/3.7.2/CMakeSystem.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/3.7.2/CompilerIdC/CMakeCCompilerId.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/3.7.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/CMakeOutput.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/CXX.includecache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/depend.internal" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/link.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/CXX.includecache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/depend.internal" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/link.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/GMWwise_profile.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/Linux.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/Linux.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/Linux.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/Linux.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/Linux.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/Linux.dir/link.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/Linux.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/Makefile.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/Makefile2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/TargetDirectories.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/clion-environment.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/clion-log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/cmake.check_cache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/feature_tests.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/feature_tests.cxx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/lib.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/lib.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/lib.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/lib.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/lib.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/lib.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAk.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAk.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAk.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAk.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAk.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAk.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAkCompressorFX.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAkCompressorFX.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAkCompressorFX.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAkCompressorFX.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAkCompressorFX.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/libAkCompressorFX.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/CMakeFiles/progress.marks" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/GMWwise.cbp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/Linux.cbp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/Project.cbp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-profile/cmake_install.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeCache.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/3.7.2/CMakeCCompiler.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/3.7.2/CMakeCXXCompiler.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/3.7.2/CMakeSystem.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/3.7.2/CompilerIdC/CMakeCCompilerId.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/3.7.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/CMakeOutput.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/CXX.includecache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/depend.internal" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/link.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/GMWwise.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Linux.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Linux.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Linux.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Linux.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Linux.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Linux.dir/link.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Linux.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Makefile.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Makefile2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/TargetDirectories.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/clion-environment.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/clion-log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/cmake.check_cache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/feature_tests.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/feature_tests.cxx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/lib.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/lib.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/lib.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/lib.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/lib.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/lib.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAk.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAk.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAk.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAk.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAk.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAk.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAkCompressorFX.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAkCompressorFX.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAkCompressorFX.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAkCompressorFX.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAkCompressorFX.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/libAkCompressorFX.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/progress.marks" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/GMWwise.cbp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/Linux.cbp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/Project.cbp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-release/cmake_install.cmake" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/library.cpp" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/library.h" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../.gitignore" afterPath="$PROJECT_DIR$/../../.gitignore" />
@@ -456,7 +608,7 @@
       <workItem from="1500442687831" duration="157000" />
       <workItem from="1500512975271" duration="5006000" />
       <workItem from="1500529567922" duration="6276000" />
-      <workItem from="1500602183943" duration="352000" />
+      <workItem from="1500602183943" duration="784000" />
     </task>
     <task id="LOCAL-00001" summary="Started experimental Linux project.">
       <created>1500442757071</created>
@@ -469,7 +621,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11905000" />
+    <option name="totallyTimeSpent" value="12337000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="27" width="1922" height="1054" extended-state="6" />
@@ -673,8 +825,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="267" column="19" lean-forward="false" selection-start-line="267" selection-start-column="19" selection-end-line="267" selection-end-column="19" />
+        <state relative-caret-position="333">
+          <caret line="262" column="7" lean-forward="true" selection-start-line="262" selection-start-column="7" selection-end-line="262" selection-end-column="7" />
           <folding />
         </state>
       </provider>
