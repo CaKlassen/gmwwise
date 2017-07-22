@@ -48,11 +48,18 @@ extern "C"
 		}
         else
 		{
+			AKRESULT result;
+
 #if defined(_WIN32)
-            g_lowLevelIO.SetBasePath(wbanks_path);
-#elif defined(__APPLE__)
-			g_lowLevelIO.SetBasePath((const AkOSChar*)banks_path);
+            result = g_lowLevelIO.SetBasePath(wbanks_path);
+#elif defined(__APPLE__) || defined(__unix__)
+			result = g_lowLevelIO.SetBasePath((const AkOSChar*)banks_path);
 #endif
+            if (result != AK_Success)
+			{
+				errorCode = result;
+				return -1;
+			}
 		}
 		
 		return 0;
