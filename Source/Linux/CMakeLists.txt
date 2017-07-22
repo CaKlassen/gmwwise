@@ -6,7 +6,8 @@ set(CMAKE_CXX_STANDARD 11)
 include_directories(
         ../../../../Wwise/include
         ../../../../Wwise/samples/SoundEngine/Common
-        ../../../../Wwise/samples/SoundEngine/POSIX)
+        ../../../../Wwise/samples/SoundEngine/POSIX
+        ../../../../)
 
 set(SOURCE_FILES
         ../Shared/GMWConfig.cpp

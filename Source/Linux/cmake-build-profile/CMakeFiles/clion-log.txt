@@ -1,0 +1,8 @@
+/home/chris/Documents/Dev/clion-2017.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Profile -G "CodeBlocks - Unix Makefiles" /home/chris/Documents/Dev/gmwwise/Source/Linux
+CMake Warning at CMakeLists.txt:27 (message):
+  Building library for Profile configuration...
+
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/chris/Documents/Dev/gmwwise/Source/Linux/cmake-build-profile

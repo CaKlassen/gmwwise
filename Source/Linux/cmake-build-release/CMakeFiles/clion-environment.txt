@@ -1,0 +1,2 @@
+Options: 
+CMake: 3.8.2@/home/chris/Documents/Dev/clion-2017.2/bin/cmake/bin/cmake
