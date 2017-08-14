@@ -97,7 +97,7 @@ extern "C"
 		setlocale(LC_ALL, "");
 
 		AkMemSettings memSettings;
-		memSettings.uMaxNumPools = 20;
+		memSettings.uMaxNumPools = 35;
 
 		AKRESULT result = AK::MemoryMgr::Init(&memSettings);
         if(result != AK_Success)
