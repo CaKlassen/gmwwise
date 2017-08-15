@@ -424,6 +424,21 @@
                     "kind": 12,
                     "name": "gmwSetActiveListeners",
                     "returnType": 2
+                },
+                {
+                    "id": "3fd06db6-8c3b-4770-9fbe-c446d62b0cc4",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "GMWGetError",
+                    "help": "GMWGetError()",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gmwGetError",
+                    "returnType": 2
                 }
             ],
             "init": "",
@@ -451,7 +466,8 @@
                 "6bef6002-0ba9-4289-b899-78c873cfc9c3",
                 "4574dad6-7202-48f3-bf30-c9d77fa59b30",
                 "f7bbc6c8-5664-4e04-a372-6b9e7865044d",
-                "13434a3f-ce77-4704-9d96-9c664727234a"
+                "13434a3f-ce77-4704-9d96-9c664727234a",
+                "3fd06db6-8c3b-4770-9fbe-c446d62b0cc4"
             ],
             "origname": "extensions\\GMWwise_profile.dll",
             "uncompress": false
@@ -475,5 +491,5 @@
     "packageID": "",
     "productID": "",
     "sourcedir": "",
-    "version": "1.5.1"
+    "version": "1.6.1"
 }
