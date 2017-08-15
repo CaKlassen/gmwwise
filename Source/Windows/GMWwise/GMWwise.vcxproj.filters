@@ -106,9 +106,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\sample\GMWwise.gml">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="wwise\AkFilePackageLowLevelIO.inl">
       <Filter>Header Files\wwise</Filter>
     </None>
