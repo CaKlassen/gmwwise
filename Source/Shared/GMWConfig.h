@@ -31,7 +31,7 @@
 
 #endif
 
-#define GMW_VERSION_STRING "1.6.0"
+#define GMW_VERSION_STRING "1.6.1"
 
 #include <AK/SoundEngine/Common/AkSoundEngine.h>
 #include <AK/IBytes.h>
