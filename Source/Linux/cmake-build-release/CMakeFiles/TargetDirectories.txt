@@ -1,3 +1,0 @@
-/home/chris/Documents/Dev/gmwwise/Source/Linux/cmake-build-release/CMakeFiles/rebuild_cache.dir
-/home/chris/Documents/Dev/gmwwise/Source/Linux/cmake-build-release/CMakeFiles/edit_cache.dir
-/home/chris/Documents/Dev/gmwwise/Source/Linux/cmake-build-release/CMakeFiles/GMWwise.dir

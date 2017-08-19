@@ -4,10 +4,10 @@ project(GMWwise)
 set(CMAKE_CXX_STANDARD 11)
 
 include_directories(
-        ../../../../Wwise/include
-        ../../../../Wwise/samples/SoundEngine/Common
-        ../../../../Wwise/samples/SoundEngine/POSIX
-        ../../../../)
+        ${CMAKE_CURRENT_DIR}../../../../Wwise/include
+        ${CMAKE_CURRENT_DIR}../../../../Wwise/samples/SoundEngine/Common
+        ${CMAKE_CURRENT_DIR}../../../../Wwise/samples/SoundEngine/POSIX
+        ${CMAKE_CURRENT_DIR}../../../../)
 
 set(SOURCE_FILES
         ../Shared/GMWConfig.cpp
@@ -24,8 +24,6 @@ set(SOURCE_FILES
         ../Shared/GMWStringUtil.h)
 
 # Define build configuration pre-processor macros
-message(WARNING "Building library for ${CMAKE_BUILD_TYPE} configuration...")
-
 set(CMAKE_CXX_FLAGS "-m32 ${CMAKE_CXX_FLAGS}")
 set(CMAKE_C_FLAGS "-m32 ${CMAKE_C_FLAGS}")
 
@@ -44,3 +42,4 @@ if(${CMAKE_BUILD_TYPE} STREQUAL "Profile")
 endif()
 
 add_library(${LIB_NAME} SHARED ${SOURCE_FILES})
+target_link_libraries(${LIB_NAME} AkHarmonizerFX AkMeterFX AkStereoDelayFX AkConvolutionReverbFX AkPitchShifterFX AkRoomVerbFX AkTremoloFX AkGuitarDistortionFX AkSineSource AkCompressorFX AkExpanderFX AkMatrixReverbFX AkDelayFX AkGainFX AkParametricEQFX AkRoomVerbFX AkPeakLimiterFX AkSynthOne AkSilenceSource AkAudioInputSource AkVorbisDecoder AkStreamMgr AkSoundEngine AkMusicEngine AkMemoryMgr AkToneSource AkFlangerFX McDSPFutzBoxFX McDSPLimiterFX AkSoundSeedWind AkSoundSeedWoosh AkSoundSeedImpactFX AkRecorderFX CrankcaseAudioREVModelPlayerFX AkTimeStretchFX)
