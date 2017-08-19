@@ -19,14 +19,9 @@
 #   define STDCALL
 #endif
 
-#elif defined(__APPLE__)
+#elif defined(__APPLE__) || defined(__unix__)
 
 #define GMW_API __attribute__((visibility("default")))
-#define STDCALL
-
-#elif defined(__unix__)
-
-#define GMW_API
 #define STDCALL
 
 #endif
