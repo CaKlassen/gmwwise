@@ -70,6 +70,11 @@ extern "C"
 	{
         AkBankID bankID;
         wchar_t* wbank_name = gmw::StringUtil::str2wstr(bank_name);
+		if (!wbank_name)
+		{
+			errorCode = AK_Fail;
+			return -1;
+		}
 
 		// Attempt to load the bank
         AKRESULT result = AK::SoundEngine::LoadBank(wbank_name, AK_DEFAULT_POOL_ID, bankID);
