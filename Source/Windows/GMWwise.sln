@@ -1,20 +1,37 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GMWwise", "GMWwise\GMWwise.vcxproj", "{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Profile|ARM = Profile|ARM
 		Profile|Win32 = Profile|Win32
+		Profile|x64 = Profile|x64
+		Release|ARM = Release|ARM
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Profile|ARM.ActiveCfg = Profile|ARM
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Profile|ARM.Build.0 = Profile|ARM
 		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Profile|Win32.ActiveCfg = Profile|Win32
 		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Profile|Win32.Build.0 = Profile|Win32
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Profile|x64.ActiveCfg = Profile|x64
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Profile|x64.Build.0 = Profile|x64
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Release|ARM.ActiveCfg = Release|ARM
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Release|ARM.Build.0 = Release|ARM
 		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Release|Win32.ActiveCfg = Release|Win32
 		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Release|Win32.Build.0 = Release|Win32
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Release|x64.ActiveCfg = Release|x64
+		{5CE0D5D1-9BB9-4389-83A4-3CA28E6952D8}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A42B972-4B1B-423B-ADB4-FA10374FEB46}
 	EndGlobalSection
 EndGlobal
